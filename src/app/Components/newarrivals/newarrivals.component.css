@@ -1,0 +1,172 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: max-content;
+    background-color: var(--clr-primary);
+    /* background-color: aquamarine; */
+    padding: 6rem 0;
+    font-family: var(--font-lato);
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 71rem;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: bisque; */
+    margin-inline: auto;
+}
+
+.new-arrivals{
+    display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    gap: 2.5rem;
+}
+
+.title h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 4rem;
+}
+
+.new-arrival{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(128, 128, 128, 0.1);
+    transition: background-color 200ms ease-in-out;
+}
+
+.overlay:hover{
+    cursor: pointer;
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+
+
+
+
+.container-2{
+    margin-top: 5rem;
+    height: max-content;
+}
+
+.cat{
+    width: max-content;
+    height: max-content;
+    gap: 2rem;
+    margin-inline: auto;
+}
+
+.cat-1{
+    height: 25rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: end;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('http://corano.mallthemes.com/wp-content/uploads/2019/04/banner2-1.jpg');
+    background-color: rgb(128, 128, 128, 0.1);
+    background-blend-mode: multiply;
+    transition: background-color 350ms ease;
+}
+
+.cat-1:hover{
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.cat-1 > a:hover {
+    color: white;
+}
+
+.cat a{
+    color: #222222;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    text-transform: uppercase;
+    transition: color 200ms ease-in-out;
+}
+
+.cat-2{
+    height: 25rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: end;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('http://corano.mallthemes.com/wp-content/uploads/2019/04/banner2-2.jpg');
+    background-color: rgb(128, 128, 128, 0.1);
+    background-blend-mode: multiply;
+    transition: background-color 350ms ease;
+}
+
+.cat-2:hover{
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.cat-2 > a:hover {
+    color: white;
+}
+
+.cat-3{
+    height: 25rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: end;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('http://corano.mallthemes.com/wp-content/uploads/2019/04/banner2-3.jpg');
+    background-color: rgb(128, 128, 128, 0.1);
+    background-blend-mode: multiply;
+    transition: background-color 350ms ease;
+}
+
+.cat-3:hover{
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.cat-3 > a:hover {
+    color: white;
+}
+
+.cat-4{
+    height: 25rem;
+    width: 20rem;
+    flex-direction: column;
+    justify-content: end;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('http://corano.mallthemes.com/wp-content/uploads/2019/04/banner2-4-251x300.jpg');
+    background-color: rgb(128, 128, 128, 0.1);
+    background-blend-mode: multiply;
+    transition: background-color 350ms ease;
+}
+
+.cat-4:hover{
+    background-color: rgb(128, 128, 128, 0.5);
+}
+
+.cat-4 > a:hover {
+    color: white;
+}
+

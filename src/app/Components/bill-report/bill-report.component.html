@@ -1,0 +1,13 @@
+<div class="container" #contentToConvert>
+    <div>
+         <button class="button" (click)="downloadPDF()">Generate PDF</button>
+    </div>
+    <ag-grid-angular
+class="ag-theme-alpine"
+style="height: 1000px; width: auto;"
+[rowData]="rowData$ | async"
+[columnDefs]="colDefs"
+[rowSelection]="'multiple'"
+[animateRows]="true"
+></ag-grid-angular>
+</div>

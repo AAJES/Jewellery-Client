@@ -1,0 +1,124 @@
+<body>
+    <!-- <app-menubar></app-menubar> -->
+    <!-- <app-navbar></app-navbar> -->
+
+    
+    <div>
+        <!-- Responsive Toggle Side Nav Button -->
+        <!-- <button (click)="toggleSideNav()" class="toggle-button" style="position: fixed; z-index: 1000; margin-top: -2%;">☰</button> -->
+
+        <!-- Side Navigation -->
+        <div class="side-nav" [ngClass]="{'side-nav-open': sideNavStatus}" style="background-color:#dc9e6f;
+        color: #fff; margin-top: 8%;list-style: none;">
+            <ul style="margin-left: 80%;">
+                <svg xmlns="http://www.w3.org/2000/svg" (click)="toggleSideNav()" height="1em" viewBox="0 0 384 512" style="fill: white;"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+            </ul>
+            <!-- <ul class="nav flex-column" id="nav_accordion">
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" routerLink="/dashboard2">Dashboard</a>
+            
+                    <ul class="nav flex-column">
+                        <li class="nav-item has-submenu">
+                            <a class="nav-link">Scheme <i class="bi small bi-caret-down-fill"></i></a>
+                            <ul class="submenu collapse">
+                                <li class="nav-list-item"><a class="nav-link" routerLink="scheme">Add Schemes</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/schemecustomerReceipt">Scheme Registration</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/schemeReceipts">Add Scheme Receipts</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/schemerecall">Scheme Receipts All</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <ul class="nav flex-column">
+                        <li class="nav-item has-submenu">
+                            <a class="nav-link">Reports <i class="bi small bi-caret-down-fill"></i></a>
+                            <ul class="submenu collapse">
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/salesReport">Sales Report</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/lessPaidReport">Less Paid Report</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/billReport">Bill Reports</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+            
+                    <ul class="nav flex-column">
+                        <li class="nav-item has-submenu">
+                            <a class="nav-link">Configuration <i class="bi small bi-caret-down-fill"></i></a>
+                            <ul class="submenu collapse">
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/allmetal">Metal</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/allpurity">Purity</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/booking">Booking</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/rateall">Rate</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/product">Product</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/return">Return</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/category">Category</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/customer">Customer</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/employeeall">Employee</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/paymentmode">Payment Mode</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/stockall">Stock</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/owner">Owner</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/roleall">Roles</a></li>
+                                <li class="nav-list-item"><a class="nav-link" routerLink="/shop">Shop</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul> -->
+
+            <ul class="nav flex-column" id="nav_accordion">
+                <li class="nav-item has-submenu" (click)="toggleSubmenu('dashboardSubMenu')">
+                  <a class="nav-link">Dashboard <i class="bi small bi-caret-down-fill"></i></a>
+                  <ul class="submenu collapse" id="dashboardSubMenu" [ngClass]="{'show': submenuStates.dashboardSubMenu}">
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/dashboard2">Dashboard</a></li>
+                  </ul>
+                </li>
+              
+                <li class="nav-item has-submenu" (click)="toggleSubmenu('schemeSubMenu')">
+                  <a class="nav-link">Scheme <i class="bi small bi-caret-down-fill"></i></a>
+                  <ul class="submenu collapse" id="schemeSubMenu" [ngClass]="{'show': submenuStates.schemeSubMenu}">
+                    <li class="nav-list-item"><a class="nav-link" routerLink="scheme">Add Schemes</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/schemecustomerReceipt">Scheme Registration</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/schemeReceipts">Add Scheme Receipts</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/schemerecall">Scheme Receipts All</a></li>
+                  </ul>
+                </li>
+              
+                <li class="nav-item has-submenu" (click)="toggleSubmenu('reportsSubMenu')">
+                  <a class="nav-link">Reports <i class="bi small bi-caret-down-fill"></i></a>
+                  <ul class="submenu collapse" id="reportsSubMenu" [ngClass]="{'show': submenuStates.reportsSubMenu}">
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/salesReport">Sales Report</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/lessPaidReport">Less Paid Report</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/billReport">Bill Reports</a></li>
+                  </ul>
+                </li>
+              
+                <li class="nav-item has-submenu" (click)="toggleSubmenu('configSubMenu')">
+                  <a class="nav-link">Configuration <i class="bi small bi-caret-down-fill"></i></a>
+                  <ul class="submenu collapse" id="configSubMenu" [ngClass]="{'show': submenuStates.configSubMenu}">
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/allmetal">Metal</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/allpurity">Purity</a></li>
+                    <li class="nav-list-item"><a class="nav-link" routerLink="/booking">Booking</a></li>
+                    <!-- Add more submenu items here -->
+                  </ul>
+                </li>
+              </ul>
+
+            <!-- <ul class="nav flex-column" id="nav_accordion">
+                <li class="nav-item" *ngFor="let item of menuItems" [class.has-submenu]="item.submenu.length > 0">
+                  <a class="nav-link" (click)="toggleSubmenu(item)">
+                    {{ item.label }} <i *ngIf="item.submenu.length > 0" class="bi small bi-caret-down-fill"></i>
+                  </a>
+                  <ul class="submenu collapse" *ngIf="item.isOpen">
+                    <li class="nav-list-item" *ngFor="let subItem of item.submenu">
+                      <a class="nav-link" [routerLink]="subItem.link">{{ subItem.label }}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul> -->
+        </div>
+        <!-- <app-navigation-bar></app-navigation-bar> -->
+        <app-carousel></app-carousel>
+        <app-cat-section></app-cat-section>
+        <app-newarrivals></app-newarrivals>
+        <app-footer></app-footer>
+    </div>
+</body>

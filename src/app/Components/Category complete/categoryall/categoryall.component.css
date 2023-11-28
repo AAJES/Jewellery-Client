@@ -1,0 +1,12 @@
+.container {
+    max-width: 100%;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 7px 7px rgb(190, 187, 187);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}

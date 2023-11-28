@@ -1,0 +1,53 @@
+h3{
+    background-color: blue;
+    color: white;
+    height: 70px;
+    padding: 18px;
+    margin: 10px;
+}
+h2{
+   text-align: center;
+   color: blue;
+   margin: 10px;
+   padding: 10px;
+}
+.login{
+    padding-top: 50px;
+}
+.form {
+    background: #fff;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 15px;
+    width: 500px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 75px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border-top: 5px solid blue;
+    padding-left: 130px;
+    border: 2px solid black;
+  }
+  .submit {
+    width: 200px;
+    color: white;
+    background-color: blue;
+    font-size: 20px;
+  }
+  .submit:hover {
+    box-shadow: 15px 15px 15px 5px rgba(37, 9, 221, 0.219);
+    transform: translateY(-3px);
+    width: 300px;
+    border-top: 5px solid rgb(177, 176, 244);
+    border-radius: 0%;
+  }
+  @keyframes bounce {
+    0% {
+      tranform: translate(0, 4px);
+    }
+    50% {
+      transform: translate(0, 8px);
+    }
+  } 

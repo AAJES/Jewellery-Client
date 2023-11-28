@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <div class="card">
+      <div class="card-header d-flexx">
+        Edit Profile <i class="fa fa-times close" mat-dialog-close></i>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="profileForm">
+         
+             <!-- Image Upload -->
+             <div class="form-group">
+              <label>Profile Image</label>
+              <img [src]="imgSrc" class="form-control img-fluid img-preview">
+              <input type="file" accept="image/*" formControlName="postImg" class="form-control"
+                  (change)="showPreview($event)">
+              
+          </div>
+          
+          <div class="flin">
+          <!-- First Name -->
+          <mat-form-field>
+            <mat-label>Full Name</mat-label>
+            <input matInput placeholder="Full Name" [formControl]="fullName" required>
+            <mat-error *ngIf="fullName.invalid">{{fullNameError()}}</mat-error>
+          </mat-form-field>
+          <!-- Last Name -->
+          <!-- <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input matInput placeholder="Lastname" [formControl]="lastName" required>
+            <mat-error *ngIf="lastName.invalid">{{lastNameError()}}</mat-error>
+          </mat-form-field> -->
+         </div>
+          <!-- Username -->
+          <mat-form-field>
+            <mat-label>Username(EmailID)</mat-label>
+            <input matInput disabled>
+          </mat-form-field>
+          <!-- Alternative Email -->
+          <mat-form-field>
+            <mat-label>Alternate Email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="alternateEmailId" >
+            <mat-error *ngIf="alternateEmailId.invalid">{{alternateEmailIdError()}}</mat-error>
+          </mat-form-field>
+          <!-- Phone Number -->
+          <mat-form-field>
+            <mat-label>phone</mat-label>
+            <input matInput placeholder="Phone" [formControl]="phoneNo" required>
+            <mat-error *ngIf="phoneNo.invalid">{{phoneNoError()}}</mat-error>
+          </mat-form-field>
+          <!-- Company Name -->
+          <!-- <mat-form-field>
+            <mat-label>Company Name</mat-label>
+            <input matInput placeholder="Company Name" [formControl]="companyName" >
+            <mat-error *ngIf="companyName.invalid">{{companyNameError()}}</mat-error>
+          </mat-form-field> -->
+          <!-- Place -->
+          <mat-form-field>
+            <mat-label>Place</mat-label>
+            <input matInput placeholder="Place" [formControl]="place" >
+            <mat-error *ngIf="place.invalid">{{placeError()}}</mat-error>
+          </mat-form-field>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

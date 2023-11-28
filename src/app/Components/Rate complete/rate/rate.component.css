@@ -1,0 +1,73 @@
+/* .Main {
+    margin-top: 25px;
+      width: 600px;
+      height: 400px;
+      margin-left: 400px;
+      background-color: whitesmoke;
+      border-radius: 10px;
+      box-shadow: 2px 2px 7px 7px gray;
+    
+
+    }
+    .cancel{
+      margin-top: -40px;
+    }
+  .button{
+      margin-top: -40px;
+      padding-left: 10px;
+      background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); 
+      border-radius: 10px;
+  }
+ 
+   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .Main {
+    margin-top: 25px;
+    width: 600px;
+    /* background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); */
+    height: auto;
+    margin-left: 10%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px 7px gray;
+  }
+  
+  .cancel {
+    margin-top: -40px;
+  }
+  
+  .button {
+    margin-top: -40px;
+    padding-left: 10px;
+    background: linear-gradient(90deg, rgb(246, 234, 166) 0%, rgb(249, 231, 131) 16%, rgb(250, 226, 93) 50%, rgb(249, 222, 70) 83%, rgb(253, 215, 1) 100%);
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .Main {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .cancel,
+    .button {
+      margin-top: 10px;
+    }
+  }

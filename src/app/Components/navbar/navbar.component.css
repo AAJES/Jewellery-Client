@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--clr-darkgold);
+    font-family: var(--font-primary);
+}
+
+.flex{
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+.navbar{
+    background-color: #CA9D7A;
+    width: 100%;
+}
+
+.icon{
+    margin-right: 90px;
+    color: white;
+}
+
+.mainlist{
+    text-decoration: none;
+    padding: 1rem 1rem;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+    gap: 1.5rem;
+}
+
+.mainitem{
+    position: relative;
+    font-size: 1.4rem;
+}
+
+.mainitem a{
+    color: white;
+    padding: 1rem;
+    transition: color 150ms ease-in-out;
+}
+
+.mainitem a:hover{
+    color: black;
+}
+
+.mainitem:hover .dropdownCnt{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdownCnt{
+    position: absolute;
+    left: -2.8rem;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(202, 157, 122 , 0.9);
+    padding: 0 1.5rem;
+    margin-top: 0.5rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 3px 3px 10px rgb(0, 0, 0, 0.6);
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+    pointer-events: none;
+}
+
+.dropdownCnt:last-child{
+    padding-bottom: 0.8rem;
+}
+
+.dropdownCnt li{
+    margin: 0.5rem 0;
+}
+
+.dropdownCnt li:hover{
+    color: black;
+}
+.button{
+    background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); 
+       
+  }
+  .button:hover{
+  background: rgb(243, 213, 40);
+  }
+

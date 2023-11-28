@@ -1,0 +1,28 @@
+.container {
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+select.form-control {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    /* Add responsive styles for screens up to 768px wide */
+    select.form-control {
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Add responsive styles for screens up to 576px wide */
+    select.form-control {
+        font-size: 12px; /* Further reduce font size */
+    }
+}

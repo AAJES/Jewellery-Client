@@ -1,0 +1,49 @@
+<div class="container">
+    <h3><b>Scheme Registration For Customers</b> 
+        
+        <div class="cancel">
+            <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 570px; margin-top: 20px; font-size: 30px; "></i></a>
+          </div>
+    </h3>
+    <br> <br><br>
+ <!-- <form class="Main">  -->
+            <label><b>Lucky Number :</b></label> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <input type="text" name="luckyNo" placeholder="Lucky Number" size="15" ngModel #customerLuckyNo="ngModel" 
+            required 
+            pattern="[a-z A-Z 0-9]*"
+            type="text" 
+            name="customerLuckyNo"
+            [(ngModel)]="schemeCustomer.customerLuckyNo">
+                       
+    <br>
+            <label><b>Customer Name : </b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           
+            <input type="text" name="customerName" placeholder="Customer Name" size="15" ngModel #customerName="ngModel" 
+            required 
+            pattern="[a-z A-Z 0-9]*"
+            type="text" 
+            name="customerName"
+            [(ngModel)]="schemeCustomer.customerName" >
+    <div class="alert alert-danger" *ngIf="customerName.touched && customerName.invalid">Customer Name is required</div>
+            <br><br>
+    
+            <label><b>Customer Phone No :  </b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+            <input type="text" name="customerPhoneNo" placeholder="Phone Number" size="15" ngModel #customerPhoneNo="ngModel" 
+            required 
+            pattern="[a-z A-Z 0-9]*"
+            type="text" 
+            name="customerPhoneNo"
+            [(ngModel)]="schemeCustomer.customerPhone" >
+    <div class="alert alert-danger" *ngIf="customerPhoneNo.touched && customerPhoneNo.invalid">Customer Phone Number is required</div>
+            <br><br>
+
+            <input ngModel #remark [(ngModel)]="schemeCustomer.remark">
+
+           
+
+    <button class="button" onclick="alert('successfully')" (click)="onSubmit()"><b>Register</b></button>
+ <!-- </form> -->
+
+</div>

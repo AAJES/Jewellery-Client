@@ -1,0 +1,22 @@
+.container{
+    
+    margin-left: 450px;
+    box-shadow: 2px 2px 7px 7px rgb(198, 196, 196);
+    width: 500px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.cancel{
+        margin-top: -40px;
+}
+.button{
+    background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); 
+   margin-top: -40px;
+   padding-left: 10px;
+   padding: 7px;
+
+}
+.button:hover{
+ background: rgb(243, 213, 40);
+ border-radius: 10px;
+}

@@ -1,0 +1,19 @@
+.main{
+    width: 700px;
+    height: 400px;
+    /* border: 1px solid black; */
+    margin-left: 23%;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    box-shadow: 2px 2px 7px 7px rgb(182, 178, 178);
+    padding-top: 80px;
+}
+.mopform{
+    margin-left: 170px;
+    /* margin-top: 100px; */
+}
+.button{
+border-radius: 10px ; 
+background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
+  rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);
+}

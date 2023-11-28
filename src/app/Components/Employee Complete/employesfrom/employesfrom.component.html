@@ -1,0 +1,125 @@
+
+<div class="container"  style=" width: 100%;display: flex;justify-content: center; background: linear-gradient(#ffffff, whitesmoke); height: 100vh;" >
+  <div class="user1-box" style="margin: 8% 0%;">
+    <div class="head-section">
+      <h3>Employee</h3>
+      <a routerLink="/employeeall"><i class="fa fa-times" style="color: black;"></i></a>
+    </div>
+    <form class="form-group" #form="ngForm">
+     
+     
+      
+     
+   <div>
+    <div class="field">
+      <input  ngModel #employeeName="ngModel" 
+              required maxlength="100" 
+              type="text" 
+              name="employeeName" 
+              [(ngModel)]="employee.employeeName"
+              id ="address1" required placeholder=" ">
+      <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Employee Name: </label>
+    </div>
+    <div style="margin-top: -16px;height: 20px;" class="text-danger" *ngIf="employeeName.invalid && employeeName.touched">
+      <div  *ngIf="employeeName.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Employee Name is required</div>
+      <div *ngIf="employeeName.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div>
+    </div>
+ </div>
+
+ <div>
+  <div class="field">
+    <input  ngModel #age="ngModel" 
+            required maxlength="100" 
+            type="text" 
+            name="age" 
+            [(ngModel)]="employee.age"
+            id ="age" required placeholder=" ">
+    <label for ="age" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Age: </label>
+  </div>
+  <div style="margin-top: -16px;height: 20px;" class="text-danger" *ngIf="age.invalid && age.touched">
+    <div  *ngIf="age.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Employee Age is required</div>
+    <div *ngIf="age.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div>
+  </div>
+</div>
+
+<div>
+  <div class="field">
+    <input  ngModel #phoneNumber="ngModel" 
+            required maxlength="100" 
+            type="text" 
+            name="phoneNumber" 
+            [(ngModel)]="employee.phoneNumber"
+            id ="phoneNumber" required placeholder=" ">
+    <label for ="phoneNumber" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Phone Number: </label>
+  </div>
+  <div style="margin-top: -16px;height: 20px;" class="text-danger" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+    <div  *ngIf="phoneNumber.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Phone Number is required</div>
+    <div *ngIf="phoneNumber.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div>
+  </div>
+</div>
+
+<div>
+  <div class="field">
+    <input  ngModel #Address="ngModel" 
+            required maxlength="100" 
+            type="text" 
+            name="email" 
+            [(ngModel)]="employee.Address"
+            id ="Address" required placeholder=" ">
+    <label for ="Address" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Address: </label>
+  </div>
+  <div style="margin-top: -16px;height: 20px;" class="text-danger" *ngIf="Address.invalid && Address.touched">
+    <div  *ngIf="Address.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Address is required</div>
+    <div *ngIf="Address.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div>
+  </div>
+</div>
+
+<!-- <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1rem; margin-top: 0.5%"
+            for=""
+            >Gender :</label
+          >
+          <select
+            ngModel
+            name="genderId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select Gender</option>
+            <option (click)="onGenderSelectionChange(gender.genderId)"
+              *ngFor="let gender of genders"
+              [value]="gender.genderId"
+            >
+              {{ gender.gender }}
+            </option>
+          </select>
+        </div>
+      </div> -->
+
+      <mat-form-field>
+        <mat-label>Gender </mat-label>
+        <mat-select class="form-Group" #selectGender>
+          <mat-option value="{{g.genderId}}" *ngFor="let g of genders" (click)="onGenderSelectionChange(g.genderId)">{{g.gender}}</mat-option>
+        </mat-select>
+        
+      </mat-form-field>
+
+<br>
+
+      <button class="button" onclick="alert('successfully')" (click)="addCompanyProcess(form)">Submit
+      </button>
+  
+
+
+
+    </form>
+  </div>
+</div>
+

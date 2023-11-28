@@ -1,0 +1,225 @@
+
+/* .sidecontent{
+  display: flex;
+  flex-direction: right;
+} */
+
+
+
+/* .button:hover {
+  background: rgb(246, 220, 72)
+}
+.button{
+  background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
+  rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);
+  border-radius: 10px;
+  padding: 5px;
+}
+.cancel{
+  color: black; 
+  margin-left: 10px;
+  margin-top: -40px;
+  margin-top: -50px;
+}
+
+
+
+.sidecontent
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+  font-size:x-small;
+}
+
+input {
+  font-size: 1.4em;
+  
+  border: 0;
+  
+  border-radius: 0;
+  padding: 0;
+  cursor: text;
+}
+
+input:focus {
+  outline: 0;
+ 
+}
+
+label {
+ 
+  letter-spacing: 0.05em;
+}
+
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor:progress;
+} */
+
+
+
+/* @media (max-width: 600px) {
+  .user1-box{
+    width: 80%;
+  }
+} */
+
+/* 
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+   
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+ 
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    margin-left: 8px;
+  }
+  
+   
+  
+   input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  } 
+
+ 
+ .slider.round {
+  border-radius: 34px;
+
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.main, .container{
+  
+  width: 40%;
+  height: auto;
+  border-radius: 2%;
+  box-shadow: 2px 2px 7px 7px gray;
+} */
+
+
+
+
+
+
+
+
+.Main {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 24px;
+}
+
+form label {
+  font-size: 18px;
+}
+
+.form {
+  /* width: 0%; */
+  max-width: 500px; /* Set a maximum width for larger screens */
+  margin: 0 auto;
+  padding: 20px; /* Add some padding to the form */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select, input[type="text"], input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button.button {
+  width: 40%;
+  background-color: #ffd710;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive styles for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 400px) {
+  h3 {
+    font-size: 20px;
+  }
+
+  form label {
+    font-size: 16px;
+  }
+
+  .form {
+    width: 95%; /* Reduce the width further */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  select, input[type="text"], input[type="date"] {
+    padding: 8px; /* Reduce input field padding */
+  }
+
+  button.button {
+    padding: 8px;
+  }
+}

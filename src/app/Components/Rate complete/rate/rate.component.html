@@ -1,0 +1,212 @@
+<div class="Main">
+    <div class="container">
+  <br>
+         <h3>Rate </h3>
+      <div class="cancel">
+            <a routerLink="/rateall"><i class="fa fa-times" style="color: black; margin-left: 90%; "></i></a>
+          </div><br>
+         <br>
+      <form #ratePerGram="ngForm">
+        <label style="font-size: 1.1em;">Rate Per Gram :</label> &nbsp;
+    
+      <input
+      ngModel
+      #ratePerGram="ngModel"
+      required
+      pattern="[a-z A-Z 0-9]*"
+      type="text"
+      name="ratePerGram"
+      [(ngModel)]="rate.ratePerGram"
+      id="ratePerGram"
+      placeholder="ratePerGram">
+      <div *ngIf="!ratePerGram?.valid && (ratePerGram?.dirty || ratePerGram?.touched)">
+         Please add rate
+      </div>
+    
+   
+
+         <!-- <div
+          class="input-selectbox"
+          style="margin-top: 25px"
+        >
+          <div class="select-container form-group" style="display: flex">
+            <label
+              style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+              for=""
+              >User :</label
+            > -->
+            <!-- <div class="alert alert-danger" *ngIf="ratePerGram.touched && ratePerGram.invalid" style="border-radius: 30px; padding-left: 50px;">Rate  required</div> -->
+            <!-- <select
+              ngModel
+              name="userId"
+              class="form-control"
+              style="width: 80%"
+              aria-label="Default select example"
+            >
+              <option selected >Select User</option>
+              <option (click)="onUserSelectionChange(user.userId)"
+                *ngFor="let user of users"
+                [value]="user.userId"
+              >
+                {{ user.userName }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <br> -->
+
+        
+  
+         <!-- <input type="text" ngModel #advanceAmount="ngModel" [(ngModel)]="booking.advanceAmount">
+         <br><br>
+  
+         <input type="date" ngModel #deliveryDate="ngModel" [(ngModel)]="booking.deliveryDate">
+         <br><br> -->
+
+         <br>
+         <div style="display: flex;justify-content: space-between;">
+          <mat-form-field>
+            <mat-label>Metal </mat-label>
+            <mat-select class="form-Group" #selectMetal>
+              <mat-option value="{{m.metalId}}" *ngFor="let m of metals" (click)="onMetalSelectionChange(m.metalId)">{{m.metalName}}</mat-option>
+            </mat-select>
+            
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Purity </mat-label>
+            <mat-select class="form-Group" #selectPurity>
+              <mat-option value="{{p.purityId}}" *ngFor="let p of purities" (click)="onPuritySelectionChange(p.purityId)">{{p.purityName}}</mat-option>
+            </mat-select>
+            
+          </mat-form-field>
+         </div>
+
+         <br>
+  
+  
+         <!-- <div
+         class="input-selectbox"
+         style="margin-top: 25px"
+       >
+         <div class="select-container form-group" style="display: flex">
+           <label
+             style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+             for=""
+             >Metal :</label
+           >
+           <select
+             ngModel
+             name="metalId"
+             class="form-control"
+             style="width: 80%"
+             aria-label="Default select example"
+           >
+             <option selected >Select Metal</option>
+             <option (click)="onMetalSelectionChange(metal.metalId)"
+               *ngFor="let metal of metals"
+               [value]="metal.metalId"
+             >
+               {{ metal.metalName }}
+             </option>
+           </select>
+         </div>
+       </div> -->
+       
+  
+         
+        
+  
+        <!-- <div
+          class="input-selectbox"
+          style="margin-top: 25px"
+        >
+          <div class="select-container form-group" style="display: flex">
+            <label
+              style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+              for=""
+              >Purity :</label
+            >
+            <select
+              ngModel
+              name="purityId"
+              class="form-control"
+              style="width: 80%"
+              aria-label="Default select example"
+            >
+              <option selected >Select Purity</option>
+              <option (click)="onPuritySelectionChange(purity.purityId)"
+                *ngFor="let purity of purities"
+                [value]="purity.purityId"
+              >
+                {{ purity.purityName }}
+              </option>
+            </select>
+          </div>
+        </div> -->
+<br>
+        <mat-slide-toggle (toggleChange)="onToggle()">Status</mat-slide-toggle>
+  
+        <!-- <div
+          class="input-selectbox"
+          style="margin-top: 25px"
+        >
+          <div class="select-container form-group" style="display: flex">
+            <label
+              style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+              for=""
+              >Employee :</label
+            >
+            <select
+              ngModel
+              name="customerId"
+              class="form-control"
+              style="width: 80%"
+              aria-label="Default select example"
+            >
+              <option selected >Select Employee</option>
+              <option (click)="onEmployeeSelectionChange(employee.employeeId)"
+                *ngFor="let employee of employees"
+                [value]="employee.employeeId"
+              >
+                {{ employee.employeeName }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <br><br> -->
+  <br> <br>
+        <button class="button" onclick="alert('successfully')" (click)="onSubmit()" routerLink="/rateall">Submit</button>
+  
+  
+  <br>
+</form>
+
+  <!-- <div class="field">
+    <input
+      ngModel
+      #confirmPassword="ngModel"
+      required
+      minlength="3"
+      pattern="[a-z A-Z 0-9]*"
+      type="text"
+      name="designame"
+      [(ngModel)]="Login.confirmPassword"
+      id="name"
+      placeholder=" "
+      [value]="confirmPassword"
+    />
+    <label for="name"
+      ><i
+        class="fa fa-id-card-o"
+        style="font-size: 10px; margin-right: 7px"
+      ></i
+      >confirmPassword
+    </label>
+  </div> -->
+
+  <!-- <div
+    style="margin-top: -16px"
+    class="text-danger"
+    *ngIf="confirmPassword.invalid && confirmPassword.touched"
+  > -->  

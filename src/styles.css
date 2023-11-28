@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+/* @import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css"; */
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+.flex{
+    display: flex;
+}
+
+:root{
+    --clr-primary : #f4f4f4;
+    /* --clr-primary : #f4f4f4; */
+    --clr-gold : #c29958;
+    --clr-darkgold : #CA9D7A;
+    --clr-black : #222222;
+    --clr-gray : #333333;
+    --font-primary : 'ZCOOL XiaoWei', sans-serif;
+    --font-roboto : 'Roboto', sans-serif;
+    --font-lato : 'Lato', sans-serif;
+
+}
+
+/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  :root {
+    --gradient: linear-gradient(90deg, #f1f1ec, #f8eee1);
+    /* --gradient: linear-gradient(90deg, #E6E6E6, #dfdbdb); */
+    /* --gradient: linear-gradient(90deg, #d7d7c8, #eae3d6); */
+    --primary-shadow: 1px 1px 5px gray;
+    --secondary-shadow: 1px 1px 2px gray;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var(--gradient);
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  

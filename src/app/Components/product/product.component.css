@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+
+.Submit:hover {
+  color: #fff;
+  border-radius: 20px;
+}
+
+.Submit {
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  width: 130px;
+  font-size: 1.0rem;
+  border-radius: 20px;
+}
+
+.alert {
+  height: 40px;
+}
+
+body {
+  font-family: Avenir Next, Avenir, SegoeUI, sans-serif;
+}
+
+form {
+  margin: 1em 0;
+}
+
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+  font-size: x-small;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+}
+
+input {
+  font-size: 1.4em;
+  background: white;
+  border: 0;
+  border-bottom: 1px solid #bbb8b8;
+  border-radius: 0;
+  padding: 0;
+  cursor: text;
+}
+
+input:focus {
+  outline: 0;
+  border-bottom: 1px solid #666;
+}
+
+label {
+  letter-spacing: 0.05em;
+}
+
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: progress;
+}
+
+.user1-box {
+  width: 50%;
+  height: auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  box-sizing: border-box;
+  box-shadow: 2px 2px 7px 7px rgb(186, 176, 176);
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .user1-box {
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 50%;
+  }
+}
+
+.button {
+  background: linear-gradient(90deg, rgb(246, 234, 166) 0%, rgb(237, 222, 134) 16%, rgb(247, 227, 116) 50%, rgb(249, 222, 70) 83%, rgb(253, 215, 1) 100%);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.cancel {
+  margin-top: -30px;
+}
+
+/* Make the button and cancel button responsive */
+@media (max-width: 600px) {
+  .button,
+  .cancel {
+    width: 100%;
+  }
+}

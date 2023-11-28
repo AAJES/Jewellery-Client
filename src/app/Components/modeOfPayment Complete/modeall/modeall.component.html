@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div>
+
+        <button class="btn btn-primary" routerLink="/purity">Add Purity</button>
+
+    </div>
+
+    <div>
+
+        <table mat-table [dataSource]="modeOfPaymentList" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="modeOfPaymentId">
+              <th mat-header-cell *matHeaderCellDef>Mode Of Payment Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.modeOfPaymentId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="modeOfPayment">
+              <th mat-header-cell *matHeaderCellDef> Mode Of Payment </th>
+              <td mat-cell *matCellDef="let element"> {{element.modeOfPayment}} </td>
+            </ng-container>
+          
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+
+    
+
+</div>
+
+
+

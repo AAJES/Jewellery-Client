@@ -1,0 +1,27 @@
+<div style="position: fixed;width: 100%;z-index: 2;">
+    <div>
+        <app-header (sideNavToggled)="sideNavStatus = $event;"></app-header>
+    </div>
+
+
+</div>
+
+<div class="container-fluid g-0">
+    <main>
+        <div style="position: fixed;width: 100%;z-index: 2;background-color: aliceblue;" >
+            <app-sidenav style="position: fixed;" [sideNavStatus]="sideNavStatus"
+                [ngClass]="{'app-side-nav-open': sideNavStatus}"></app-sidenav>
+        </div>
+        <div style="position: fixed;width: 100%;z-index: 1;margin-bottom: 100px;" *ngIf="isLoggedIn()">
+            <app-navbar></app-navbar>
+        </div>
+
+
+        <div class="display-area p-3 " style="margin-top: 110px;" [ngClass]="{'display-area-shrink': sideNavStatus}">
+
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
+
+<!-- <button class="btn btn-primary" routerLink="/userform" style="margin-top: 150px;">Signup</button> -->

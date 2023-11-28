@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 50%;
+    background: var(--gradient);
+    box-shadow: var(--primary-shadow);
+    border-radius: 0.5rem;
+    /* margin-left: 20%; */
+    height: 100px;
+}
+
+.charts {
+    padding: 2rem;
+    height: 35rem;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.heading{
+    text-align: center;
+    text-decoration: underline;
+    font-size: xx-large;
+    color: rgb(110, 110, 110);
+    padding-top: 2rem;
+    
+    
+}
+
+.linechart {
+    width: 20rem;
+    background-color: white;
+    padding: 2rem;
+    box-shadow: var(--secondary-shadow)
+}
+
+.piechart {
+    background-color: white;
+    box-shadow: var(--secondary-shadow);
+    padding: 2rem;
+}
+
+.Recents {
+    width: 40%;
+    margin-top: 2rem;
+    margin-inline: auto;
+    padding: 1rem;
+    box-shadow: var(--primary-shadow);
+    background-image: var(--gradient);
+    border-radius: 0.5rem;
+  }
+
+  .RecentsCard{
+    margin-top: 0.6rem;
+    color: rgb(62, 61, 61);
+  }

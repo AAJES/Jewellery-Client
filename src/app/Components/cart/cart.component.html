@@ -1,0 +1,84 @@
+<div class="container mt-5">
+   <h1>Your Jewellery Bookings</h1>
+   <div class="row">
+     <div class="col-md-4 mb-4" *ngFor="let booking of bookings">
+       <div class="card">
+         <!-- <img src="jewelry{{ booking.bookingId }}.jpg" alt="Jewelry Item" class="card-img-top"> -->
+         <div class="card-body">
+           <h5 class="card-title">Booking Number : {{ booking.bookingId }}</h5>
+           <!-- <p class="card-text">Customer: {{ booking.customer.customerName }}</p>
+           <p class="card-text">BookingDate: {{ booking.bookingDate }}</p>
+           <p class="card-text">DeliveryDate: {{ booking.deliveryDate }}</p>
+           <p class="card-text">Quantity: {{ booking.products.length }}</p>
+           <p class="card-text">Advance Amount: {{ booking.advanceAmount }}</p> -->
+           <p class="card-text">
+              Customer: {{ booking.customer.customerName }}
+              <br>
+              BookingDate: {{ booking.bookingDate }}
+              <br>
+              DeliveryDate: {{ booking.deliveryDate }}
+              <br>
+              Quantity: {{ booking.products.length }}
+              <br>
+              Advance Amount: {{ booking.advanceAmount }}
+           </p>
+           <!-- <p class="card-text">Total: ${{ item.price * item.quantity }}</p> -->
+           <button class="btn btn-primary" (click)="generateBill(booking.bookingId)">Generate Bill</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <button class="btn btn-danger" (click)="removeBooking(booking.bookingId)">Remove</button>
+         
+           <!-- <button mat-raised-button>Open Dialog</button> -->
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="text-end">
+     <!-- <h4>Total: ${{ calculateTotal() }}</h4> -->
+     <!-- <a href="#" class="btn btn-primary"></a> -->
+   </div>
+ </div>
+
+ <!-- <div>
+  <h1>Dialog Box Content</h1>
+  <p>This is the content of the dialog box.</p>
+  <button mat-button (click)="closeDialog()">Close</button>
+ </div> -->
+ 
+
+ <!-- <div>
+  <p>Booking Id : {{ booking.bookingId }} </p>
+  <p>
+    Customer: {{ booking.customer.customerName }}
+              <br>
+              BookingDate: {{ booking.bookingDate }}
+              <br>
+              DeliveryDate: {{ booking.deliveryDate }}
+              <br>
+              Quantity: {{ booking.products.length }}
+              <br>
+              Advance Amount: {{ booking.advanceAmount }}
+  </p>
+  <table border="1" *ngFor="let p of booking.products">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Image</th>
+    </tr>
+    <tr>
+        <td>{{ p.product.productId }}</td>
+        <td>{{ p.product.productName}}</td>
+        <td>
+          <img [src]="getProductImage(p.product.category.categoryImage)" alt="Product Image" />
+        </td>
+    </tr>
+     Add more rows with booking details as needed 
+</table>
+
+<button mat-button (click)="generateBill(booking.bookingId)">Generate Bill</button>
+  
+ </div> -->
+ 
+ 
+ 
+ 
+ 
+ 

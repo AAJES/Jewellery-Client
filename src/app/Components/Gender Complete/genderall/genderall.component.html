@@ -1,0 +1,69 @@
+<div class="container">
+    <h3>Gender</h3>
+      <div class="button">
+          <button mat-raised-button 
+          matTooltip="Add Metal"
+          aria-label="Button that displays a tooltip when focused or hovered over" style="border-radius: 10px ; 
+          background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
+          rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);"  routerLink="/gender" ><i class="fa fa-plus" aria-hidden="true"></i></button> &nbsp;
+          <button mat-raised-button 
+          matTooltip="Display Selected Row"
+          aria-label="Button that displays a tooltip when focused or hovered over" (click)="displaySelectedRow()" 
+          style="border-radius: 10px ; background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,
+          rgb(247, 227, 116) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); width: 30px; height: 35px; padding-right: 0px;
+           padding-left: 0px; padding-top: 0px; border: .5 black;"  ><b><i class="fa fa-clone" style="color: black;" 
+           aria-hidden="true"></i></b></button>
+      </div>
+      <br>
+  
+      <div>
+  
+      
+  <div class="table">
+            <table mat-table [dataSource]="genderList" class="mat-elevation-z8">
+  
+             
+              <ng-container matColumnDef="genderId">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{ element.genderId }} </td>
+              </ng-container>
+            
+             
+              <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{ element.gender }} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button (click)="editItem(element)">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+  
+                  </button>
+                 
+                </td>
+              </ng-container>
+            
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            
+           
+           
+            
+            
+            
+          </div>
+            
+            
+  
+      </div>
+  
+      
+  
+  </div>
+  
+  
+  

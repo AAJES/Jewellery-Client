@@ -1,0 +1,185 @@
+
+
+
+
+
+  .container-fulid{
+ 
+    display:flex;
+    height: auto;
+    justify-content: center;
+    align-items: center; 
+    /* background:linear-gradient(135deg,#b0c4d1,#ded6e1); */
+    
+    
+  }
+  .title{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .container{
+    max-width: 75%;
+    width: 60%;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 25px;
+
+  }
+
+  .container-1{
+    display: flex;
+
+  
+  }
+
+
+  .container-1 .user-details{
+   
+    padding: 30px 30px 30px 80px;
+
+  }
+  .container-3 .user-details{
+   
+    padding: 30px 80px 30px 30px;
+
+  }
+
+  /* .user-details .input-box{
+    width: calc(100% / 1 - 20px);
+    margin: 5px 0 10px 0;
+    padding: 8px;
+  } */
+
+  .user-details .input-box{
+  
+    padding: 8px;
+  } 
+
+  
+  .user-details .input-box input,select,textarea{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+   
+  }
+  .user-details .input-box select,[type="Date"]{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+  }
+
+  @media(max-width :584px){
+    .container{
+      max-width: 100%;
+    }
+   
+
+    button {  
+      width: 90%;
+    }
+
+    .user-details .input-box {  
+      width: 80%;
+    }
+
+    
+  }
+
+  .container-5{
+    border: 1px solid black;
+    height: 500px;
+    border-radius: 0 0 20px 20px;
+
+  }
+
+  .container-5 .submit{
+    padding-left: 25px;
+  }
+
+  button{
+    padding: 5px 20px 5px 20px;
+    margin-left: 20px;
+
+  }
+
+  .container-6{
+    padding-left: 25px;
+    border-top: 1px solid black;  
+    height: 600px;
+  }
+
+
+  .user-details1{
+  display: flex;
+  padding:20px 20px 20px 20px;
+  } 
+
+
+
+  .user-details1 .container-9{
+    padding:20px 30px 20px 30px;
+    width: 40%;
+    } 
+
+
+  .user-details1 .container-10{
+    padding:20px 30px 20px 50px;
+    width: 40%;
+  } 
+  
+
+  .user-details1 .container-12{
+    padding:20px 30px 20px 50px;
+    width: 40%;
+  } 
+
+
+
+  
+   .user-details1 .input-box{
+    margin: 5px 0 10px 0;
+    padding: 8px;
+  } 
+
+
+  .user-details1 .input-box input,select,textarea{
+
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+   
+  }
+  .user-details1 .input-box select,[type="Date"]{
+   
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    
+  }
+
+
+
+  
+
+
+
+  
+
+  

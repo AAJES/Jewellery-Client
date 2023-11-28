@@ -1,0 +1,34 @@
+
+<div class="container">
+    <label><b>Category Name :</b></label>
+      <br>
+      <input type="text" name="categoryName" placeholder="categoryName" size="15" ngModel #categoryName="ngModel" 
+      required 
+      pattern="[a-z A-Z 0-9]*"
+      type="text" 
+      name="amountPaid"
+      [(ngModel)]="category.categoryName" style="border-radius: 30px;">
+<div class="alert alert-danger" *ngIf="categoryName.touched && categoryName.invalid" style="border-radius: 30px;">Category Name is required</div>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="category.activeStatus" (toggleChange)="status">Status</mat-slide-toggle>
+      <br><br>
+
+      <div>
+
+        <form (ngSubmit)="imageUpload()">
+
+          <h4>Upload category image:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button class="button" type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+<br>
+
+      <button class="button" (click)="onSubmit()">Submit</button>
+
+</div>
+
+
+

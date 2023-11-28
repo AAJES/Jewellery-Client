@@ -1,0 +1,45 @@
+<div class="container" style="margin-left: -0.1%;">
+  <h3><b>Owner Details :</b> </h3>
+  
+      <div class="cancel">
+            <a ><i class="fa fa-times"  style="color: black; margin-left: 410px; font-size: 30px; " (click)="closeDialog()"></i></a>
+          </div><br>
+    <div><br>
+      
+         <label>Owner Name :</label> &nbsp;&nbsp;&nbsp;&nbsp;
+         <input placeholder="Owner Name" ngModel #ownerId="ngModel" 
+                             required pattern="[a-z A-Z 0-9]*"
+                             type="text" 
+                             name="ownerName"
+                             [(ngModel)]="owner.ownerName"> 
+         <div class="alert alert-danger" *ngIf="ownerId.touched && ownerId.invalid">Owner Name is required</div>
+       
+<br><br>
+ 
+         <label>Phone Number: </label>&nbsp;&nbsp;&nbsp;
+         <input placeholder="Phone Number" ngModel #phone="ngModel" 
+                             required 
+                             pattern="[a-z A-Z 0-9]*"
+                             type="text" 
+                             name="phone"
+                             [(ngModel)]="owner.phone" >
+         <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">Phone is required</div>
+      <br><br>
+
+      <label>Password: </label>&nbsp;&nbsp;&nbsp;
+         <input placeholder="Password" ngModel #password="ngModel" 
+                             required 
+                             pattern="[a-z A-Z 0-9]*"
+                             type="password" 
+                             name="password"
+                             [(ngModel)]="owner.password" >
+         <div class="alert alert-danger" *ngIf="password.touched && password.invalid">Password is required</div>
+      <br><br>
+<br>
+       <button class="button" style="border-radius: 10px;" onclick="alert('successfully')"  (click)="onSubmit()"><b>Submit</b></button> 
+   
+    </div>
+</div>
+
+ 
+       

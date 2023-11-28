@@ -1,0 +1,119 @@
+<div class="container" id="print-section" #contentToConvert>
+    <table id="customers">
+    <tr>
+        <th colspan="6" style="font-size: xX-small; width: 20px;" style="text-align: center;">TAX INVOICE</th>
+    </tr>
+    <tr>
+      <th  > <img src="../../../../../assets/images/lohonj.jpeg" alt="" style="width: 50%; height: 10%;margin-left: 64px;"></th>
+        <th colspan="6" style="text-align: center;">      
+        <h3><B>NAGARAJ JEWELLERS </B></h3>
+            123 B 20/B xxxxxx
+            <br>Hosur, Hubli
+            <br>GSTIN No 07APA85655XXXX
+        </th>
+    </tr>
+    <tr >
+      <th>Bill to <br> {{ bill.customer.customerName }}
+      </th>
+      <th colspan="3">Place to supply <br> {{bill.customer.location}}</th>
+      <th colspan="1">Invoice No  <br>
+        {{bill.billNumber}}
+      </th>
+      <th colspan="4">Dated <br>
+        {{date | json}} &nbsp;{{time | json}}
+      </th>
+    </tr>
+    <tr>
+        <td><b>Description Of Goods</b></td>
+    
+    
+        <td><b>Item Name</b></td>
+        <td><b>QTY</b></td>
+        <td><b>Weight</b></td>
+        
+        <td><b>RATE</b></td>
+        <td><b>Amount</b></td>
+    </tr>
+    <tr *ngFor="let p of bill.products">
+       <td > ITEMS TAKEN</td> 
+      <!-- <td> {{bill.products[0].productName}}</td>
+      <td> {{bill.products.length}} </td>
+      <td> {{bill.payment.totalWeight}} </td>
+      <td></td>
+      <td> {{bill.actualAmount}} </td> --> 
+      <td>{{p.productName}} </td>
+      <td>1</td>
+      <td>{{p.weightage}} </td>
+      <td *ngIf="p.metal.metalName==gold">{{goldRate.ratePerGram}} </td>
+      <td *ngIf="p.metal.metalName==silver">{{silverRate.ratePerGram}} </td>
+      <td *ngIf="p.metal.metalName==gold">{{p.weightage*goldRate.ratePerGram}} </td>
+      <td *ngIf="p.metal.metalName==silver">{{p.weightage*silverRate.ratePerGram}} </td>
+    </tr>
+
+    <!-- <tr>
+        <td> <b>Total</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr> -->
+      <tr>
+        <td colspan="10">Taxable Value</td>
+        <!-- <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td> -->
+      </tr>
+      <tr>
+        <td>SGST</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{amountGst/2}}</td>
+      </tr>
+      <tr>
+        <td>CGST</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{amountGst/2}}</td>
+      </tr>
+
+  <tr>
+   
+
+
+<tr>
+    <td colspan="5" >
+       <b style="gap: 1.2rem;"> Total  </b>
+    </td>
+    <td colspan="1">
+      {{bill.amountPaid}}
+    </td>
+</tr>
+
+<tr>
+    <td colspan="5">Amount Chargeable(in words) :  <br> <br>
+        Company's PAN : AAK523GFGH5D 
+    </td>
+ 
+        <td colspan="1"> {{amountInWords}} </td>
+        <!-- <td></td>
+        <td></td>
+        <td></td>
+        <td></td> -->
+        
+
+  </tr>
+
+
+    
+  </table>
+
+  
+</div>
+<button (click)="downloadPDF()">Download PDF</button>

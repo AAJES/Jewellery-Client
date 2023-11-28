@@ -1,0 +1,208 @@
+/* body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+
+.container {
+  margin-top: 150px;
+  background-color: rgb(241, 218, 88);
+  width: 700px;
+  padding-top: 15px;
+  padding-left: 180px;
+  border-radius: 60px;
+  height: auto;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 110%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 30px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgb(208, 200, 200);
+  outline: none;
+} */
+
+
+
+
+.invoice {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.shop{
+   font-family:'Times New Roman', Times, serif;
+   text-align: right;
+}
+
+.center1 {
+  text-align: center;
+}
+
+.center2 {
+  text-align: center;
+}
+
+.center3 {
+  text-align: center;
+}
+
+.left-align{
+  text-align: left;
+  position: absolute;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.invoice-header {
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.additional-charges, .total {
+  margin-top: 20px;
+}
+
+.total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.amount-in-words {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Customize additional styles as needed */
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.invoice {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.shop {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: right;
+}
+
+.center1, .center2, .center3 {
+  text-align: center;
+}
+
+.left-align, .right-align {
+  text-align: left;
+ 
+}
+.invoice-header {
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.additional-charges, .total, .amount-in-words {
+  margin-top: 20px;
+}
+
+.total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.amount-in-words {
+  font-style: italic;
+} */
+
+/* Responsive styles for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+  .invoice {
+    padding: 10px;
+  }
+
+  .shop {
+    text-align: center;
+  }
+
+  .left-align, .right-align {
+    text-align: center;
+  }
+
+  .invoice-header {
+    text-align: center;
+  }
+
+  table {
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 4px;
+  }
+
+  additional-charges, .total, .amount-in-words {
+    margin-top: 10px;
+  }
+}

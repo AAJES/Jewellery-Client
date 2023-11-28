@@ -1,0 +1,25 @@
+<div class="container">
+    <h3>Purity</h3>
+    <div class="cancel">
+          <a routerLink="/allpurity"><i class="fa fa-times" style="color: black; margin-left: 470px; font-size: 30px; " routerLink="/allpurity"></i></a>
+        </div><br>
+    
+        <div class="field">
+    <input #purityName="ngModel" 
+    required
+    type="text" 
+    name="purityName"
+    [(ngModel)]="purity.purityName"
+    id="purityName" 
+    placeholder=" "
+    [value]="purity.purityName" >
+    <label for="purityName"><i class="fa fa-id-card-o" style="font-size: 10px;margin-right: 7px;"></i>Purity Name :  </label> 
+
+        </div>
+<div class="alert alert-danger" *ngIf="purityName.touched && purityName.invalid">Purity Name is required</div>
+
+    <br>
+
+    <button class="button" (click)="onSubmit()" routerLink="/allpurity"><b>Submit</b></button>
+</div>
+

@@ -1,0 +1,117 @@
+
+<div class="Main">
+  <div class="container" >
+    <h3>Booking
+    <div class="cancel">
+      <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 94%; margin-top: -4%;"></i></a>
+    </div></h3>
+    <br>
+    <div class="form" style="width: 65%; margin-left: 15%;">
+          <!-- <label >User :</label> 
+          <select  ngModel  name="userId"   class="form-control"  aria-label="Default select example" >
+            <option selected >Select User</option>
+            <option (click)="onUserSelectionChange(user.userId)"
+              *ngFor="let user of users"
+              [value]="user.userId">
+              {{ user.userName }}
+            </option>
+          </select> -->
+    
+    <!-- <label>Customer :</label>
+          <select   ngModel  name="customerId" class="form-control" aria-label="Default select example" >
+            <option selected >Select Customer</option>
+            <option (click)="onCustomerSelectionChange(customer.customerId)" *ngFor="let customer of customers" 
+            [value]="customer.customerId">
+            {{ customer.customerName }}
+            </option>
+          </select> -->
+
+          <div style="display: flex;justify-content: space-between;">
+            <mat-form-field>
+              <mat-label>Customer </mat-label>
+              <mat-select class="form-Group" #selectCustomer>
+                <mat-option value="{{c.customerId}}"  *ngFor="let c of customers" (click)="onCustomerSelectionChange(c.customerId)">{{c.customerName}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Employee </mat-label>
+              <mat-select class="form-Group" #selectEmployee>
+                <mat-option value="{{e.employeeId}}"  *ngFor="let e of employees" (click)="onEmployeeSelectionChange(e.employeeId)">{{e.employeeName}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+          </div>
+
+          <div style="display: flex;justify-content: space-between;">
+            <mat-form-field>
+              <mat-label>Category </mat-label>
+              <mat-select class="form-Group" #selectCategory>
+                <mat-option value="{{c.categoryId}}"  *ngFor="let c of categories" (click)="onCategorySelectionChange(c.categoryId)">{{c.categoryName}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Products </mat-label>
+              <mat-select class="form-Group" #selectProduct>
+                <mat-option value="{{p.productId}}"  *ngFor="let p of products" (click)="onAddProduct(p.productId)">{{p.productName}}</mat-option>
+              </mat-select>
+              
+            </mat-form-field>
+          </div>
+
+<!-- <label>Category :</label>
+         <select ngModel name="categoryId" class="form-control" aria-label="Default select example">
+           <option selected >Select Category</option>
+           <option (click)="onCategorySelectionChange(category.categoryId)" *ngFor="let category of categories"
+             [value]="category.categoryId">
+             {{ category.categoryName }}
+           </option>
+         </select> -->
+       
+     
+       <!-- <label>Employee :</label>
+       <select
+         ngModel
+         name="customerId"
+         class="form-control"
+         aria-label="Default select example">
+         <option selected >Select Employee</option>
+         <option (click)="onEmployeeSelectionChange(employee.employeeId)"
+           *ngFor="let employee of employees"
+           [value]="employee.employeeId">
+           {{ employee.employeeName }}
+         </option>
+       </select>
+
+      <label for="Section" style="font-size: medium; margin-top: 2%;">Products : </label>
+       <select id="sections" class="form-Group" #selectProduct>
+          <option value="{{p.productId}}" *ngFor="let p of products" (click)="onAddProduct(selectProduct)">{{p.productName}}</option>
+       </select>
+     
+          <ul class="list-group" >
+              <li class="list-group-item" *ngFor="let fp of formProductPurchase.controls">{{ getProductName(fp.value)}}</li>
+          </ul> -->
+  
+         
+      <label style="font-size: medium;">Minimum Amount : </label> <br>
+       <input type="text" style="width: 100%;" ngModel #minAmount="ngModel" [(ngModel)]="booking.minAmount">
+       <br>
+       <label style="font-size: medium;">Advance Amount :</label> <br>
+       <input type="text" style="width: 100%;" ngModel #advanceAmount="ngModel" [(ngModel)]="booking.advanceAmount">
+       <br>
+       <label style="font-size: medium;width: 65%;">Delivery Date : </label><br>
+       <input type="date" style="width: 100%;" ngModel #deliveryDate="ngModel" [(ngModel)]="booking.deliveryDate">
+      
+    <br>
+<br>
+      <button class="button" (click)="onSubmit()" onclick="alert('successfully')">Submit</button>
+<br>
+<br>
+
+
+        </div>
+  </div>
+</div>

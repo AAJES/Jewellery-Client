@@ -1,0 +1,18 @@
+.container{
+    height: 300px;
+}
+.scrollimg{
+    height:150px;
+    overflow-y: auto;
+    
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    padding-right: 300px;
+}
+
+ul li{
+    margin: 20px;
+}

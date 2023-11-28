@@ -1,0 +1,50 @@
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  max-width: 40%;
+  border-radius: 20px;
+  box-shadow: 2px 2px 7px 7px rgb(190, 187, 187);
+}
+
+.button {
+  background: linear-gradient(
+    90deg,
+    rgb(246, 234, 166) 0%,
+    rgb(249, 231, 131) 16%,
+    rgb(250, 226, 93) 50%,
+    rgb(249, 222, 70) 83%,
+    rgb(253, 215, 1) 100%
+  );
+  margin-top: -20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgb(243, 213, 40);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, 4px);
+  }
+  50% {
+    transform: translate(0, 8px);
+  }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .button {
+    margin-top: -10px;
+    padding: 8px 16px;
+  }
+}

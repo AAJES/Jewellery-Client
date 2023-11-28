@@ -1,0 +1,57 @@
+<div class="example-container">
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="nextRenewalDate" formControlName="nextRenewalDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+ 
+    <mat-form-field>
+      <input matInput placeholder="amountPaid" ngModel #amountPaid="ngModel" 
+      required 
+      pattern="[a-z A-Z 0-9]*"
+      type="text" 
+      name="amountPaid"
+      [(ngModel)]="license.amountPaid" >
+<div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid">Amount Paid is required</div>>
+    </mat-form-field>
+ 
+   <!-- <mat-form-field>
+     <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+     <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field> -->
+
+   <mat-form-field>
+    <input matInput placeholder="licenseType" ngModel #licenseType="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="licenseType"
+    [(ngModel)]="license.licenseType" >
+<div class="alert alert-danger" *ngIf="licenseType.touched && licenseType.invalid">License Type is required</div>>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="code" ngModel #code="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="code"
+    [(ngModel)]="license.code" >
+<div class="alert alert-danger" *ngIf="code.touched && code.invalid">Code is required</div>>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="yearMonth" ngModel #yearMonth="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="yearMonth"
+    [(ngModel)]="license.yearMonth" >
+<div class="alert alert-danger" *ngIf="yearMonth.touched && yearMonth.invalid">Year Month is required</div>>
+  </mat-form-field>
+
+  <button class="btn-primary" (click)="onSubmit()">Submit</button>
+ </div>
+  
+ 

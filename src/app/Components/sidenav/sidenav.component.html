@@ -1,0 +1,175 @@
+<!-- <div class="side-nav-content" style="background-color: rgb(34, 34, 34);">
+    <ul class="nav-list" [ngClass]="{'nav-list-open':sideNavStatus}">
+        <li class="nav-list-item "><a class="nav-link " routerLink="/companyall">Company All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/companyform">Company Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/entityall">Entity All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/entityform">Entity Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/departmentall">Department All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/departmentform">Department Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/employeeall">Employee All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/employeeform">Employee Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/menuall">Menu All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/menuform">Menu Form </a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/roleall">Role All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/roleform">Role Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/designationall">Designation All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/designationform">Designation Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/sectionall">Section All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/sectionform">Section Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/userall">User All</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/userform">User Form</a></li>
+        <li class="nav-list-item "><a class="nav-link " routerLink="/departmentform">Reports</a></li>
+    </ul>
+</div>  -->
+<br><br><br><br><br>
+<nav class="sidebar card py-2 mb-2" style="background-color:  #CA9D7A; color: white; width: 300px; height:886px; margin-top: -125px;">
+    <ul class="nav flex-column" id="nav_accordion">
+        <li class="nav-item has-submenu">
+            <a class="nav-link" routerLink="/dashboard2">Dashboard  </a>
+            
+
+
+            <ul class="nav flex-column" id="nav_accordion"> 
+                <li class="nav-item has-submenu">
+                    <a class="nav-link"> Scheme <i class="bi small bi-caret-down-fill"></i></a>
+                    <ul class="submenu collapse">
+                       <li class="nav-list-item "><a class="nav-link " routerLink="scheme"> Add Schmes </a></li>
+                        <li class="nav-list-item "><a class="nav-link " routerLink="/schemecustomerReceipt"> Scheme Registration </a></li>
+                        <li class="nav-list-item "><a class="nav-link " routerLink="/schemeReceipts">Add Scheme Receipts</a></li>
+                        <li class="nav-list-item "><a class="nav-link " routerLink="/schemerecall"> Scheme Receipts All </a></li>
+                        <!-- <li class="nav-list-item "><a class="nav-link " routerLink="allpurity"> Purity </a></li> -->
+                    </ul>
+                </li>
+
+
+           
+    
+
+                <ul class="nav flex-column" id="nav_accordion"> 
+                    <li class="nav-item has-submenu">
+                        <a class="nav-link" href="#"> Reports <i class="bi small bi-caret-down-fill"></i></a>
+                        <ul class="submenu collapse">
+                            <li class="nav-list-item "><a class="nav-link " routerLink="/salesReport"> Sales Report </a></li>
+                            <li class="nav-list-item "><a class="nav-link " routerLink="/lessPaidReport">Less Paid Report</a></li>
+                            <li class="nav-list-item "><a class="nav-link " routerLink="/billReport"> Bill Reports </a></li>
+                            <!-- <li class="nav-list-item "><a class="nav-link " routerLink="allpurity"> Purity </a></li> -->
+                        </ul>
+                    </li>
+
+
+           <ul class="nav flex-column" id="nav_accordion">
+           <li class="nav-item has-submenu">
+               <a class="nav-link" href="#"> Configuration <i class="bi small bi-caret-down-fill"></i> </a>
+               <ul class="submenu collapse">
+                   <!-- <li class="nav-list-item "><a class="nav-link " routerLink="/Bangles"> Bangles </a></li> -->
+                   <!-- <li class="nav-list-item "><a class="nav-link " routerLink="/companyform">Company Form</a></li> -->
+                   <!-- <li class="nav-list-item "><a class="nav-link " routerLink="/Chains"> Chains </a></li> -->
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/allmetal">Metal</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/allpurity">Purity</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/booking">Booking</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/rateall">Rate</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/product">Product</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/return">Return</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/category">Category</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/customer">Customer</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/employeeall">Employee</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/genderall">Gender</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/paymentmode">Payment Mode</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/stockall">Stock</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/owner">Owner</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/roleall">Roles</a></li>
+                   <li class="nav-list-item "><a class="nav-link " routerLink="/shop">Shop</a></li>
+               </ul>
+           </li><br>
+
+           <!-- <router-outlet></router-outlet> -->
+
+
+           
+         
+
+            
+           
+
+           
+            
+
+
+
+            
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <li class="nav-item has-submenu">
+            <a class="nav-link" href="#">  <i class="bi small bi-caret-down-fill"></i> </a>
+            <ul class="submenu collapse">
+                <li><a class="nav-link" href="#">Register </a></li>
+                <li><a class="nav-link" routerLink="/tabform">Appointment </a></li>
+                <li><a class="nav-link" href="#">Broadcast SMS </a></li>
+                <li><a class="nav-link" href="#">Broadcast Email </a></li>
+                <li><a class="nav-link" routerLink="/appointment">Appointment Details </a></li>
+            </ul>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+    </ul>
+    </nav> -->
+
+
+
+<!-- <nav class="sidebar card py-2 mb-4" style="background-color: rgb(34, 34, 34); color:#fff;">
+    <ul class="nav flex-column" id="nav_accordion">
+
+        <li class="nav-item has-submenu">
+            <a class="nav-link" href="#"> Setup <i class="bi small bi-caret-down-fill"></i> </a>
+            <ul class="submenu collapse">
+                <li><a class="nav-link" href="#">Company </a></li>
+                <li><a class="nav-link" href="#">User </a></li>
+                <li><a class="nav-link" href="#">Entity </a></li>
+                <li><a class="nav-link" href="#">Department </a></li>
+                <li><a class="nav-link" href="#">Section</a></li>
+                <li><a class="nav-link" href="#">Menu Group</a></li>
+                <li><a class="nav-link" href="#">Employee </a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Appointment</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Appointment Approval</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Visitor pass</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Check-in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Check-out</a>
+        </li>
+        <li class="nav-item has-submenu">
+            <a class="nav-link" href="#">Reports <i class="bi small bi-caret-down-fill"></i></a>
+            <ul class="submenu collapse">
+                <li><a class="nav-link" href="#">Detailed Report </a></li>
+                <li><a class="nav-link" href="#">Summarized Report </a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard </a>
+        </li>
+    </ul>
+    </nav> -->

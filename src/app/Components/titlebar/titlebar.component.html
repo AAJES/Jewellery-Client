@@ -1,0 +1,24 @@
+<div class="login">
+<h2>Admistrator Login</h2>
+<div class="form">
+  <div class="Uname">
+   <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input  matInput placeholder="" [formControl]="Username" required>
+    <mat-error *ngIf="Username.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  </div>
+  <br><br>
+
+ <div class="Password">
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="" [formControl]="Password" required>
+    <mat-error *ngIf="Password.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+<br>
+
+<button class="btn btn-primary" routerLink="/form">Submit</button>
+</div>
+

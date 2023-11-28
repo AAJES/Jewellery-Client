@@ -1,0 +1,52 @@
+
+<div class="container">
+
+    <div>
+
+        <button class="btn btn-primary" routerLink="/purity">Add Purity</button>
+
+    </div>
+
+    <div>
+
+        <table mat-table [dataSource]="bookingList" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="bookingId">
+              <th mat-header-cell *matHeaderCellDef>Booking Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.bookingId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="minAmount">
+              <th mat-header-cell *matHeaderCellDef>Minimum Amount</th>
+              <td mat-cell *matCellDef="let element"> {{element.minAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="deliveryDate">
+                <th mat-header-cell *matHeaderCellDef> Delivery Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.deliveryDate}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="advanceAmount">
+                <th mat-header-cell *matHeaderCellDef> Advance Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.advanceAmount}} </td>
+              </ng-container>
+          
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+
+    
+
+</div>
+
+
+

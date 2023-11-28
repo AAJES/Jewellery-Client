@@ -1,0 +1,122 @@
+<div class="main">
+  <form >
+     <mat-form-field>
+       <mat-label>Total Amount</mat-label>
+       <input placeholder="Total Amount" ngModel #totalAmount="ngModel" 
+                           required pattern="[a-z A-Z 0-9]*"
+                           type="number" 
+                           name="totalAmount"
+                           [(ngModel)]="Sales.totalAmount"> 
+       <div class="alert alert-danger" *ngIf="totalAmount.touched && totalAmount.invalid">Total Amount is required</div>
+     </mat-form-field>
+     <br>
+
+     
+
+     <mat-form-field>
+       <mat-label>Discount Amount</mat-label>
+       <input placeholder="Discount Amount" ngModel #discountAmount="ngModel" 
+                           required 
+                           pattern="[a-z A-Z 0-9]*"
+                           type="text" 
+                           name="discountAmount"
+                           [(ngModel)]="Sales.discountAmount" >
+       <div class="alert alert-danger" *ngIf="discountAmount.touched && discountAmount.invalid">Discount Amount is required</div>
+     </mat-form-field>
+     <br>
+
+
+     <mat-form-field>
+       <mat-label>Payment Status</mat-label>
+       <input placeholder="Payment Status" ngModel #paymentStatus="ngModel" 
+       required 
+       pattern="[a-z A-Z 0-9]*"
+       type="text" 
+       name="paymentStatus"
+       [(ngModel)]="Sales.paymentStatus" >
+       <div class="alert alert-danger" *ngIf="paymentStatus.touched && paymentStatus.invalid">Payment Status is required
+         
+       </div>
+     </mat-form-field>
+     <br>
+
+  
+         <mat-form-field>
+           <mat-label>Wastage</mat-label>
+           <input placeholder="Wastage" ngModel #wastage="ngModel" 
+                               required pattern="[a-z A-Z 0-9]*"
+                               type="text" 
+                               name="wastage"
+                               [(ngModel)]="Sales.wastage"> 
+           <div class="alert alert-danger" *ngIf="wastage.touched && wastage.invalid">Wastage is required</div>
+         </mat-form-field>
+         <br>
+   
+         
+   
+         <mat-form-field>
+           <mat-label>Gross Weight</mat-label>
+           <input placeholder="Gross Weight" ngModel #grossWeight="ngModel" 
+                               required 
+                               pattern="[a-z A-Z 0-9]*"
+                               type="text" 
+                               name="grossWeight"
+                               [(ngModel)]="Sales.grossWeight" >
+           <div class="alert alert-danger" *ngIf="grossWeight.touched && grossWeight.invalid">Gross Weight is required</div>
+         </mat-form-field>
+         <br>
+   
+   
+         <mat-form-field>
+           <mat-label>Net Weight</mat-label>
+           <input placeholder="Net Weight" ngModel #netWeight="ngModel" 
+           required 
+           pattern="[a-z A-Z 0-9]*"
+           type="text" 
+           name="netWeight"
+           [(ngModel)]="Sales.netWeight" >
+           <div class="alert alert-danger" *ngIf="netWeight.touched && netWeight.invalid">Net Weight is required
+             
+           </div>
+         </mat-form-field>
+         <br>
+
+         
+             <mat-form-field>
+               <mat-label>Actual Amount</mat-label>
+               <input placeholder="Actual Amount" ngModel #actualAmount="ngModel" 
+                                   required pattern="[a-z A-Z 0-9]*"
+                                   type="text" 
+                                   name="actualAmount"
+                                   [(ngModel)]="Sales.actualAmount"> 
+               <div class="alert alert-danger" *ngIf="actualAmount.touched && actualAmount.invalid">Actual Amount is required</div>
+             </mat-form-field>
+             <br>
+       
+             
+       
+             <mat-form-field>
+               <mat-label>Quantity</mat-label>
+               <input placeholder="Quantity" ngModel #quantity="ngModel" 
+                                   required 
+                                   pattern="[a-z A-Z 0-9]*"
+                                   type="text" 
+                                   name="quantity"
+                                   [(ngModel)]="Sales.quantity" >
+               <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">Quantity is required</div>
+             </mat-form-field>
+             <br>     
+      
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <button class="btn btn-primary">Submit</button>
+
+
+    </form>
+  </div>

@@ -1,0 +1,58 @@
+<div class="container">
+
+  <h3>Stock</h3>
+  <div class="button">
+      <button mat-raised-button 
+      matTooltip="Add Metal"
+      aria-label="Button that displays a tooltip when focused or hovered over" style="border-radius: 10px ; 
+      background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
+      rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);"  routerLink="/stock" ><i class="fa fa-plus" aria-hidden="true"></i></button> &nbsp;
+  </div>
+  <br>
+    <div class="table">
+
+        <table mat-table [dataSource]="stockList" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="StockId">
+              <th mat-header-cell *matHeaderCellDef>Stock Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.stockId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="MinQty">
+              <th mat-header-cell *matHeaderCellDef> Min Qty </th>
+              <td mat-cell *matCellDef="let element"> {{element.minQty}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="StockQtyInHand">
+                <th mat-header-cell *matHeaderCellDef> Stock Qty In Hand </th>
+                <td mat-cell *matCellDef="let element"> {{element.stockQtyInHand}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="TotalStock">
+                <th mat-header-cell *matHeaderCellDef> Total Stock </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalStock}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Count">
+                <th mat-header-cell *matHeaderCellDef> Count </th>
+                <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+              </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+
+    
+
+</div>
+
+
+

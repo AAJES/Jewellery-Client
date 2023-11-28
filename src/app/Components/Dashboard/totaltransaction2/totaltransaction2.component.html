@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="main"> 
+    <h3 class="heading" >TOTAL TRANSACTION</h3>
+    <br>
+</div>
+    <div class="charts flex">
+        <canvas id="linechart" class="linechart"></canvas>
+        <br>
+        <canvas id="piechart" class="piechart"></canvas>
+    </div>
+</div>
+
+<div class="Recents" (click)="pushToStack()">
+    <div style="margin: 0;padding: 0;display: flex;align-items: center;gap: 1rem;font-size: large; color: rgb(62, 61, 61);">
+        <i class="fa-solid fa-rotate-right"></i>      <br>
+
+    </div>
+    <div class="RecentsCardContainer">
+        <mat-card class="RecentsCard" *ngFor="let stk of RecentsStack.slice().reverse()"> <br>
+            <mat-card-content>{{stk}}</mat-card-content>
+        </mat-card>
+    </div>
+</div>

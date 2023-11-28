@@ -1,0 +1,172 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          This is the expansion title
+        </mat-panel-title>
+        <mat-panel-description>
+          This is a summary of the content
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>This is the primary content of the panel.</p>
+      <div>
+        <div>
+            <h1> Appointment Details</h1>
+            <hr>
+            <br><br>
+            <label><b>Appointment Start Date : {{ appointment.appointment_start }} </b></label> 
+          <br>
+          <!-- <input type="text" name="appointment_type" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.appointment_start" required (blur)="onTypeblur()"/> -->
+          <br><br><br>
+          <label><b>Appointment End Date : {{ appointment.appointment_end }}</b></label>
+          <br>
+          <!-- <input type="text" name="appointment_type" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.appointment_end" required (blur)="onTypeblur()"/>   -->
+          <br><br>
+      
+          <label><b>Appointment Type : {{ appointment.appointment_type }} </b></label>
+          <br>
+          <!-- <input type="text" name="appointment_type" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.appointment_type" required (blur)="onTypeblur()"/> -->
+          <br>
+          
+          <div class="container" style="width: 65%"
+> 
+                        <h3>Section Visited</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Section Id</th>
+                                    <th>Section Description</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr *ngFor="let s of appointment.sectionVisitedList">
+                                <td>{{ s.section.section_id }}</td>
+                                <td>{{ s.section.section_description}}</td>
+                                <td><button class="btn-primary" (click)="sectionCheckIn(s.sectionVisited_id)">Section CheckIn</button></td>
+                                <td><button class="btn-primary" (click)="sectionCheckOut(s.sectionVisited_id)">Section CheckOut</button></td>
+                            </tr>
+                        </tbody>
+                        </table>
+
+                        
+           </div>
+
+           <div class="container" style="width: 65%"
+> 
+                        <h3>Facility Visited</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Facility Id</th>
+                                    <th>Facility Description</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr *ngFor="let f of appointment.facilityVisitedList">
+                                <td>{{ f.facility.facility_id }}</td>
+                                <td>{{ f.facility.facility_description}}</td>
+                                <td><button class="btn-primary" (click)="facilityCheckIn(f.facilityVisited_id)">Facility CheckIn</button></td>
+                                <td><button class="btn-primary" (click)="facilityCheckOut(f.facilityVisited_id)">Facility CheckOut</button></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <div>
+                          
+                          
+                        </div>
+           </div>
+
+           <div class="container" style="width: 65%"
+> 
+                        <h3>Approver</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User Id</th>
+                                    <th>User Name</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ appointment.approver.user_id }}</td>
+                                <td>{{ appointment.approver.user_Username}}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+           </div>
+           <br>
+           <div>
+            <button class="btn-primary" (click)="checkInUpdate()">Check-in</button>
+            <hr>
+            <button class="btn-primary" (click)="checkOutUpdate()">Check-out</button>
+           </div>
+        </div> 
+          
+
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+      <div>
+        <label><b>Visitor name : {{ appointment.visitor.visitor_name }} </b></label> 
+        <br>
+        <!-- <input type="text" name="Visitor Name" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.visitor.visitor_name" required (blur)="onTypeblur()"/> -->
+        <br><br><br>
+        <label><b>Visitor phone : {{ appointment.visitor.visitor_phone1 }} </b></label>
+        <br>
+        <!-- <input type="text" name="Visitor Phone" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.visitor.visitor_phone1" required (blur)="onTypeblur()"/>   -->
+        <br><br>
+    
+        <label><b>Visitor email : {{ appointment.visitor.visitor_email }} </b></label>
+        <br>
+        <!-- <input type="text" name="Visitor Email" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.visitor.visitor_email" required (blur)="onTypeblur()"/> -->
+        <br>
+
+        <label><b>Visitor address : {{ appointment.visitor.visitor_address }} </b></label>
+        <!-- <input type="text" name="Visitor Email" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.visitor.visitor_address" required (blur)="onTypeblur()"/> -->
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <!-- <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description> -->
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+      <div>
+        <label><b>Vehicle number : {{ appointment.vehicle.vehicleNumber }} </b></label> 
+        <br>
+        <!-- <input type="text" name="Vehicle number" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.vehicle.vehicleNumber" required (blur)="onTypeblur()"/> -->
+        <br><br><br>
+        <label><b>Vehicle type : {{ appointment.vehicle.vehicleType }} </b></label>
+        <br>
+        <!-- <input type="text" name="Vehicle type" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.vehicle.vehicleType" required (blur)="onTypeblur()"/>   -->
+        <br><br>
+    
+        <label><b>Driver Name : {{ appointment.vehicle.driverName }} </b></label>
+        <br>
+        <!-- <input type="text" name="Driver Name" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.vehicle.driverName" required (blur)="onTypeblur()"/> -->
+        <br>
+
+        <label><b>Driver License : {{ appointment.vehicle.driverLicense }} </b></label>
+        <!-- <input type="text" name="Driver License" placeholder="Appointment Type" size="15" formControlName="appointment_type" [value]="appointment.vehicle.driverLicense" required (blur)="onTypeblur()"/> -->
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  

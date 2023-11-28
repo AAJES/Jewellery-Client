@@ -1,0 +1,64 @@
+<body>
+<!-- <div class="compnavbar" >
+    <img src="../../../assets/images/lohonj.jpeg" alt="" >
+    <h3>Nagaraj Jewellers </h3>
+    
+</div> -->
+
+
+
+  
+
+
+  <app-carousel></app-carousel>
+
+  
+
+  
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+      <div class="card" >
+        <img [src]="imageSrc" (blur)="getImage(product.productImage)" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Product Name : {{ product.productName }}</h5>
+          <!-- <p class="card-text">Customer: {{ booking.customer.customerName }}</p>
+          <p class="card-text">BookingDate: {{ booking.bookingDate }}</p>
+          <p class="card-text">DeliveryDate: {{ booking.deliveryDate }}</p>
+          <p class="card-text">Quantity: {{ booking.products.length }}</p>
+          <p class="card-text">Advance Amount: {{ booking.advanceAmount }}</p> -->
+          <div class="card-text">
+             Weightage: {{ product.weightage }}g
+             <br>
+             Category: {{ product.category.categoryName }}
+             <br>
+             Metal: {{ product.metal.metalName }}
+             <br>
+             <!-- <p *ngIf="product.purity.purityName!='0K'" >Purity: {{ product.purity.purityName }}</p> -->
+             <!-- <br>
+             Advance Amount: {{ booking.advanceAmount }} -->
+             </div>
+          <!-- <p class="card-text">Total: ${{ item.price * item.quantity }}</p> -->
+          <!-- <button class="btn btn-danger btn-sm" (click)="removeBooking(booking.bookingId)">Remove</button>
+          <button class="btn btn-primary" (click)="generateBill(booking.bookingId)">Generate Bill</button> -->
+          <button mat-raised-button (click)="addCart(product.productId)">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<br>
+
+
+
+
+
+<app-footer></app-footer>
+    
+  </body>
+
+
+
+
+  

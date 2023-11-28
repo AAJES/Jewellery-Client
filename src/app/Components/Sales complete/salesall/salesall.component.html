@@ -1,0 +1,83 @@
+<div class="container">
+
+    <div>
+
+        <button class="btn btn-primary" routerLink="/purity">Add Purity</button>
+
+    </div>
+
+    <div>
+
+        <table mat-table [dataSource]="salesList" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="salesId">
+              <th mat-header-cell *matHeaderCellDef>Sales Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.purityId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="totalAmount">
+              <th mat-header-cell *matHeaderCellDef> Total Amount </th>
+              <td mat-cell *matCellDef="let element"> {{element.totalAmount}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="discountAmount">
+                <th mat-header-cell *matHeaderCellDef> Discount Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.discountAmount}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="paymentStatus">
+                <th mat-header-cell *matHeaderCellDef> Payment Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.paymentStatus}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="wastage">
+                <th mat-header-cell *matHeaderCellDef> Wastage </th>
+                <td mat-cell *matCellDef="let element"> {{element.wastage}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="grossWeight">
+                <th mat-header-cell *matHeaderCellDef> Gross Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.grossWeight}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="netWeight">
+                <th mat-header-cell *matHeaderCellDef> Net Weight  </th>
+                <td mat-cell *matCellDef="let element"> {{element.netweight}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="actualAmount">
+                <th mat-header-cell *matHeaderCellDef> Actual Amount </th>
+                <td mat-cell *matCellDef="let element"> {{element.actualAmount}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="qantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity  </th>
+                <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="billGeneratedOrNo">
+                <th mat-header-cell *matHeaderCellDef> Bill Generated Or No </th>
+                <td mat-cell *matCellDef="let element"> {{element.billGeneratedOrNo}} </td>
+              </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+
+    
+
+</div>
+
+
+

@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+
+/* .rates{
+    margin: 1rem 2rem;
+    font-family: var(--font-roboto);
+    font-size: 1rem;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+} */
+
+.rates{
+  /* margin: 1rem 2rem; */
+  font-family: var(--font-roboto);
+  font-size: 1rem;
+  justify-content: space-between;
+  /* border-bottom: 1.5px solid gray; */
+  background-color: rgb(178, 156, 156);
+  color: white;
+
+}
+
+
+
+
+.rates p{
+  margin-right: 5rem;
+}
+
+/* .rates p{
+    margin-right: 5rem;
+} */
+
+/* #c1{
+    background: url("../../../assets/images/1.jpeg");
+}
+
+#c2{
+    
+    background-image: url("../../../assets/images/2.jpeg");
+    background-repeat: no-repeat;
+   
+}
+
+#c3{
+    background-image: url("../../../assets/images/3.jpeg");
+    background-repeat: no-repeat;
+  
+} */
+
+
+.paragraph{
+    margin: 10rem 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainpara{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.subpara{ 
+    color: rgb(255, 255, 255);
+    margin-top: 0.5rem;
+    font-size: larger;
+    font-weight: 400;
+}
+
+.button{
+    font-size: x-large;
+    border: 1px solid var(--clr-darkgold);
+    padding: 0.4em 1.5em;
+    background-color: var(--clr-gold);
+    color: whitesmoke;
+    margin-top: 1.5rem;
+    align-self: center;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+
+.button:hover{
+    background-color: black;
+
+}
+
+.button:active{
+    opacity: 0.8;
+}
+
+
+
+
+/* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+/* @import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css"; */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* .flex{
+    display: flex;
+} */
+
+:root{
+    --clr-primary : #f4f4f4;
+    /* --clr-primary : #f4f4f4; */
+    --clr-gold : #c29958;
+    --clr-darkgold : #dc9e6f;
+    --clr-black : #222222;
+    --clr-gray : #333333;
+    --font-primary : 'ZCOOL XiaoWei', sans-serif;
+    --font-roboto : 'Roboto', sans-serif;
+    --font-lato : 'Lato', sans-serif;
+
+}
+
+/* .ratenav{
+  position: sticky;
+  background-color:  #CA9D7A;
+   color: white;
+
+}
+.part-2{
+  margin-left: 85%;
+  margin-top: -40px;
+} */
+/* .fa{
+  margin-left: 90%;
+margin-top: -20%;
+font-size:x-large;
+} */
+img{
+  width: 50px; 
+  height: 30px;
+   /* border-radius: 50px; */
+}
+h3{
+  margin-left: 4%; 
+  margin-top: -35px;
+}
+.user{
+  margin-top: -2%;
+}
+.navbar{
+  background-color: rgb(229, 226, 226);
+}
+/* .filter{
+  margin-left: 80%;
+  
+}
+.sort{
+  margin-left: 89%;
+  margin-top: -41px;
+}
+
+.filtering{
+  background-color: #ffffff;
+}
+
+
+select{
+  border:none;
+  padding: 10px 10px;
+  border-radius:5px;
+}
+
+select:focus{
+  outline:none;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .product {
+  display: none;
+}
+
+Show products based on selected filter
+#filter[value="all"]:checked ~ .product,
+#filter:checked ~ .product-list .product {
+  display: block;
+} */
+
+/* Sort products based on selected option */
+/* #sort[value="low"]:checked ~ .product-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#sort[value="high"]:checked ~ .product-list {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.product {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+} */
+
+
+
+
+
+.checkbox-dropdown {
+  width: 200px;
+  border: 1px solid #aaa;
+  padding: 10px;
+  position: relative;
+  margin: 0 auto;
+  
+  user-select: none;
+}
+
+/* Display CSS arrow to the right of the dropdown text */
+.checkbox-dropdown:after {
+  content:'';
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 6px solid transparent;
+  border-top-color: #000;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+}
+
+/* Reverse the CSS arrow when the dropdown is active */
+.checkbox-dropdown.is-active:after {
+  border-bottom-color: #000;
+  border-top-color: #fff;
+  margin-top: -9px;
+}
+
+.checkbox-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%; /* align the dropdown right below the dropdown text */
+  border: inherit;
+  border-top: none;
+  left: -1px; /* align the dropdown to the left */
+  right: -1px; /* align the dropdown to the right */
+  opacity: 0; /* hide the dropdown */
+ 
+  transition: opacity 0.4s ease-in-out;
+  height: 100px;
+  overflow: scroll;
+  overflow-x: hidden;
+  pointer-events: none; /* avoid mouse click events inside the dropdown */
+}
+.is-active .checkbox-dropdown-list {
+  opacity: 1; /* display the dropdown */
+  pointer-events: auto; /* make sure that the user still can select checkboxes */
+}
+
+.checkbox-dropdown-list li label {
+  display: block;
+  border-bottom: 1px solid silver;
+  padding: 10px;
+ 
+  transition: all 0.2s ease-out;
+}
+
+.checkbox-dropdown-list li label:hover {
+  background-color: #555;
+  color: white;
+}
+
+
+
+
+.dropdown-check-list {
+  display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+  right: 8px;
+  top: 21%;
+}
+
+.dropdown-check-list ul.items {
+  padding: 2px;
+  display: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.dropdown-check-list ul.items li {
+  list-style: none;
+}
+
+.dropdown-check-list.visible .anchor {
+  color: #0094ff;
+}
+
+.dropdown-check-list.visible .items {
+  display: block;
+}

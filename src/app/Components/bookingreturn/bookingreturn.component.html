@@ -1,0 +1,33 @@
+<div class="Main">
+    <div class="container">
+            <div class="head-section">
+              <h2>Booking Return</h2>
+              <a routerLink="/cart" class="cancel" ><i class="fa fa-times" ></i></a>
+            </div>
+            <br>
+    <div>
+        <label style="font-size: medium;">Advance Amount :</label>
+            <input type="text" ngModel #advanceAmount="ngModel" [(ngModel)]="booking.advanceAmount" [value]="booking.advanceAmount" disabled>
+            
+            
+    </div>        
+<br>
+    <div>
+        <label style="font-size: medium;">Deduct Amount : </label>
+         <input type="text" ngModel #deductAmount="ngModel" [(ngModel)]="booking.deductAmount" (keyup)="refundAmount()" required>
+         <div style="margin-top: -14px;height: 20px;" class="text-danger" *ngIf="deductAmount.invalid && deductAmount.touched">
+            <div  *ngIf="deductAmount.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Deducted amount is required</div>
+            <!-- <div *ngIf="deductAmount.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div> -->
+          </div>
+    </div>
+<br>
+    <div>
+        <label style="font-size: medium;">Refund Amount : </label>
+         <input type="text" ngModel #minAmount="ngModel" [(ngModel)]="booking.refundAmount" [value]="booking.refundAmount" disabled>
+    </div>
+<br>
+    <button class="button" (click)="updateBooking()" routerLink="/cart">Submit</button>
+  
+      
+</div>
+</div>

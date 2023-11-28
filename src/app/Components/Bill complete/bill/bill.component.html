@@ -1,0 +1,159 @@
+ <!-- <div class="container">
+   <form onsubmit="">
+      <mat-form-field>
+        <label >Amount Paid : </label>
+        <input placeholder="Amount-Paid" ngModel #amountPaid="ngModel" 
+                            required pattern="[a-z A-Z 0-9]*"
+                            type="text" 
+                            name="name"
+                            [(ngModel)]="Bill.amountPaid" style="border-radius: 30px;"> 
+        <div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid" style="border-radius: 30px;">Amount Paid is required</div>
+      </mat-form-field><br>
+      
+
+      
+
+      <mat-form-field>
+        <label>Actual Amount : </label>
+        <input placeholder="Actual-Amount" ngModel #actualAmount="ngModel" 
+                            required 
+                            pattern="[a-z A-Z 0-9]*"
+                            type="text" 
+                            name="amountPaid"
+                            [(ngModel)]="Bill.actualAmount" style="border-radius: 30px;">
+        <div class="alert alert-danger" *ngIf="actualAmount.touched && actualAmount.invalid" style="border-radius: 30px;">Actual Amount is required</div>
+      </mat-form-field> <br>
+      
+
+      <mat-form-field>
+       <label>GST : </label> <br>
+        <input placeholder="GST" ngModel #gst="ngModel" 
+        required 
+        pattern="[a-z A-Z 0-9]*"
+        type="text" 
+        name="gst"
+        [(ngModel)]="Bill.gst" style="border-radius: 30px;">
+        <div class="alert alert-danger" *ngIf="gst.touched && gst.invalid" style="border-radius: 30px;">GST is required
+          
+        </div>
+      </mat-form-field>
+     <br>
+
+
+      <mat-form-field>
+         <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="currentDate" style="border-radius: 30px;"> -->
+        <!-- <input type="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br> -->
+
+      <!-- <button class="btn btn-primary"  onclick="alert('successfully')"  (click)="onSubmit()">Submit</button> -->
+  
+
+  <!-- <div>
+
+
+    <label> Product details :</label>
+    
+    <div class="form-Group">
+      <label for="Section">Products : </label>
+       <select id="sections" class="form-Group" #selectProduct>
+          <option value="{{p.productId}}" *ngFor="let p of products">{{p.productName}}</option>
+       </select> <br> <br>
+       <button class="btn btn-primary" (click)="onAddProduct(selectProduct)">Add Sections to visit</button>
+    </div> -->
+      <!-- <div>
+          <ul class="list-group">
+              <li class="list-group-item" *ngFor="let fp of formProductPurchase.controls">{{ getProductName(fp.value)}}</li>
+          </ul>
+      </div>
+
+    <br><br>
+  </div> -->
+    
+  <div class="invoice">
+    <div>
+      <div>
+        <img src="../../assets/images/images (1).png" style="width: 40px; height:30px; border-radius: 50%; margin-left: 50px; margin-bottom: 20px;"  alt="logo">
+      </div>
+
+      <div class="shop">
+        <h4>{{ shop.shopName }}</h4>
+        <h4>{{ shop.address }}</h4>
+        <h4>{{ shop.landline }}</h4>
+        <!-- <p>Grand Total: {{ getGrandTotal() | currency }}</p>
+        <p>Total Amount in Words: {{ getAmountInWords() }}</p> -->
+      </div>
+    </div>
+    
+    <div class="invoice-header">
+      <h6 class="center1">Government of India/ State of Karnataka</h6>
+      <h6 class="center2">SALE INVOICE</h6>
+        <h6 class="center3">
+          Form GST Invoice1
+        </h6> 
+        <h6 class="center2"><p>GST Number: {{ gstNumber }}</p></h6>
+        <hr> 
+
+        <div>
+
+
+          <div class="left-align">
+            <p>Customer: {{ bill.customer.customerName }}</p>
+            <p>Phone Number: {{ bill.customer.phone1 }}</p>
+
+          </div>
+
+
+          <div class="right-align">
+            <p>Date: {{ currentDate | date: 'short' }}</p>
+            <p>Bill Number: {{ billNumber }}</p>
+            
+          </div>
+
+        </div>
+      
+    </div>
+  
+    <hr>
+    <table>
+      <!-- The table content remains the same as in the previous example -->
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price (per unit)</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>GST(3%)</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of invoiceItems">
+          <td>{{ item.product.productName }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ (item.price * item.quantity) | currency }}</td>
+          <td>{{ (item.gst * item.price * item.quantity) | currency }}</td>
+          <td>{{ (item.total * item.quantity) | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+  
+    <div class="additional-charges">
+      <p>Stone Charges: {{ stoneCharges | currency }}</p>
+      <p>Labor Charges: {{ laborCharges | currency }}</p>
+    </div>
+    <b><hr></b>
+  
+    <div class="total">
+      <p>Subtotal: {{ getSubtotal() | currency }}</p>
+      <p>CGST ({{ (gstRate * 100 / 2) }}%): {{ getCGST() | currency }}</p>
+      <p>SGST ({{ (gstRate * 100 / 2) }}%): {{ getSGST() | currency }}</p>
+      <p>Grand Total: {{ getGrandTotal() | currency }}</p>
+      <p>Total Amount in Words: {{ transform(getGrandTotal()) }}</p>
+    </div>
+
+    
+  </div>

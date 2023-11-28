@@ -1,0 +1,279 @@
+<div
+  style="
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#d6e7ea, #d6e7ea);
+    height: 100vh;
+    border: 1px solid #d6e7ea;
+  "
+>
+  <div class="user1-box" style="margin: 3% 0%">
+    <div class="head-section">
+      <h2>User Form</h2>
+      <a routerLink="/userall"><i class="fa fa-times"></i></a>
+    </div>
+    <form class="form-group" #Form="ngForm">
+      <div>
+        <div class="field">
+          <input
+            ngModel
+            #userName="ngModel"
+            required
+            minlength="3"
+            pattern="[a-z A-Z 0-9]*"
+            type="text"
+            name="userName"
+            [(ngModel)]="user.user_Username"
+            id="name"
+            placeholder=" "
+            [value]="us.user_Username"
+          />
+          <label for="name"
+            ><i
+              class="fa fa-id-card-o"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >user Name
+          </label>
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="userName.invalid && userName.touched"
+        >
+          <div *ngIf="userName.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >User Name is required
+          </div>
+          <div *ngIf="userName.errors!['minlength']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            It should be Minimum 3 character
+          </div>
+          <div *ngIf="userName.errors!['pattern']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            It should not be special character
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="field">
+          <input
+            ngModel
+            #email="ngModel"
+            required
+            pattern="[A-Za-z0-9_.]*@[a-z]*[.]com"
+            type="email"
+            name="email"
+            [(ngModel)]="user.user_email"
+            id="email"
+            required
+            placeholder=" "
+            [value]="us.user_email"
+          />
+          <label for="email"
+            ><i
+              class="fa fa-envelope"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Email
+          </label>
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="email.invalid && email.touched"
+        >
+          <div *ngIf="email.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            Email is required
+          </div>
+          <div *ngIf="email.errors!['pattern']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >Email is invalid
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="field">
+          <input
+            ngModel
+            #phoneNo="ngModel"
+            required
+            pattern="[0-9]{10}"
+            type="tel"
+            name="phoneNo"
+            [(ngModel)]="user.user_phone1"
+            id="phoneNo"
+            required
+            placeholder=" "
+            [value]="us.user_phone1"
+          />
+          <label for="phoneNo"
+            ><i
+              class="fa fa-phone"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Phone Number 1</label
+          >
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="phoneNo.invalid && phoneNo.touched"
+        >
+          <div *ngIf="phoneNo.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            Phone No is required
+          </div>
+          <div *ngIf="phoneNo.errors!['pattern']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >Phone No is invalid
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="field">
+          <input
+            ngModel
+            #phoneNo1="ngModel"
+            required
+            pattern="[0-9]{10}"
+            type="tel"
+            name="phoneNo1"
+            [(ngModel)]="user.user_phone2"
+            id="phoneNo1"
+            required
+            placeholder=" "
+            [value]="us.user_phone2"
+          />
+          <label for="phoneNo1"
+            ><i
+              class="fa fa-phone"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Phone Number 2</label
+          >
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="phoneNo1.invalid && phoneNo1.touched"
+        >
+          <div *ngIf="phoneNo1.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            phone No1 is required
+          </div>
+          <div *ngIf="phoneNo1.errors!['pattern']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >Phone No1 is invalid
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="field">
+          <input
+            ngModel
+            #password="ngModel"
+            required
+            maxlength="20"
+            type="password"
+            name="password"
+            [(ngModel)]="user.user_password"
+            id="password"
+            required
+            placeholder=" "
+            [value]="us.user_password"
+          />
+          <label for="password"
+            ><i
+              class="fa fa-globe"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Password</label
+          >
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="password.invalid && password.touched"
+        >
+          <div *ngIf="password.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            Password is required
+          </div>
+          <div *ngIf="password.errors!['maxlength']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >It Should be less than 20 character
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="roles"
+        style="margin-top: 25px"
+      >
+        <div
+          class="select-container"
+          style="display: flex; justify-content: space-between"
+        >
+          <label style="font-size: 1.1rem; margin-top: 0.5%" for=""
+            >Role :</label
+          >
+          <select
+            class="form-select"
+            ngModel
+            name="roleId"
+            style="width: 77%"
+            aria-label="Default select example"
+          >
+            <option selected disabled>Select Role</option>
+            <option *ngFor="let r of roles" [value]="r.role_id"  (click)="onRoleSelectionChange(r.role_id)">
+              {{ r.role_description }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="section"
+        style="margin-top: 25px"
+      >
+        <div
+          class="select-container"
+          style="display: flex; justify-content: space-between"
+        >
+          <label style="font-size: 1.1rem; margin-top: 0.5%" for=""
+            >Section :</label
+          >
+          <select
+            class="form-select"
+            ngModel
+            name="sectionId"
+            style="width: 77%"
+            aria-label="Default select example"
+          >
+            <option selected disabled>Select Section</option>
+            <option *ngFor="let sec of sections" [value]="sec.section_id"  (click)="onSectionSelectionChange(sec.section_id)">
+              {{ sec.section_description }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        class="Submit"
+        onclick="alert('successfully')"
+        (click)="updateCompanyProcess()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

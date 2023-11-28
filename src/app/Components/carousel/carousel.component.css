@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: max-content;
+    background-color: var(--clr-primary);
+    /* background-color: black; */
+
+
+}
+
+.rates{
+    margin: 1rem 2rem;
+    font-family: var(--font-roboto);
+    font-size: 1rem;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+}
+
+.rates p{
+    margin-right: 5rem;
+}
+
+/* .car-1{
+    height: 35rem;
+    background-image: url("https://media.istockphoto.com/id/1199743674/photo/photo-collage-of-different-golden-bracelets-on-pink-and-blue-background.jpg?s=2048x2048&w=is&k=20&c=GdVQQveTkSbjiQ1jK2OpB1gWEAa6TT9oIPQf-LKUnIU=");
+
+} */
+
+/* .car-2{
+    background-image: url("https://media.istockphoto.com/id/1313322184/photo/photo-collage-of-golden-modern-bracelets-on-white-boxes.jpg?s=2048x2048&w=is&k=20&c=MxLd087P671Kq36gdpMWaouOXumWfuCj1SPWVfHipD4=");
+    height: 35rem;
+} */
+
+/* .car-3{
+    background-image: url("https://media.istockphoto.com/id/1199743585/photo/panoramic-jewelry-photos-collage-golden-bracelets-collection-on-white-platforms.jpg?s=2048x2048&w=is&k=20&c=CetDT5a2aq4XkwxtjnwUT6WorEIXRGvZQev1nlB6fYk=");
+    height: 35rem;
+} */
+
+
+.paragraph{
+    margin: 10rem 15rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainpara{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.5rem;
+    color: black;
+}
+
+.subpara{ 
+    color: rgb(65, 65, 65);
+    margin-top: 0.5rem;
+    font-size: larger;
+    font-weight: 400;
+}
+
+.button{
+    font-size: x-large;
+    border: 1px solid var(--clr-darkgold);
+    padding: 0.4em 1.5em;
+    background-color: var(--clr-gold);
+    color: whitesmoke;
+    margin-top: 1.5rem;
+    align-self: center;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+
+.button:hover{
+    background-color: black;
+
+}
+
+.button:active{
+    opacity: 0.8;
+}

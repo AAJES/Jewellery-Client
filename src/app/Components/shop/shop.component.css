@@ -1,0 +1,103 @@
+.container {
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 7px rgb(201, 197, 197);
+  border-radius: 10px;
+ 
+  background-color: whitesmoke;
+}
+
+.cancel {
+  margin-top: 20px;
+  text-align: right;
+}
+
+h3 {
+  text-align: center;
+}
+
+/* Add responsive styles for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Style the form elements for better spacing and readability */
+label {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #bbb8b8;
+  border-radius: 5px;
+}
+
+.alert {
+  color: red;
+  margin-top: 5px;
+}
+
+/* Style the file input container */
+.file-upload-container {
+  text-align: center;
+}
+
+.file-input-label {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.file-input-label i {
+  margin-right: 5px;
+}
+
+/* Hide the file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Style the image */
+.square {
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Style the submit button */
+.button {
+  background: linear-gradient(90deg, rgb(246, 234, 166) 0%, rgb(249, 231, 131) 16%, rgb(250, 226, 93) 50%, rgb(249, 222, 70) 83%, rgb(253, 215, 1) 100%);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgb(243, 213, 40);
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}

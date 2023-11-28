@@ -1,0 +1,406 @@
+<div
+  style="
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#ffffff, #ffffff);
+    
+   
+  "
+  class="container"
+>
+  <div class="user1-box" style="margin: 12% 0%">
+    <div class="head-section">
+      <h2>Customer Form</h2>
+      <a  routerLink="/departmentall"><i class="fa fa-times"></i></a>
+    </div>
+    <form class="example-form" #form="ngForm">
+      <div style="margin-bottom: 20px" class="form-group">
+        <div class="field">
+          <label for="Customer"
+            ><i
+              class="fa fa-id-card-o"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Customer Name</label
+          ><br>
+          <input
+            ngModel
+            #customerName="ngModel"
+            required
+            minlength="3"
+            pattern="[a-z A-Z ]*"
+            type="text"
+            name="customerName"
+            [(ngModel)]="customer.customerName"
+            id="productName"
+            placeholder=" "
+          />
+          
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="customerName.invalid && customerName.touched"
+        >
+          <div *ngIf="customerName.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+            >Product Name is required
+          </div>
+          <div *ngIf="customerName.errors!['minlength']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            It should be Minimum 6 character
+          </div>
+          <div *ngIf="customerName.errors!['pattern']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            It should not be special character
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="phone1"
+        ><i
+          class="fa fa-id-card-o"
+          style="font-size: 10px; margin-right: 7px"
+        ></i
+        >Phone No1:</label
+      ><br>
+        <input
+          ngModel
+          #phone1="ngModel"
+          required
+          minlength="3"
+          pattern="[0-9 a-z A-Z]*"
+          type="text"
+          name="phone1"
+          [(ngModel)]="customer.phone1"
+          id="phone1"
+          placeholder=" "
+        />
+       
+      </div>
+      <div
+        style="margin-top: -16px"
+        class="text-danger"
+        *ngIf="phone1.invalid && phone1.touched"
+      >
+        <div *ngIf="phone1.errors!['required']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+          >Weightage is required
+        </div>
+        <div *ngIf="phone1.errors!['minlength']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should be Minimum 1 character
+        </div>
+        <div *ngIf="phone1.errors!['pattern']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should not be special character
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="phone2"
+          ><i
+            class="fa fa-id-card-o"
+            style="font-size: 10px; margin-right: 7px"
+          ></i
+          >Phone No2:</label
+        ><br>
+        <input
+          ngModel
+          #phone2="ngModel"
+          required
+          minlength="3"
+          pattern="[0-9 a-z A-Z]*"
+          type="text"
+          name="phoneNo2"
+          [(ngModel)]="customer.phone2"
+          id="phone2"
+          placeholder=" "
+        />
+        
+      </div>
+      <div
+        style="margin-top: -16px"
+        class="text-danger"
+        *ngIf="phone2.invalid && phone2.touched"
+      >
+        <div *ngIf="phone2.errors!['required']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+          >Wastage is required
+        </div>
+        <div *ngIf="phone2.errors!['minlength']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should be Minimum 6 character
+        </div>
+        <div *ngIf="phone2.errors!['pattern']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should not be special character
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email"
+          ><i
+            class="fa fa-id-card-o"
+            style="font-size: 10px; margin-right: 7px"
+          ></i
+          >Email :</label
+        ><br>
+        <input
+          ngModel
+          #email="ngModel"
+          required
+          minlength="3"
+          type="text"
+          name="email"
+          [(ngModel)]="customer.email"
+          id="email"
+          placeholder=" "
+        />
+        
+      </div>
+      <div
+        style="margin-top: -16px"
+        class="text-danger"
+        *ngIf="email.invalid && email.touched"
+      >
+        <div *ngIf="email.errors!['required']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+          >Description is required
+        </div>
+        <div *ngIf="email.errors!['minlength']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should be Minimum 6 character
+        </div>
+        <div *ngIf="email.errors!['pattern']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should not be special character
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="location"
+        ><i
+          class="fa fa-id-card-o"
+          style="font-size: 10px; margin-right: 7px"
+        ></i
+        >Location :</label
+      ><br>
+        <input
+          ngModel
+          #location="ngModel"
+          required
+          minlength="3"
+          pattern="[a-z A-Z ]*"
+          type="text"
+          name="location"
+          [(ngModel)]="customer.location"
+          id="location"
+          placeholder=" "
+        />
+       
+      </div>
+      <div
+        style="margin-top: -16px"
+        class="text-danger"
+        *ngIf="location.invalid && location.touched"
+      >
+        <div *ngIf="location.errors!['required']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+          >Description is required
+        </div>
+        <div *ngIf="location.errors!['minlength']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should be Minimum 6 character
+        </div>
+        <div *ngIf="location.errors!['pattern']">
+          <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+          It should not be special character
+        </div>
+      </div>
+ 
+
+
+      
+
+      <!-- <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Gender :</label
+          >
+          <select
+            ngModel
+            name="genderId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select Gender</option>
+            <option (click)="onGenderSelectionChange(gender.genderId)"
+              *ngFor="let gender of genders"
+              [value]="gender.genderId"
+            >
+              {{ gender.gender }}
+            </option>
+          </select>
+        </div>
+      </div> -->
+
+      <br>
+      <mat-form-field>
+        <mat-label>Gender </mat-label>
+        <mat-select class="form-Group" #selectGender>
+          <mat-option value="{{g.genderId}}" *ngFor="let g of genders" (click)="onGenderSelectionChange(g.genderId)">{{g.gender}}</mat-option>
+        </mat-select>
+        
+      </mat-form-field>
+<br>
+      <!-- <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Purity :</label
+          >
+          <select
+            ngModel
+            name="purityId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select Purity</option>
+            <option (click)="onPuritySelectionChange(purity.purityId)"
+              *ngFor="let purity of purities"
+              [value]="purity.purityId"
+            >
+              {{ purity.purityName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Category :</label
+          >
+          <select
+            ngModel
+            name="categoryId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select Category</option>
+            <option (click)="onCategorySelectionChange(category.categoryId)"
+              *ngFor="let category of categories"
+              [value]="category.categoryId"
+            >
+              {{ category.categoryName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Rate :</label
+          >
+          <select
+            ngModel
+            name="userId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select rate</option>
+            <option (click)="onRateSelectionChange(rate.rateId)"
+              *ngFor="let rate of rates"
+              [value]="rate.rateId"
+            >
+              {{ rate.ratePerGram }}
+            </option>
+          </select>
+        </div>
+      </div> -->
+
+      <!-- <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >User :</label
+          >
+          <select
+            ngModel
+            name="userId"
+            class="form-control"
+            style="width: 80%"
+            aria-label="Default select example"
+          >
+            <option selected >Select User</option>
+            <option (click)="onUserSelectionChange(user.userId)"
+              *ngFor="let user of users"
+              [value]="user.userId"
+            >
+              {{ user.userName }}
+            </option>
+          </select>
+        </div>
+      </div> -->
+
+      <!-- <div
+        style="padding-top: 10px; margin-top: 25px; display: flex"
+        class="form-group"
+      >
+        <label style="margin-right: 9px; font-size: 1.1rem" for=""
+          >Status :</label
+        >
+
+        <mat-slide-toggle
+          [(ngModel)]="department.status"
+          ngModel
+          name="status"
+        ></mat-slide-toggle>
+      </div> -->
+
+      <button
+        class="button" 
+        onclick="alert('successfully')" 
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

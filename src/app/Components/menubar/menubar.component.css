@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+    margin-top: 1%;
+}
+body{
+    /* height: 10rem; */
+    background-color: var(--clr-primary);
+    
+}
+
+.menubar{
+    margin-top: -60px;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 60rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.center{
+    text-align: center;
+}
+
+.logo{
+     margin-top: 1.0rem; 
+     margin-right: 1100px;
+}
+img:hover{
+    cursor: pointer;
+}
+.icon i{
+    color: darkgray;
+}
+input{
+    width: 35em;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+input:focus{
+    background-color: transparent;
+}
+.menu{
+    gap: 2rem;
+}
+.menu a{
+    text-decoration: none;
+    color: var(--clr-gold);
+    font-family: var(--font-primary);
+    transition: color 0.25s ease;
+}
+.menu a:hover{
+    color: var(--clr-gray);
+}
+.menu a:active{
+    opacity: 0.75;
+}

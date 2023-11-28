@@ -1,0 +1,193 @@
+<div class="main">
+  <h2 style="margin-top: -10%;margin-left: 6%;">Payment</h2>
+  <form class="mopform" >
+<div class="form">
+  <br>
+       <label>Total Amount : </label> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input placeholder="Total Amount" ngModel #totalAmount="ngModel" 
+                           required pattern="[a-z A-Z 0-9]*"
+                           type="number" 
+                           name="totalAmount"
+                           [(ngModel)]="Payment.totalAmount"
+                           [value]="payment.totalAmount"> 
+       <div class="alert alert-danger" *ngIf="totalAmount.touched && totalAmount.invalid">Total Amount is required</div>
+     
+     <br>
+
+     <br>
+
+   
+       <label>Discount Amount : </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input placeholder="Discount Amount" ngModel #discountAmount="ngModel" 
+                           required 
+                           pattern="[a-z A-Z 0-9]*"
+                           type="text" 
+                           name="discountAmount"
+                           [(ngModel)]="payment.discountAmount" >
+       <div class="alert alert-danger" *ngIf="discountAmount.touched && discountAmount.invalid">Discount Amount is required</div>
+   
+     <br>
+<br>
+
+     <!-- <mat-form-field>
+       <mat-label>Payment ID</mat-label>
+       <input placeholder="Payment ID" ngModel #paymentID="ngModel" 
+       required 
+       pattern="[a-z A-Z 0-9]*"
+       type="text" 
+       name="paymentID"
+       [(ngModel)]="Payment.paymentID" >
+       <div class="alert alert-danger" *ngIf="paymentID.touched && paymentID.invalid">Payment ID is required
+         
+       </div>
+     </mat-form-field>
+     <br> -->
+
+  
+         
+           <label>Amount Paid : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <input placeholder="Amount Paid" ngModel #amountPaid="ngModel" 
+                               required pattern="[a-z A-Z 0-9]*"
+                               type="text" 
+                               name="amountPaid"
+                               [(ngModel)]="payment.amountPaid"> 
+           <div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid">Amount Paid is required</div>
+     
+         <br>
+
+         <div
+        class="input-selectbox"
+        ngModelGroup="companyEntity"
+        style="margin-top: 25px"
+      >
+        <div class="select-container form-group" style="display: flex">
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""  
+            >Mode Of Payment :</label
+          > &nbsp;&nbsp;&nbsp;
+          <select
+            ngModel
+            name="metalId"
+            class="form-control"
+            style="width: 40%"
+            aria-label="Default select example" 
+          > 
+            <option selected >Select Mode Of Payment
+            </option>  <i class="bi bi-caret-down-fill"></i>
+            <option (click)="onModeOfPaymentSelectionChange(mop.modeOfPaymentId)"
+              *ngFor="let mop of mops"
+              [value]="mop.modeOfPaymentId">
+              {{ mop.modeOfPayment }}
+            </option>
+          </select>
+        </div>
+      </div>
+   
+         
+   
+         <!-- <mat-form-field>
+           <mat-label>Total Weight</mat-label>
+           <input placeholder="Total Weight" ngModel #totalWeight="ngModel" 
+                               required 
+                               pattern="[a-z A-Z 0-9]*"
+                               type="text" 
+                               name="totalWeight"
+                               [(ngModel)]="Payment.totalWeight" >
+           <div class="alert alert-danger" *ngIf="totalWeight.touched && totalWeight.invalid">Total Weight is required</div>
+         </mat-form-field>
+         <br>
+   
+   
+         <mat-form-field>
+           <mat-label>User ID</mat-label>
+           <input placeholder="User ID" ngModel #userId="ngModel" 
+           required 
+           pattern="[a-z A-Z 0-9]*"
+           type="text" 
+           name="userId"
+           [(ngModel)]="Payment.userId" >
+           <div class="alert alert-danger" *ngIf="userId.touched && userId.invalid">Uer ID is required
+             
+           </div>
+         </mat-form-field>
+         <br>
+
+         
+             <mat-form-field>
+               <mat-label>Login ID</mat-label>
+               <input placeholder="Login ID" ngModel #loginId="ngModel" 
+                                   required pattern="[a-z A-Z 0-9]*"
+                                   type="text" 
+                                   name="loginId"
+                                   [(ngModel)]="Payment.loginId"> 
+               <div class="alert alert-danger" *ngIf="loginId.touched && loginId.invalid">Login ID is required</div>
+             </mat-form-field>
+             <br>
+        
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+<br><br>
+
+      <button class="button" (click)="onSubmit()">Submit</button>
+
+    </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="example-container">
+    <mat-form-field>
+     <input matInput placeholder="Total-Amount">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="Discount-Amount">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="Payment-Id">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="Amount-Paid">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="Total-Weight">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="User-Id">
+   </mat-form-field>
+
+   <mat-form-field>
+     <input matInput placeholder="Login-Id">
+   </mat-form-field>
+
+    <mat-form-field>
+     <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+     <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field>
+</div> -->

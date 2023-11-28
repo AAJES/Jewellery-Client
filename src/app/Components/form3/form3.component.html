@@ -1,0 +1,136 @@
+<!-- 
+<div   style=" width: 100%;display: flex;justify-content: center; background: linear-gradient(#d6e7ea, #d6e7ea);; height: 100vh; border: 1px solid #d6e7ea" >
+  <div class="user1-box" style="margin: 8% 0%;">
+    <div class="head-section">
+      <h2>Employee Form</h2>
+      <a routerLink="/employeeall"><i class="fa fa-times" ></i></a>
+    </div>
+    <form class="form-group" #form="ngForm">
+     
+     
+      
+     
+   <div>
+    <div class="field">
+      <input  ngModel #address1="ngModel" 
+              required maxlength="100" 
+              type="text" 
+              name="employeeName" 
+              [(ngModel)]="employee.employeeName"
+              id ="address1" required placeholder=" "
+              [value]="empl.employeeName"
+              >
+      <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Employee Name </label>
+    </div>
+    <div style="margin-top: -16px;height: 20px;" class="text-danger" *ngIf="address1.invalid && address1.touched">
+      <div  *ngIf="address1.errors!['required']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i> Employee is required</div>
+      <div *ngIf="address1.errors!['maxlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle" ></i>It Should be less than 100 character</div>
+    </div>
+ </div>
+
+ <div class="field">
+  <input  ngModel #address1="ngModel" 
+          required maxlength="100" 
+          type="text" 
+          name="Entity" 
+          id ="address1" required placeholder=" "
+          [value]="empl.companyEntity"
+          disabled
+          >
+  <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Entity </label>
+</div>
+
+<div class="field">
+  <input  ngModel #address1="ngModel" 
+          required maxlength="100" 
+          type="text" 
+          name="Department" 
+          id ="address1" required placeholder=" "
+          [value]="empl.department"
+          disabled
+          >
+  <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Department </label>
+</div>
+
+<div class="field">
+  <input  ngModel #address1="ngModel" 
+          required maxlength="100" 
+          type="text" 
+          name="Designation" 
+          id ="address1" required placeholder=" "
+          [value]="empl.designation"
+          disabled
+          >
+  <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Designation </label>
+</div>
+
+<div class="field">
+  <input  ngModel #address1="ngModel" 
+          required maxlength="100" 
+          type="text" 
+          name="Section" 
+          [(ngModel)]="employee.employeeName"
+          id ="address1" required placeholder=" "
+          [value]="empl.section"
+          disabled
+          >
+  <label for ="address1" ><i class="fa fa-map-marker"  style="font-size: 10px;margin-right: 7px;" ></i>Section </label>
+</div>
+
+
+<div class="input-selectbox" ngModelGroup="companyEntity" style="margin-top: 25px;">
+  <div class="select-container" style="display: flex;justify-content: space-between;">
+    <label  style="margin-right: 20px;font-size: 1.1rem;margin-top: 0.5%;" for="">Entity :</label>
+    <select #selentity class="form-select" ngModel name="entityId" style="width: 72%;">
+      <option selected>Select Entity</option>
+      <option *ngFor="let entity of Companiesentity" [value]="entity.entity_id" (click)="onEntitySelectionChange(entity.entity_id)">{{ entity.entityName }}</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="input-selectbox"  ngModelGroup="department" style="margin-top: 25px;">
+  <div class="select-container" style="display: flex;justify-content: space-between;">
+    <label  style="margin-right: 20px;font-size: 1.1rem;margin-top: 0.5%;" for="">Department :</label>
+    <select #seldepartment  class="form-select" ngModel name="departmentId" style="width: 68.4%;" >
+      <option selected>Select Department</option>
+      <option *ngFor="let department of departments" [value]="department.departmentId" (click)="onDepartmentSelectionChange(department.departmentId)">{{ department.departmentName }}</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="input-selectbox"  ngModelGroup="section" style="margin-top: 25px;">
+  <div class="select-container" style="display: flex;justify-content: space-between;">
+    <label  style="margin-right: 20px;font-size: 1.1rem;margin-top: 0.5%;" for="">Section :</label>
+    <select class="form-select"  ngModel name="sectionId" style="width: 72%;"  aria-label="Default select example">
+      <option selected>Select Section</option>
+      <option *ngFor="let sec of sections" [value]="sec.sectionId" (click)="onSectionSelectionChange(sec.sectionId)">{{ sec.sectionName }}</option>
+    </select>
+  </div>
+</div>
+
+<div class="input-selectbox"  ngModelGroup="designation" style="margin-top: 25px;">
+  <div class="select-container" style="display: flex;justify-content: space-between;">
+    <label  style="margin-right: 20px;font-size: 1.1rem;margin-top: 0.5%;" for="designationId">Designation :</label>
+    <select class="form-select"  ngModel name="designationId" style="width: 68%;"  aria-label="Default select example">
+      <option selected>Select Designation</option>
+      <option *ngFor="let dg of designations" [value]="dg.designationId" (click)="onDesignationSelectionChange(dg.designationId)">{{ dg.designation }}</option>
+    </select>
+  </div>
+</div>
+
+    
+
+
+
+      <button class="Submit" onclick="alert('successfully')" (click)="updateCompanyProcess()">Submit
+      </button>
+  
+
+
+
+    </form>
+  </div>
+</div>
+ -->

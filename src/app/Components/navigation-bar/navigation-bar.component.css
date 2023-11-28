@@ -1,0 +1,498 @@
+
+
+.navbar {
+  padding: 10px 0;
+  height: 80px;
+}
+
+.logo {
+  width: 100px;
+  /* Adjust the logo size as needed */
+  height: 30px;
+}
+
+.collapse {
+  padding: 15px;
+  margin-left: 52%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  
+}
+
+
+.nav-link {
+  color: #fff !important;
+  margin: 0 15px;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+ul li a{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #472dda;
+}
+
+.login {
+  background:#f4f6fa ;
+  padding: 10px 15px;
+  border-radius: 70px;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+.bg-secondary-theme {
+  background-color:#E5F5EA;
+  border-radius: 70px;
+  padding: 10px 15px;
+}
+
+.nv{
+  display: flex;
+}
+
+
+.container {
+text-align: center;
+}
+
+h1 {
+font-size: 24px;
+color: #333;
+}
+
+.nav-item{
+  cursor: pointer;
+}
+
+p {
+font-size: 16px;
+color: #666;
+}
+
+.img{
+  
+  height: 100%;
+  width: 100%;
+}
+
+.content{
+  margin-top: 20%;
+}
+
+.sidenav1 i{
+  margin-right: 4px;
+  padding-top: 10px;
+}
+
+.home{
+  height: 80vh;
+}
+
+@media (max-width: 767px) {
+
+  .nav-link {
+      color: #080000 !important;
+      
+  }
+  .navbar-collapse {
+    background-color: #fff;
+    color: #0e0000; /* Replace with your desired background color */
+  }
+
+  /* Style the links within the collapsed menu */
+  .navbar-collapse a.nav-link {
+    color: #0e0000; /* Replace with your desired text color */
+  }
+}
+
+.topnav1 {
+  z-index: 2;
+}
+.topnav2 {
+  background-color: #5eceea;
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  height: 60px;
+  z-index: 1;
+}
+
+
+i{
+  margin-right: 4px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.LoginImage {
+  margin-top: -3%;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+/* The side navigation menu */
+.sidenav {
+  min-height: 90vh;
+  max-height: 90vh;
+  margin-top: 80px;
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background: snow;
+  box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.9);
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s;
+  color: #0a0a0a;
+}
+
+
+
+.sidenav ul li{
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding-bottom: 25px;
+}
+
+.sidenav li .sub-field{
+  margin-top: 20px;
+}
+
+.sub-field  li a{
+  width: 220px;
+}
+
+.sub-field .li{
+  left: -16px;
+}
+
+.sub-field .li-p{
+  left: -30px;
+}
+
+.sub-field .li-pp{
+  left: -45px;
+}
+
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+
+.sidenav ul {
+  padding: 0;
+  list-style: none;
+}
+
+.sidenav li {
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #333333;
+  transition: 0.3s;
+}
+
+
+
+.sidenav ul li {
+  
+  text-align: center;
+  font-size: 18px;
+  color: #333333;
+  transition: 0.3s;
+  display: flex;
+  position: relative; 
+}
+
+.sidenav .ul .li a{
+  left: -3px;
+}
+
+
+.sidenav ul li:hover {
+  background-color: #6957cf;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.sidenav ul li a {
+  text-decoration: none;
+  color: inherit;
+  padding-top: 1.0rem;
+  height: 100%; 
+  padding-left: 2rem;
+  position: absolute; 
+}
+
+
+.sidenav a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+/* Font Awesome icons */
+.sidenav i {
+  margin-right: 10px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+/* Style buttons */
+.btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-right: 20px; /* Add margin to create a gap between links */
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+
+
+@media (max-width: 767px) {
+
+  .nav-link {
+      color: #080000 !important;
+      
+  }
+  .navbar-collapse {
+    background-color: #fff;
+    color: #0e0000; /* Replace with your desired background color */
+  }
+
+  /* Style the links within the collapsed menu */
+  .navbar-collapse a.nav-link {
+    color: #0e0000; /* Replace with your desired text color */
+  }
+}
+
+/* Common styles for both side navigation menus */
+.sidenav1 {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  margin-top: 80px;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 2;
+  background: snow;
+  box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.9);
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s;
+  color: #0a0a0a;
+}
+
+
+.sidenav1 ul li{
+  display: flex;
+  align-items: center;
+}
+
+
+/* Position and style the close button (top right corner) */
+.sidenav1 .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+.btn {
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+}
+
+
+/* Styles for left side navigation */
+.sidenav1.left {
+  width: 0;
+}
+
+/* Styles for right side navigation */
+.sidenav1.right {
+  width: 0;
+  right: 0;
+  left: auto; /* Adjust left to override right positioning */
+}
+
+/* Add hover effect to right button to trigger right side navigation */
+
+
+/* Adjust right button position */
+.right-btn {
+  right: 10px;
+  left: auto; /* Adjust left to override right positioning */
+}
+.sidenav1 ul {
+  padding: 0;
+  list-style: none;
+}
+
+.sidenav1 li {
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #333333;
+  transition: 0.3s;
+}
+
+
+
+.sidenav1 ul li {
+  
+  text-align: center;
+  font-size: 18px;
+  color: #333333;
+  transition: 0.3s;
+  display: flex;
+  position: relative; 
+}
+
+.sidenav1 ul li:hover {
+  background-color: #6957cf;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.sidenav1 ul li a {
+  text-decoration: none;
+  color: inherit;
+  padding-top: 1.5rem;
+  height: 100%; 
+  padding-left: 2rem;
+  position: absolute; 
+}
+
+
+.sidenav1 a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Font Awesome icons */
+.sidenav1 i {
+  margin-right: 10px;
+}
+

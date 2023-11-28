@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#ffffff, #ffffff);
+  height: auto;
+  border: 1px solid #d6e7ea;
+}
+
+.user1-box {
+  background: #fff;
+  border: 1px solid #d6e7ea;
+  padding: 20px;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  width: 90%; /* Responsive width for smaller screens */
+}
+
+.head-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+}
+
+/* Form field styles */
+.field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d6e7ea;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.field label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  pointer-events: none;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.field input:focus + label, .field input:valid + label {
+  top: -10px;
+  font-size: 12px;
+}
+
+.text-danger {
+  font-size: 12px;
+  color: red;
+  margin-top: -16px;
+}
+
+/* Submit button styles */
+.Submit {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .user1-box {
+    max-width: 90%; /* Reduce maximum width for smaller screens */
+  }
+  
+  .field input {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .field label {
+    top: 10px;
+    font-size: 14px;
+  }
+  
+  .text-danger {
+    font-size: 14px;
+  }
+}

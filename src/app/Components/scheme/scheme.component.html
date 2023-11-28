@@ -1,0 +1,59 @@
+<div class="container">
+    <h3><b>Scheme Details</b></h3>
+    <br>
+    <div class="cancel" style=" margin-top: -45px;">
+        <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 540px; font-size: 30px; margin-top: -3%;"></i></a>
+      </div><br>
+
+  <label><b>Scheme Name:</b></label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  <input placeholder="Scheme Name" ngModel #schemeName ="ngModel" 
+  required 
+  pattern="[a-z A-Z 0-9]*"
+  type="text" 
+  name="schemeName"
+  [(ngModel)]="scheme.schemeName" [value]="scheme.schemeName">
+
+  
+<div class="alert alert-danger" *ngIf="schemeName.touched && schemeName.invalid">Scheme Name is Required</div>
+  <br>
+<br>
+
+<label><b>Amount Per Month : </b></label> &nbsp; &nbsp; &nbsp; &nbsp;
+  
+<input placeholder="Amount/Month" ngModel #amountPerMonth ="ngModel" 
+required 
+pattern="[a-z A-Z 0-9]*"
+type="text" 
+name="amountPerMonth"
+[(ngModel)]="scheme.amountPerMonth" [value]="scheme.amountPerMonth">
+
+<br><br>
+<div>
+  <label><b>Date :</b></label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="date" ngModel #startDate [(ngModel)]="scheme.startDate">&nbsp; &nbsp;&nbsp;&nbsp;
+<input type="date" ngModel #endDate [(ngModel)]="scheme.endDate">
+</div>
+<br>
+
+  <label><b>Scheme Amount : </b></label> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+  <input placeholder="Scheme Amount" ngModel #schemeAmount ="ngModel" 
+  required 
+  pattern="[a-z A-Z 0-9]*"
+  type="text" 
+  name="schemeAmount"
+  [(ngModel)]="scheme.schemeAmount" [value]="scheme.schemeAmount"
+  disabled>
+
+  
+<div class="alert alert-danger" *ngIf="schemeAmount.touched && schemeAmount.invalid">Scheme Amount is Required</div>
+  <br>
+<br>
+
+
+  
+
+<br><br>
+<button class="button" onclick="alert('successfully')" (click)="onSubmit()">Submit </button>
+  
+</div>

@@ -1,0 +1,27 @@
+
+ <div
+  class="container"
+  *ngIf="viewComponent == 'displayall'"
+  style="width: 65%"
+>   <h3>Employee </h3>
+  <div class="button">
+        <button mat-raised-button 
+        matTooltip="Add Metal"
+        aria-label="Button that displays a tooltip when focused or hovered over" style="border-radius: 10px ; 
+        background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
+        rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);" (click)="onAddemployee()"  routerLink="/employeeform">
+        <i class="fa fa-plus" aria-hidden="true"></i></button> &nbsp;
+     
+  </div> <br>
+  <ag-grid-angular
+class="ag-theme-alpine"
+style="height: 600px; width: 800px; box-shadow: 2px 2px 7px 7px rgb(201, 198, 198);"
+[rowData]="rowData$ | async"
+[columnDefs]="colDefs"
+[rowSelection]="'multiple'"
+[animateRows]="true"
+></ag-grid-angular>
+
+
+ </div>
+

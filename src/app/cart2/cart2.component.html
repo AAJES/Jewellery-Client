@@ -1,0 +1,28 @@
+<h2>Your Shopping Cart</h2>
+<ul>
+  <li *ngFor="let item of items">
+    {{ item.productName }} - ₹{{ item.price }}
+    <button (click)="increaseItemQuantity(item)">+</button>{{item.quantity}}
+    <button (click)="decreaseItemQuantity(item)">-</button>
+  </li>
+</ul>
+<p>Total: ₹{{ total }}</p>
+<div>
+  <mat-form-field>
+    <mat-label>Customer </mat-label>
+    <mat-select class="form-Group" #selectCustomer>
+      <mat-option value="{{c.customerId}}" *ngFor="let c of customers" (click)="onCustomerSelectionChange(c.customerId)">{{c.customerName}}</mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>Employee </mat-label>
+    <mat-select class="form-Group" #selectEmployee>
+      <mat-option value="{{e.employeeId}}" *ngFor="let e of employees" (click)="onEmployeeSelectionChange(e.employeeId)">{{e.employeeName}}</mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+</div>
+<p><button class="btn btn-primary" (click)="addBill()">Bill</button></p>

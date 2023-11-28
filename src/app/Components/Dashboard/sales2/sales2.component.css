@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+table{
+    width: 100%;
+}
+
+.heading{
+    text-align: center;
+    text-decoration: underline;
+    font-size: xx-large;
+    color: rgb(110, 110, 110);
+    margin-bottom: 2rem;
+}
+
+.sales{
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    /* margin-inline: auto; */
+    background: var(--gradient);
+    box-shadow: var(--primary-shadow) ;
+    height: 100px;
+}
+
+.charts{
+    gap: 3rem;
+    /* height: 32rem; */
+    margin-inline: auto;
+    justify-content: space-between;
+}
+
+.linechart{
+    background-color: white;
+    padding: 2rem;
+    box-shadow: var(--secondary-shadow) ;
+}
+
+.doughnut{
+    background-color: white;
+    box-shadow: var(--secondary-shadow);
+    padding: 2rem;
+}
+
+.mat-elevation-z8{
+    margin-top: 1rem;
+    box-shadow: var(--secondary-shadow);
+}
+
+.input{
+    width: 100%;
+    margin-top: 3rem;
+    background-color: white;
+    box-shadow: var(--secondary-shadow);
+}
+
+.paginator{
+    background-color: white;
+    box-shadow: var(--secondary-shadow);
+}
+
+

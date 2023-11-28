@@ -1,0 +1,51 @@
+<div class="container">
+    <p class="heading">RETURN</p>
+    <div class="charts flex">
+        <canvas id="linechart" class="linechart"></canvas>
+        <canvas id="doughnut" class="doughnut"></canvas>
+    </div>
+
+    <mat-form-field class="input">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <mat-table [dataSource]="tablesource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.returnId}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="wastage">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Wastage(grm) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.wastage}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="grossWeight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Gross Weight(grm) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.grossWeight}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="netWeight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Net Weight(grm) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.netWeight}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="returnAmount">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Return Amount </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.returnAmount}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator class="paginator" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons
+        aria-label="Select page of users"></mat-paginator>
+</div>

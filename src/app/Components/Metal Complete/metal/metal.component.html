@@ -1,0 +1,21 @@
+<div class="container">
+      <h3>Metal</h3>
+      <div class="cancel">
+            <a routerLink="/allmetal" ><i class="fa fa-times" style="color: black; margin-left: 95%;font-size: xx-large; " routerLink="/allmetal"></i></a>
+          </div><br>
+    <label><b>Metal Name :</b></label>
+      <br> 
+      <br>
+      <input type="text" name="metalName" placeholder="metalName" size="15" ngModel #metalName="ngModel" 
+      required 
+      pattern="[a-z A-Z 0-9]*"
+      type="text" 
+      name="metalName"
+      [(ngModel)]="metal.metalName" [value]="metall.metalName" style="border-radius: 10px;">
+<div class="alert alert-danger" *ngIf="metalName.touched && metalName.invalid" style="padding-left: 50px;">Metal Name is required</div>
+      <br> 
+
+      <button class="button" (click)="onSubmit()" style="border-radius: 50px; width: 80px; height: 40px;" routerLink="/allmetal"><b> Submit </b></button>
+</div>
+
+

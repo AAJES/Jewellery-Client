@@ -1,0 +1,61 @@
+<div style=" width: 100%;
+display: flex;justify-content: center;
+background: linear-gradient(#ffffff, #ffffff);
+height: auto; border: 1px solid #d6e7ea">
+  <div class="user1-box" style="margin: 13% 0%;">
+    <div class="head-section">
+      <h2>Menu Form</h2>
+      <a routerLink="/menuall"><i class="fa fa-times"></i></a>
+    </div>
+    <form class="form-group">
+
+
+
+
+      <div style="margin-bottom: 20px;">
+        <div class="field">
+          <input ngModel #name="ngModel" required minlength="3" [(ngModel)]="menu.menuName" pattern="[a-z A-Z 0-9]*" type="text" name="name"
+            id="name" placeholder=" ">
+          <label for="name"><i class="fa fa-id-card-o" style="font-size: 10px;margin-right: 7px;"></i>Menu Name</label>
+        </div>
+        <div style="margin-top: -16px;" class="text-danger" *ngIf="name.invalid && name.touched">
+          <div *ngIf="name.errors!['required']"><i style="margin-right: 5px;"
+                                                   class="fa fa-exclamation-triangle"></i>
+                                                   Menu Name is required
+          </div>
+          <div *ngIf="name.errors!['minlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle"></i>
+            It should be Minimum 3 character</div>
+          <div *ngIf="name.errors!['pattern']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle"></i> It
+            should not be special character</div>
+        </div>
+      </div>
+
+
+      <div style="margin-bottom: 20px;">
+        <div class="field">
+          <input ngModel #menugroup="ngModel" required minlength="3" [(ngModel)]="menu.menuGroup" pattern="[a-z A-Z 0-9]*" type="text" name="menugroup"
+            id="menugroup" placeholder=" ">
+          <label for="menugroup"><i class="fa fa-id-card-o" style="font-size: 10px;margin-right: 7px;"></i>Menu Group</label>
+        </div>
+        <div style="margin-top: -16px;" class="text-danger" *ngIf="menugroup.invalid && menugroup.touched">
+          <div *ngIf="menugroup.errors!['required']"><i style="margin-right: 5px;"
+              class="fa fa-exclamation-triangle"></i>Menu Group is required</div>
+          <div *ngIf="menugroup.errors!['minlength']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle"></i>
+            It should be Minimum 3 character</div>
+          <div *ngIf="menugroup.errors!['pattern']"><i style="margin-right: 5px;" class="fa fa-exclamation-triangle"></i> It
+            should not be special character</div>
+        </div>
+      </div>
+
+
+
+      <button class="Submit" onclick="alert('successfully')" (click)="addCompanyProcess()">Submit
+      </button>
+
+
+
+
+    </form>
+  </div>
+</div>
+

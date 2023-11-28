@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>Gender</h3>
+    <div class="cancel">
+          <a routerLink="/genderall" ><i class="fa fa-times" style="color: black; margin-left: 95%;font-size: xx-large; " routerLink="/genderall"></i></a>
+        </div><br>
+  <label><b>Gender :</b></label>
+    <br> 
+    <br>
+    <input type="text" name="gender" placeholder="gender" size="15" ngModel #gender="ngModel" 
+            required 
+            pattern="[a-z A-Z 0-9]*"
+            type="text" 
+            name="gender"
+            [(ngModel)]="gend.gender" [value]="gend.gender" style="border-radius: 10px;">
+        <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid" style="padding-left: 50px;">Gender is required</div>
+    <br> 
+
+    <button class="button" (click)="onSubmit()" style="border-radius: 50px; width: 80px; height: 40px;" routerLink="/genderall"><b> Submit </b></button>
+</div>

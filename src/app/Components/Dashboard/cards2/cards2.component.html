@@ -1,0 +1,100 @@
+<div class="container">
+ 
+<div class="date1">
+    <input type="date" [(ngModel)]="fromDate"> 
+  </div>
+  <div class="date2">
+    <input type="date" [(ngModel)]="toDate">
+  </div>
+
+   <div class="mine">
+   <button class="button" (click)="getFromDateToDate()" >Submit</button>
+  </div>
+</div>
+<div class="cards flex">  
+    <br><br>
+
+
+
+    <mat-card (click)="toggleTotalTransaction()">
+     
+        <mat-card-content class="card-cnt">
+          <div class="subcard flex">
+            <div class="para">
+              <p>Total Transaction</p>
+              <p>{{totalTransaction}}</p>
+            </div>
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+          </div>
+        </mat-card-content>
+    </mat-card>
+  
+    <mat-card (click)="toggleTotalSale()">
+     <mat-card-content class="card-cnt" >
+          <div class="subcard flex">
+            <div class="para">
+              <p>Sales</p>
+              <p>{{totalSale}}</p>
+            </div>
+            <i class="fa-solid fa-money-bill-trend-up"></i>
+          </div>
+        </mat-card-content>
+    </mat-card>
+  
+    <mat-card (click)="toggleTotalBooking()">
+      <mat-card-content class="card-cnt">
+          <div class="subcard flex">
+            <div class="para">
+              <p>Bookings</p>
+              <p>{{totalBooking}}</p>
+            </div>
+            <i class="fa-regular fa-calendar-check"></i>
+          </div>
+        </mat-card-content>
+    </mat-card>
+  
+    <mat-card (click)="toggleTotalProductPurchase()">
+     <mat-card-content class="card-cnt">
+          <div class="subcard flex">
+            <div class="para">
+              <p>Product purchase</p>
+              <p>{{totalProductPurchase}}</p>
+            </div>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </mat-card-content>
+    </mat-card>
+  
+    <mat-card (click)="toggleTotalReturn()">
+     <mat-card-content class="card-cnt">
+          <div class="subcard flex">
+            <div class="para">
+              <p>Return</p>
+              <p>{{totalReturn}}</p>
+            </div>
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </div>
+        </mat-card-content>
+    </mat-card>
+  </div>
+
+
+<div class="totalTransaction" *ngIf="showTotalTransaction">
+  <app-totaltransaction2></app-totaltransaction2>
+</div>
+
+<div class="totalSale" *ngIf="showTotalSale">
+    <app-sales2></app-sales2>
+</div>
+
+<div class="totalBooking" *ngIf="showTotalBooking">
+  <app-booking2></app-booking2>
+</div>
+
+<div class="totalProductPurchase" *ngIf="showTotalProductPurchase">
+  <app-productpurchase2></app-productpurchase2>
+</div>
+
+<div class="totalReturn" *ngIf="showTotalReturn">
+  <app-return2></app-return2>
+</div>

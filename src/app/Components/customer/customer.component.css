@@ -1,0 +1,62 @@
+body {
+  font-family: Avenir Next, Avenir, SegoeUI, sans-serif;
+}
+
+.container {
+  margin-top: 5px;
+  /* padding: 20px; */
+  background-color: white;
+  max-width: 40%;
+  border-radius: 20px;
+  box-shadow: 2px 2px 7px 7px rgb(190, 187, 187);
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.button {
+  background: linear-gradient(
+    90deg,
+    rgb(246, 234, 166) 0%,
+    rgb(249, 231, 131) 16%,
+    rgb(250, 226, 93) 50%,
+    rgb(249, 222, 70) 83%,
+    rgb(253, 215, 1) 100%
+  );
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block; /* Ensure the button takes full width */
+  margin: 20px auto; /* Center the button */
+}
+
+.head-section {
+  width: 100%; /* Adjust as needed */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  color: #000000;
+  padding-top: 5px;
+  background-color: #ffffff;
+  border-radius: 7px;
+}
+
+.head-section i {
+  font-size: 23px;
+  font-weight: 500; /* Fix font weight */
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Define additional styles for your other elements */
+
+@media (max-width: 768px) {
+  /* Adjust styles for screens up to 768px wide */
+  .button {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  .container {
+    max-width: 90%; /* Adjust the container width */
+  }
+}

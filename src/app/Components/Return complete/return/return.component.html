@@ -1,0 +1,101 @@
+<div class="container">
+  <h3>Return</h3>
+  <div class="cancel" style=" margin-top: -45px;">
+    <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 580px; font-size: 30px; "></i></a>
+  </div>
+
+
+
+
+    <label><b>Wastage :</b></label> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <input type="text" name="wastage" placeholder="wastage" size="15" ngModel #wastage="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="wastage"
+    [(ngModel)]="return.wastage" >
+<div class="alert alert-danger" *ngIf="wastage.touched && wastage.invalid">Wastage is required</div>
+    <br>
+  
+    <label><b>Gross-Weight :</b></label> &nbsp;&nbsp;&nbsp;
+    
+    <input type="text" name="grossWeight" placeholder="grossWeight" size="15" ngModel #grossWeight="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="grossWeight"
+    [(ngModel)]="return.grossWeight" (keyup)="netWeight1()">
+<div class="alert alert-danger" *ngIf="grossWeight.touched && grossWeight.invalid">Gross Weight required</div>
+    <br>
+
+    <label><b>Net-Weight :</b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <input type="text" name="netWeight" placeholder="netWeight" size="15" ngModel #netWeight="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="netWeight"
+    [(ngModel)]="return.netWeight" [value]="this.return.netWeight" disabled>
+<div class="alert alert-danger" *ngIf="netWeight.touched && netWeight.invalid">Net Weight required</div>
+    <br>
+
+    <label><b>Description :</b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <input type="text" name="Description" placeholder="description" size="15"  ngModel #description="ngModel" 
+    required 
+    pattern="[a-z A-Z 0-9]*"
+    type="text" 
+    name="description"
+    [(ngModel)]="return.description" >
+<div class="alert alert-danger" *ngIf="description.touched && description.invalid">Description required</div>
+    <br>
+
+    <!-- <div class="form-Group">
+        <label for="Section">User : </label> &nbsp;&nbsp;&nbsp;&nbsp;
+         <select id="sections" class="form-Group" #selectUser>
+            <option value="{{u.userId}}" *ngFor="let u of users">{{u.userName}}</option>
+         </select>
+         <button class="button" (click)="onAddUser(selectUser)">Add User</button>
+      </div> -->
+       
+
+     
+
+      <div class="form-Group">
+        <label for="User">Metal : </label> &nbsp;&nbsp;
+          <select id="users" class="form-Group" #selectMetal>
+            <option value="{{m.metalId}}" *ngFor="let m of metals" (click)="onAddMetal(m.metalId)">{{m.metalName}}</option>
+          </select>
+          <!-- <button class="button" >Add a Metal to approve</button> -->
+      </div>
+      <!-- <div>
+          <ul class="list-group">
+              <li class="list-group-item" *ngFor="let fu of formUsers.controls">{{ getUserName(fu.value)}}</li>
+          </ul>
+      </div> -->
+      
+
+      <div class="form-Group" style="margin-left: 200px; margin-top: -45px;">
+        <label for="User">Category : </label> &nbsp;&nbsp;&nbsp;
+          <select id="users" class="form-Group" #selectCategory>
+            <option value="{{c.categoryId}}" *ngFor="let c of categories" (click)="onAddCategory(c.categoryId)">{{c.categoryName}}</option>
+          </select>
+          <!-- <button class="button" >Add Category</button> -->
+      </div>
+
+    
+
+      <div class="form-Group" style="margin-left: 470px; margin-top: -47px;">
+        <label for="User">Purity : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <select id="users" class="form-Group" #selectPurity>
+            <option value="{{p.purityId}}" *ngFor="let p of purities" (click)="onAddPurity(p.purityId)">{{p.purityName}}</option>
+          </select>
+        
+          <!-- <button class="button">Add Purity</button> -->
+      </div>
+      <br><br>
+      <button class="button" (click)="onSubmit()">Submit</button>
+      <button class="button" style="margin-left: 80px; padding: 4px;" (click)="reset()">Reset</button>
+
+</div>

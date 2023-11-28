@@ -1,0 +1,48 @@
+.container {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 90%;
+  width: 550px;
+  height: auto;
+}
+
+.button {
+  background: linear-gradient(
+    90deg,
+    rgb(246, 234, 166) 0%,
+    rgb(249, 231, 131) 16%,
+    rgb(250, 226, 93) 50%,
+    rgb(249, 222, 70) 83%,
+    rgb(253, 215, 1) 100%
+  );
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cancel {
+  margin-top: -35px;
+}
+
+.button:hover {
+  background: rgb(243, 213, 40);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+    margin-top: 100px;
+  }
+
+  .button {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .cancel {
+    margin-top: 0;
+  }
+}

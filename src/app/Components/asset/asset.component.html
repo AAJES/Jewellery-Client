@@ -1,0 +1,175 @@
+<div>
+    <div class="container-fulid">
+        <div class="container">
+            <div class="title "> Assest Details</div>
+            <div class="container-1">
+                <div calss="container-2" style="width: 50%;">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Date</span>
+                            <input type="Date" id="Date" name="Date">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Descriptiom</span>
+                            <textarea id="subject" name="subject" placeholder="Write something.."
+                                style="height:100px"></textarea>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Asset-Type</span>
+                            <select id="Asset-Type" name="Asset-Type">
+                                <option value="Asset-Type">Australia</option>
+                                <option value="Asset-Type">Canada</option>
+                                <option value="Asset-Type">USA</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Manufacturer</span>
+                            <input type="text" placeholder=" Manufacturer">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Brand</span>
+                            <input type="text" placeholder=" Brand">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Model</span>
+                            <input type="text" placeholder=" Model">
+                        </div>
+                    </div>
+                </div>
+                <div class="container-3" style="width:50%;">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <div class="container-8" style="width:100%;">
+                                <span class="details">Image</span>
+                                <div>
+                                    <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                                    <div><img [src]="url" *ngIf="url" style="width:100%;"></div>
+                                    <input type="file" (change)="selectFile($event)" style="padding: 10px 0 0 10px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">WarrentyDate</span>
+                            <input type="Date" id="WarrentyDate" name="WarrentyDate">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Asset Serial No</span>
+                            <input type="text" id="Asset Serial No" name="Asset Serial No"
+                                placeholder="Asset Serial No">
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Asset Code</span>
+                            <div class="container-7" style="border:1px solid #ccc;height: 100px;width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-6">
+                <mat-tab-group>
+                    <mat-tab label="Vender">
+                        <div class="user-details1">
+                            <div class="container-9">
+                                <div class="input-box">
+                                    <span class="details">Vender Code</span>
+                                    <input type="text" placeholder="Vender Code">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Vender Name</span>
+                                    <input type="text" placeholder="Vender Name">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details"> Contact Person</span>
+                                    <input type="text" placeholder=" Contact Person">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details"> Email</span>
+                                    <input type="text" placeholder="Email">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details"> Phone</span>
+                                    <input type="text" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="container-10">
+                                <div class="input-box">
+                                    <span class="details">Address1</span>
+                                    <textarea id="subject" name="subject" placeholder="Address"
+                                        style="height:50px"></textarea>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Address2</span>
+                                    <textarea id="subject" name="subject" placeholder="Address2"
+                                        style="height:50px"></textarea>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Place</span>
+                                    <input type="text" placeholder=" Place">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details"> State</span>
+                                    <input type="text" placeholder="State">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details"> LandMark</span>
+                                    <input type="text" placeholder="LandMark">
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Attachment">
+                        <div class="user-details1">
+                            <div class="container-11">
+                                <div class="input-box">
+                                    <span class="details">Attachment - Id</span>
+                                    <input type="text" placeholder="Attachment - Id">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Descriptiom</span>
+                                    <textarea id="subject" name="subject" placeholder="Write something.."
+                                        style="height:100px"></textarea>
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Asset - Id</span>
+                                    <input type="text" placeholder="Asset - Id">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Asset Code</span>
+                                    <div class="container-7" style="border:1px solid black;height: 150px;width: 200px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Cost">
+                        <div class="user-details1">
+                            <div class="container-12">
+                                <div class="input-box">
+                                    <span class="details">PO Number</span>
+                                    <input type="text" placeholder="PO Number">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Purchanse Price</span>
+                                    <input type="text" placeholder="Purchanse Price">
+                                </div>
+                                <div class="input-box">
+                                    <span class="details">Purchanse Date</span>
+                                    <input type="Date" placeholder="Purchanse Date">
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Note">
+                        <div class="user-details1">
+                            <div class="input-box">
+                                <span class="details">Descriptiom</span>
+                                <textarea id="subject" name="subject" placeholder="Write something.."
+                                    style="height:100px"></textarea>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>

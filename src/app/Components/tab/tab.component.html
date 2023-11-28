@@ -1,0 +1,340 @@
+<mat-tab-group style="background-color: rgb(5, 136, 212);" dynamicHeight>
+  <form [formGroup]="appointmentform">
+  <mat-tab label="Appointment Details">
+    <div class="container">
+
+      <div>
+        <h1> Appointment Details</h1>
+        <hr>
+        <br><br>
+        <label><b>Appointment Start Date :</b></label> 
+      <br>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker1" min="{{ currentDate | date:'yyyy-MM-dd' }}" name="appointment_start"  formControlName="appointment_start" (blur)="onStartblur()" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <br><br><br>
+      <label><b>Appointment End Date :</b></label>
+      <br>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker2"   min="{{ currentDate | date:'yyyy-MM-dd' }}" name="appointment_end" formControlName="appointment_end" (blur)="onEndblur()">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <br><br>
+  
+      <label><b>Appointment Type :</b></label>
+      <br>
+      <input type="text" name="appointment_type" placeholder="Appointment Type" size="15" formControlName="appointment_type" required (blur)="onTypeblur()"/>
+      <br>
+    
+    </div> 
+      
+      <div>
+        
+
+        <label> Section to visit :</label>
+      
+        <div class="form-Group">
+          <label for="Section">Sections : </label>
+           <select id="sections" class="form-Group" #selectSection>
+              <option value="{{s.section_id}}" *ngFor="let s of Sections">{{s.section_description}}</option>
+           </select>
+           <button class="btn btn-primary" (click)="onAddSection(selectSection)">Add Sections to visit</button>
+        </div>
+          <div>
+              <ul class="list-group">
+                  <li class="list-group-item" *ngFor="let fs of formSections.controls">{{ getSectionName(fs.value)}}</li>
+              </ul>
+          </div>
+
+        <br><br>
+
+        <div class="form-Group">
+          <label for="User">Approvers : </label>
+            <select id="users" class="form-Group" #selectUser>
+              <option value="{{u.user_id}}" *ngFor="let u of Users">{{u.user_Username}}</option>
+            </select>
+            <button class="btn btn-primary" (click)="onAddUser(selectUser)">Add a user to approve</button>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let fu of formUsers.controls">{{ getUserName(fu.value)}}</li>
+            </ul>
+        </div>
+
+        <br><br>
+
+      
+            <div>
+                  <label>
+                  Facility Visited :  
+                  </label>   
+                 
+                  <div class="form-Group">
+                    <label for="Facility">Facilities</label>
+                    <select id="courses" class="form-Group" #selectFacility>
+                        <option value="{{f.facility_id}}" *ngFor="let f of Facilities">{{f.facility_description}}</option>
+                    </select>
+                    <button class="btn btn-primary" (click)="onAddFacility(selectFacility)">Add Facilites to required</button>
+                  </div>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let ff of formFacilities.controls">{{ getFacilityName(ff.value)}}</li>
+                    </ul>
+                </div>
+            </div>
+            <button (click)="onCheckValues(selectUser.value,selectFacility.value,selectSection.value)">Check values</button>
+
+            
+      </div>
+      <label>Please switch to next tab to continue filling the form </label>
+    </div> 
+</mat-tab>
+ 
+  <mat-tab label="Visitor Details" style="color: rgb(255, 255, 255);">
+   
+    <div class="container">
+      <div formGroupName="visitorform">
+          <h1> Visitor Details</h1>
+          <hr>
+          <label><b>Visitor name</b></label>
+          <br>
+          <input  type="text" 
+                  name="visitor_name"
+                  id="visitor_name"
+                  placeholder= "visitor name"
+                  size="15"
+                  formControlName="visitor_name"
+                  required/>
+          <br>
+          <label><b> Current Address :</b></label>
+          <br>
+          <textarea cols="80" 
+                    rows="3"
+                    placeholder="Current Address"
+                    value="address"
+                    id="visitor_address"
+                    formControlName="visitor_address"
+                    #visitor_address required>
+          </textarea>
+          <br>
+          <label for="email"><b>Email</b></label>
+          <br>
+          <input type="text" 
+                  placeholder="Enter Email"
+                  name="visitor_email"
+                  id="visitor_email"
+                  formControlName="visitor_email"
+                  #visitor_email required>
+          <br>
+          <label>
+          <b> Mobile 1 :</b>
+          </label>
+          <br>
+          <input type="text"  
+                  name="visitor_phone1" 
+                  placeholder="enter mobile" 
+                  id="visitor_phone1" 
+                  value="+91"
+                  size="2"
+                  formControlName="visitor_phone1"
+                  #visitor_phone1 required/>
+          <br>
+          <label>
+    <b> Mobile 2 :</b></label>  
+          <br>
+          <input type="text" 
+                  name="visitor_phone2" 
+                  placeholder="enter mobile" 
+                  id="visitor_phone2" 
+                  value="+91" 
+                  size="2" 
+                  formControlName="visitor_phone2"
+                  #visitor_phone2 required/>
+          <br>
+            
+          <label><b>Photo :</b></label>
+          <br>
+          <input type="text" 
+                  name="visitor_photo" 
+                  id="visitor_photo" 
+                  placeholder= "Passport size photo" 
+                  size="15" 
+                  formControlName="visitor_photo"
+                  #visitor_photo required/>
+          <br>
+    
+          <!-- <label><b>ID Proof :</b></label>
+          <br>
+          <input type="text" 
+                  name="visitor_aadhar"
+                  id="visitor_aadhar"
+                  placeholder= "ID Proof" 
+                  size="15" 
+                  formControlName="visitor_aadhar"
+                  #visitor_aadhar required/> -->
+          <br>
+   
+      </div>
+      <label>Please switch to next tab to continue filling the form </label>
+      </div>  
+  </mat-tab>
+  
+  
+
+  <mat-tab label="Items">  
+      <div class="container">
+        <div formGroupName="itemform">
+          <h1> Item Details</h1>
+          <hr>
+          <label><b>Item name</b></label>
+          <br> 
+          <input type="text"
+                 name="item_Name"
+                 placeholder= "item name" 
+                 size="15" 
+                 formControlName="item_Name"
+                 required  /> 
+          <br>  
+          <label> <b> Item Description :</b></label>   
+          <br>
+          <textarea cols="80" 
+                    rows="3"
+                    placeholder="Item Description"
+                    value="address"
+                    name="item_Description"
+                    formControlName="item_Description"
+                    #item_Description required>
+          </textarea>
+        
+      </div>
+      <label>Please switch to next tab to continue filling the form </label>
+      </div>
+  </mat-tab>
+
+  <mat-tab label="Vehicles">
+      <div class="container">
+        <div formGroupName="vehicleform">
+          <h1> Vehicle Details</h1>
+          <hr>
+          <label><b>Vehicle number</b></label>
+          <br> 
+          <input type="text" name="Vehiclenumber" placeholder= "Vehicle number" size="15" required formControlName="vehicleNumber"/>
+          <br>
+          <label><b>Vehicle Type :</b></label>
+          <br>
+          <input type="text" placeholder="Enter Vehicle" name="email" formControlName="vehicleType" required>
+          <br>
+          <label><b>Driver License :</b></label>
+          <br>
+          <input type="text" placeholder="Enter driver's licnese" name="driverslicense" formControlName="driverLicense" required>
+          
+          <br>
+          <label><b>Driver Name :</b></label>
+          <br>
+          <input type="text" placeholder="Enter Driver's Name" name="driversname" formControlName="driverName" required>
+          <br>
+        
+      </div>
+      <label>Please switch to next tab to continue filling the form </label>
+      </div>
+  </mat-tab>
+  <mat-tab label="Attachment"> 
+      <div class="container">
+      <h1> Attachments :</h1>
+      <hr>
+      <!-- <label><b>Visitor's Photo : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="visitorphoto"/>
+      <br><br>
+      <label><b>Visitor's ID Proof : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="visitoridproof"/>
+      <br><br>
+      <label><b>Driver's Photo : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="driverphoto" />
+      <br><br>
+      <label><b>Driver's ID Proof : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="driveridproof" />
+      <br><br>
+      <label><b>Driver's driving License : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="driverlicense" />
+      <br><br>
+      <label><b>Vehicle's RC Copy : (PDF Format)</b></label>
+      <br><br>
+      <input type="file" name="vehiclerccopy" /> -->
+
+      <div>
+
+        <form (ngSubmit)="imageUploadVisitor()">
+
+          <h4>Upload Visitor image:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+
+      <br><br>
+      <div>
+        <form (ngSubmit)="idUploadVisitor()">
+
+          <h4>Upload Visitor Id:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+
+      <br><br>
+      <div>
+        <form (ngSubmit)="idUploadDriver()">
+
+          <h4>Upload Driver Id:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+
+      <br><br>
+      <div>
+        <form (ngSubmit)="copyUploadVehicle()">
+
+          <h4>Upload Vehicle copy:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+
+      <br><br>
+      <div>
+        <form (ngSubmit)="imageUploadDriver()">
+
+          <h4>Upload driver image:</h4>
+          <input type="file" #fileInput (change)="onFileSelected($event)" />
+          <button type="submit">Upload File</button>
+        </form>
+        <div *ngIf="response">{{ response }}</div>
+      </div>
+      <br><br>
+      <label> Please Submit the Form </label>
+      </div>
+
+      <!-- <app-template2 [dataFromParent]="parentdata"></app-template2> -->
+  </mat-tab>
+</form>
+</mat-tab-group>
+<button type="submit" class="registerbtn" (click)="onSubmit()">Submit</button> 
+
+ 

@@ -1,0 +1,131 @@
+<div
+  style="
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#d6e7ea, #d6e7ea);
+    height: 100vh;
+    border: 1px solid #d6e7ea;
+  "
+>
+  <div class="user1-box" style="margin: 13% 0%">
+    <div class="head-section">
+      <h2>Section Form</h2>
+      <a routerLink="/sectionall"><i class="fa fa-times"></i></a>
+    </div>
+    <form class="form-group">
+      <div style="margin-bottom: 20px">
+        <div class="field">
+          <input
+            [(ngModel)="section.section_description"
+            required
+            minlength="3"
+            pattern="[a-z A-Z]*"
+            type="text"
+            name="sectionName"
+            id="sectionName"
+            placeholder=" "
+            [value]="sect.section_description"
+          />
+          <label for="sectionName"
+            ><i
+              class="fa fa-id-card-o"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Section Name</label
+          >
+        </div>
+        <!-- <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="sectionNm.invalid && sectionNm.touched"
+        >
+          <div *ngIf="sectionNm.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            Section Name is required
+          </div>
+          <div *ngIf="sectionNm.errors!['minlength']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            It should me more than 3 character
+          </div>
+        </div> -->
+      </div>
+
+      <div class="field">
+        <input
+          [(ngModel)="section.department.department_description"
+          required
+          minlength="3"
+          pattern="[a-z A-Z]*"
+          type="text"
+          name="sectionName"
+          id="sectionName"
+          placeholder=" "
+          [value]="sect.department.department_description"
+          disabled
+        />
+        <label for="sectionName"
+          ><i
+            class="fa fa-id-card-o"
+            style="font-size: 10px; margin-right: 7px"
+          ></i
+          >Section Name</label
+        >
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="department"
+        style="margin-top: 25px"
+      >
+        <div
+          class="select-container"
+          style="display: flex; justify-content: space-between"
+        >
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Department :</label
+          >
+          <select
+            class="form-select"
+            ngModel
+            name="departmentId"
+            style="width: 68.4%"
+          >
+            <option selected>Select Department</option>
+            <option  (click)="onDepartmentSelectionChange(department.department_id)"
+              *ngFor="let department of departments"
+              [value]="department.department_id"
+            >
+              {{ department.department_description }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div style="padding-top: 10px; margin-top: 25px; display: flex">
+        <label style="margin-right: 9px; font-size: 1.1rem" for=""
+          >Status :</label
+        >
+<!-- 
+        <mat-slide-toggle
+          [(ngModel)]="section.status"
+          ngModel
+          name="status"
+          required
+        ></mat-slide-toggle> -->
+      </div>
+
+      <button
+        class="Submit"
+        onclick="alert('successfully')"
+        (click)="updateCompanyProcess()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+

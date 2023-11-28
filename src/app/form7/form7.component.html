@@ -1,0 +1,115 @@
+<div
+  style="
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#d6e7ea, #d6e7ea);
+    height: 100vh;
+    border: 1px solid #d6e7ea;
+  "
+>
+  <div class="user1-box" style="margin: 13% 0%">
+    <div class="head-section">
+      <h2>Role Form</h2>
+      <a routerLink="/roleall"><i class="fa fa-times"></i></a>
+    </div>
+    <form class="form-group" #form="ngForm">
+      <div style="margin-bottom: 20px">
+        <div class="field">
+          <input
+            ngModel
+            #description="ngModel"
+            required
+            minlength="3"
+            [(ngModel)]="role.role_description"
+            pattern="[a-z A-Z 0-9]*"
+            type="text"
+            name="description"
+            id="description"
+            placeholder=" "
+            [value]="role1.role_description"
+          />
+          <label for="description"
+            ><i
+              class="fa fa-id-card-o"
+              style="font-size: 10px; margin-right: 7px"
+            ></i
+            >Description</label
+          >
+        </div>
+        <div
+          style="margin-top: -16px"
+          class="text-danger"
+          *ngIf="description.invalid && description.touched"
+        >
+          <div *ngIf="description.errors!['required']">
+            <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+            Description is required
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <input
+          ngModel
+          #description="ngModel"
+          required
+          minlength="3"
+          [(ngModel)]="role.role_description"
+          pattern="[a-z A-Z 0-9]*"
+          type="text"
+          name="description"
+          id="description"
+          placeholder=" "
+          [value]="role1.menuGroup.menuName"
+        />
+        <label for="description"
+          ><i
+            class="fa fa-id-card-o"
+            style="font-size: 10px; margin-right: 7px"
+          ></i
+          >Description</label
+        >
+      </div>
+
+      <div
+        class="input-selectbox"
+        ngModelGroup="menuGroup"
+        style="margin-top: 25px"
+      >
+        <div
+          class="select-container"
+          style="display: flex; justify-content: space-between"
+        >
+          <label
+            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+            for=""
+            >Menu Group:</label
+          >
+          <select
+            class="form-select"
+            ngModel
+            name="menuGroupId"
+            style="width: 68.5%"
+            aria-label="Default select example"
+          >
+            <option selected disabled>Select Menu Group</option>
+            <option *ngFor="let m of menus" [value]="m.menu_id" (click)="onMenuSelectionChange(m.menu_id)">
+              {{ m.menuGroup }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        class="Submit"
+        onclick="alert('successfully')"
+        (click)="updateCompanyProcess()"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+

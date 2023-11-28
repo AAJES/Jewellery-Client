@@ -1,0 +1,337 @@
+<div>
+  <div>
+    <nav class="navbar navbar-expand-lg" style="background-color: #dda67c;;" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="" alt="Logo" class="logo" />
+        </a>
+
+        <!-- Add the responsive navbar toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" 
+                ><i class="fa fa-home"></i> </a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" 
+                ><i class="fa fa-info-circle"></i> </a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" 
+                ><i class="fa fa-envelope"></i> </a
+              >
+            </li>
+            <li class="nav-item" *ngIf="!isLoggedIn">
+              <!-- Show when not logged in -->
+              <div class="bg-secondary-theme">
+                <a class="login"><i class="fa fa-user"></i> Login</a>
+              </div>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+              <a class="login" [matMenuTriggerFor]="profileMenu">
+                <i class="fa fa-user"></i> Profile
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <mat-menu #profileMenu="matMenu">
+                <button
+                  mat-menu-item
+                  (click)="openEditProfile('400ms', '400ms')"
+                >
+                  Edit Profile
+                </button>
+                <button
+                  mat-menu-item
+                  (click)="openConfirmPass('400ms', '400ms')"
+                >
+                  Change Password
+                </button>
+
+                <button mat-menu-item (click)="logout()">Logout</button>
+              </mat-menu>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  
+  <div class="topnav2">
+    <!-- Left side navigation menu -->
+    <div id="mySidenav #sidebar" class="sidenav" [style.width]="sidenavWidth">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+        >&times;</a
+      >
+      <ul class="ul">
+        <li routerLink="/dashboard" (click)="closeNav()">
+          <i class="fa fa-tachometer"></i>
+          <span class="mt-2">Dashboard</span>
+        </li>
+        <li class="li">
+          <a (click)="OnClick1()" class="sub">
+            <i class="fa fa-shopping-cart"></i>
+            <!-- FontAwesome 4.7.0 cart icon -->
+            <span class="text">Schemes</span>
+            <i
+              class="fa"
+              [class.fa-sort-asc]="flag1"
+              [class.fa-sort-desc]="!flag1"
+              aria-hidden="true"
+              style="margin-left: 15%"
+            ></i>
+          </a>
+          <div class="sub-field" *ngIf="flag1">
+            <!-- <li>
+                  <a routerLink="/alluser">
+                      <i class="fa fa-user"></i> 
+                      <a class="text">Lead Enquiry</a>
+                  </a>
+              </li> -->
+            <li class="li">
+              <a routerLink="/leadEnquiryModelList" (click)="closeNav()">
+                <i class="fa fa-address-card"></i>
+                <span class="text">Add Schemes</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/contactDesignationList" (click)="closeNav()">
+                <i class="fa fa-address-card"></i>
+                <span class="text">Scheme Registration</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/customerDetailsList" (click)="closeNav()">
+                <i class="fa fa-address-card"></i>
+                <span class="text"> Add Scheme Receipts</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/customerContactList" (click)="closeNav()">
+                <i class="fa fa-phone"></i>
+                <!-- FontAwesome 4.7.0 phone icon -->
+                <span class="text">Scheme Receipts All</span>
+              </a>
+            </li>
+            <li class="li">
+              <a routerLink="/leadToFollowUpList" (click)="closeNav()">
+                <!-- <i class="fa fa-clock-o"></i> -->
+                <!-- FontAwesome 4.7.0 clock icon -->
+                <span class="text"></span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/leadToCustomerAllotmentList" (click)="closeNav()">
+                <!-- <i class="fa fa-users"></i> -->
+                <!-- FontAwesome 4.7.0 users icon -->
+                <span class="text"></span>
+              </a>
+            </li>
+
+            <li class="li-p">
+              <a routerLink="/incubation" (click)="closeNav()">
+                <!-- <i class="fa fa-flask"></i> -->
+                <!-- FontAwesome 4.7.0 flask icon -->
+                <span class="text"></span>
+              </a>
+            </li>
+          </div>
+        </li>
+
+        <li class="li">
+          <a (click)="OnClick2()">
+            <i class="fa fa-building"></i>
+            <span class="text">Reports</span>
+            <i
+              class="fa"
+              [class.fa-sort-asc]="flag2"
+              [class.fa-sort-desc]="!flag2"
+              aria-hidden="true"
+              style="margin-left: 13%"
+            ></i>
+          </a>
+          <div class="sub-field" *ngIf="flag2">
+            <!-- <li>
+            <a routerLink="/alluser">
+                <i class="fa fa-user"></i> 
+                <a class="text">Lead Enquiry</a>
+            </a>
+        </li> -->
+            <li>
+              <a routerLink="/infrastructureList" (click)="closeNav()">
+                <i class="fa fa-building"></i>
+                <span class="text">Sales Report</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/infrastructureList" (click)="closeNav()">
+                <i class="fa fa-building"></i>
+                <span class="text">Bill Report</span>
+              </a>
+            </li>
+            <li class="li-p">
+              <a routerLink="/rateList" (click)="closeNav()">
+                <i class="fa fa-star"></i>
+                <span class="text">Less Paid Reports</span>
+              </a>
+            </li>
+          </div>
+        </li>
+
+        <li class="li">
+          <a (click)="OnClick3()">
+          
+            <span class="text"></span>
+            <!-- <i
+              class="fa"
+              [class.fa-sort-asc]="flag3"
+              [class.fa-sort-desc]="!flag3"
+              aria-hidden="true"
+              style="margin-left: 15%"
+            ></i> -->
+          </a>
+          <div class="sub-field" *ngIf="flag3">
+            <!-- <li>
+          <a routerLink="/alluser">
+              <i class="fa fa-user"></i> 
+              <a class="text">Lead Enquiry</a>
+          </a>
+      </li> -->
+            <li>
+              <a routerLink="/complaintDetailsList" (click)="closeNav()">
+               
+                <span class="text"> </span>
+              </a>
+            </li>
+            <li class="li-pp">
+              <a routerLink="/allmenu" (click)="closeNav()">
+                <!-- <i class="fa fa-gavel"></i> -->
+                <span class="text"></span>
+              </a>
+            </li>
+          </div>
+        </li>
+        <!-- Add more right side navigation links here -->
+      </ul>
+      <!-- Add more left side navigation links here -->
+    </div>
+
+    <!-- Button to open left side nav -->
+    <button class="btn" (click)="openNav()" (click)="closeRightNav()">
+      <i class="fa fa-home"></i>
+    </button>
+
+    <div id="main" [style.marginLeft]="contentMargin">
+      <!-- Your page content goes here -->
+    </div>
+
+    <!-- Right side navigation menu -->
+    <div
+      id="rightSidenav"
+      class="sidenav1 sidebar"
+      [style.width]="rightsidenavWidth"
+      [style.right]="rightSidenavPosition"
+    >
+      <a
+        href="javascript:void(0)"
+        class="closebtn m-3"
+        (click)="closeRightNav()"
+        >&times;</a
+      >
+      <ul>
+        <!-- <li>
+          <i class="fa fa-user"></i>
+          <a href="dashboard">Metal</a>
+        </li>
+        <li>
+          <i class="fa fa-users"></i>
+          <a href="roles">Purity</a>
+        </li> -->
+        
+        <li routerLink="/metal" (click)="closeRightNav()">
+          <i class="fa fa-building"></i>
+          <a>Metal</a>
+        </li>
+        <li routerLink="/purity" (click)="closeRightNav()">
+          <i class="fa fa-building"></i>
+          <a>Purity</a>
+        </li>
+        <li routerLink="/rate" (click)="closeRightNav()">
+          <i class="fa fa-building"></i>
+          <a>Rate</a>
+        </li>
+        <li routerLink="/booking" (click)="closeRightNav()">
+          <i class="fa fa-gavel"></i>
+          <a>Booking</a>
+        </li>
+        <li routerLink="/product" (click)="closeRightNav()">
+          <i class="fa fa-check"></i>
+          <a>Product</a>
+        </li>
+        <li routerLink="/return" (click)="closeRightNav()">
+          <i class="fa fa-file"></i>
+          <a>Return</a>
+        </li>
+        <li routerLink="/category" (click)="closeRightNav()">
+          <i class="fa fa-user-circle"></i>
+          <a>Category</a>
+        </li>
+        <li routerLink="/customer" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Customer</a>
+        </li>
+        <li routerLink="/employee" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Employee</a>
+        </li>
+        <li routerLink="/modeofpayment" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Payment Mode</a>
+        </li>
+        <li routerLink="/stock" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Stock</a>
+        </li>
+        <li routerLink="/owner" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Owner</a>
+        </li>
+        <li routerLink="/roles" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Roles</a>
+        </li>
+        <li routerLink="/shop" (click)="closeRightNav()">
+          <i class="fa fa-exclamation-circle"></i>
+          <a>Shop</a>
+        </li>
+
+      </ul>
+    </div>
+
+    {{ loggedInUsername }}
+    <!-- Button to open right side nav -->
+    <button class="btn right-btn" (click)="openRightNav()" (click)="closeNav()">
+      <i class="fa fa-cogs" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

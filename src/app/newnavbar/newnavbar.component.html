@@ -1,0 +1,152 @@
+<!-- navigation.component.html -->
+<div class="top-navbar">
+  <div class="rates flex">
+    <div class="part-1 flex">
+      <p>22KT(961) : Rs.{{rate1}} /g</p>
+      <p>18KT(750) : Rs.{{rate2}} /g</p>
+      <p>Silver : Rs.{{rate3}}/kg </p>
+    </div>
+
+    
+
+  </div>
+  <div class="part-2" >
+    <p>Updated on : {{date}} </p>
+  </div>
+  </div>
+
+  
+
+  
+  
+  <div class="bottom-navbar">
+    <!-- <button (click)="toggleSidenav()">☰</button> -->
+    <div class="menubar flex" >
+      <div class="logo flex" >
+          <img src="../../assets/images/images (1).png" style="width: 40px; height:30px; border-radius: 50%; margin-left: 50px; margin-bottom: 20px;"  alt="logo">
+      <h5>Nagaraj Jewellers</h5>
+      
+      </div>
+      <div class="user" style="margin-left: 68%;font-size: x-large;">
+       
+        <i class="fa fa-user-circle"  (click)="openDialog()">
+      
+      </i>
+     
+    </div>
+    <div> 
+      <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512" routerLink="/cart2"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f5f5f5}</style><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
+      </svg>
+    </div>
+    <div class="filter">
+      <app-filter></app-filter>
+    </div>
+  </div>
+ 
+  <!-- <button (click)="toggleSideNav()" class="toggle-button" style="position: fixed; z-index: 1000; margin-top: -2%; background-color:#dc9e6f;">☰</button> -->
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" (click)="toggleSideNav()"  style="position: fixed; z-index: 1000; margin-top: -3%;background-color:#dc9e6f; fill:white"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+  <!-- <button (click)="toggleSideNav()" class="toggle-button" style="position: fixed; z-index: 1000; margin-top: -3%;background-color:#dc9e6f;">☰</button> -->
+  <div class="sidenav" [ngClass]="{ 'sidenav-open': sidenavOpen }" style="background-color:#dc9e6f;
+  color: #fff; margin-top: 8%;list-style: none;">
+    
+    <!-- <ul class="submenu">
+      <li class="nav-list-item"><a class="nav-link" routerLink="/dashboard2">Dashboard</a></li>
+      <li class="nav-list-item has-submenu">
+        <a class="nav-link" (click)="toggleSubmenu('dashboardSubMenu')">Scheme <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" [ngClass]="{ 'open': openSubmenu === 'scheme' }">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/scheme">Add Schemes</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemecustomerReceipt">Scheme Registration</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemeReceipts">Add Scheme Receipts</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemerecall">Scheme Receipts All</a></li>
+        </ul>
+      </li>
+      <li class="nav-list-item has-submenu" >
+        <a class="nav-link" (click)="toggleSubmenu('schemeSubMenu')">Reports <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" [ngClass]="{ 'open': openSubmenu === '' }">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/salesReport">Sales Report</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/lessPaidReport">Less Paid Report</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/billReport">Bill Reports</a></li>
+        </ul>
+      </li>
+      <li class="nav-list-item has-submenu" >
+        <a class="nav-link" (click)="toggleSubmenu('reportsSubMenu')">Configuration <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/allmetal">Metal</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/allpurity">Purity</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/booking">Booking</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/rateall">Rate</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/product">Product</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/return">Return</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/category">Category</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/customer">Customer</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/employeeall">Employee</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/paymentmode">Payment Mode</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/stockall">Stock</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/owner">Owner</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/roleall">Roles</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/shop">Shop</a></li>
+        </ul>
+      </li>
+
+      
+    </ul> -->
+
+    <ul class="nav flex-column" id="nav_accordion">
+      <li class="nav-item has-submenu" (click)="toggleSubmenu('dashboardSubMenu')">
+        <a class="nav-link" style="color: white;">Dashboard <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" id="dashboardSubMenu" [ngClass]="{'show': submenuStates.dashboardSubMenu}">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/dashboard2">Dashboard</a></li>
+        </ul>
+      </li>
+    
+      <li class="nav-item has-submenu" (click)="toggleSubmenu('schemeSubMenu')">
+        <a class="nav-link" style="color: white;">Scheme <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" id="schemeSubMenu" [ngClass]="{'show': submenuStates.schemeSubMenu}">
+          <li class="nav-list-item"><a class="nav-link" routerLink="scheme">Add Schemes</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemecustomerReceipt">Scheme Registration</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemeReceipts">Add Scheme Receipts</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/schemerecall">Scheme Receipts All</a></li>
+        </ul>
+      </li>
+    
+      <li class="nav-item has-submenu" (click)="toggleSubmenu('reportsSubMenu')">
+        <a class="nav-link" style="color: white;">Reports <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" id="reportsSubMenu" [ngClass]="{'show': submenuStates.reportsSubMenu}">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/salesReport">Sales Report</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/lessPaidReport">Less Paid Report</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/billReport">Bill Reports</a></li>
+        </ul>
+      </li>
+    
+      <li class="nav-item has-submenu" (click)="toggleSubmenu('configSubMenu')">
+        <a class="nav-link" style="color: white;">Configuration <i class="bi small bi-caret-down-fill"></i></a>
+        <ul class="submenu collapse" id="configSubMenu" [ngClass]="{'show': submenuStates.configSubMenu}">
+          <li class="nav-list-item"><a class="nav-link" routerLink="/allmetal">Metal</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/allpurity">Purity</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/booking">Booking</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/rateall">Rate</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/product">Product</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/return">Return</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/category">Category</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/customer">Customer</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/employeeall">Employee</a></li>
+          <li class="nav-list-item "><a class="nav-link " routerLink="/genderall">Gender</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/paymentmode">Payment Mode</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/stockall">Stock</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/owner">Owner</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/roleall">Roles</a></li>
+          <li class="nav-list-item"><a class="nav-link" routerLink="/shop">Shop</a></li>
+          <!-- Add more submenu items here -->
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  
+  
+  <!-- <div class="sidenav" [ngClass]="{ 'sidenav-open': sidenavOpen }">
+    Side Nav Content
+  </div> -->
+
+  

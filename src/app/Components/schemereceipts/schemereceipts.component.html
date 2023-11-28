@@ -1,0 +1,46 @@
+<div class="container">
+  <h3><b>Scheme Receipts</b></h3>
+  <div class="cancel">
+      <a routerLink="/home"><i class="fa fa-times" style="color: black; font-size: 30px;"></i></a>
+  </div>
+  <form class="Main">
+      <div class="input-selectbox" ngModelGroup="companyEntity">
+          <div class="select-container form-group">
+              <label for="scheme">Scheme:</label>
+              <select ngModel name="scheme" class="form-control" aria-label="Default select example">
+                  <option selected>Select Scheme</option>
+                  <option (click)="onSchemeSelectionChange(scheme.schemeId)" *ngFor="let scheme of schemes" [value]="scheme.schemeId">{{ scheme.schemeName }}</option>
+              </select>
+          </div>
+      </div>
+
+      <div class="input-selectbox" ngModelGroup="companyEntity">
+          <div class="select-container form-group">
+              <label for="schemeCustomer">Scheme Customer:</label>
+              <select ngModel name="schemeCustomer" class="form-control" aria-label="Default select example">
+                  <option selected>Select Scheme Customer:</option>
+                  <option (click)="onSchemeCustomerSelectionChange(sc.schemeCustomerRecId)" *ngFor="let sc of schemeCustomers" [value]="sc.schemeCustomerRecId">{{ sc.customerLuckyNo }}</option>
+              </select>
+          </div>
+      </div>
+
+      <label for="amount">Amount Paid:</label> <br>
+      <input type="text" name="amount" placeholder="Amount Paid" ngModel #amount="ngModel" required pattern="[a-zA-Z0-9]*" [(ngModel)]="schemeReceipts.amount">
+      <div class="alert alert-danger" *ngIf="amount.touched && amount.invalid">Amount is required</div>
+
+      <div class="input-selectbox" ngModelGroup="companyEntity">
+          <div class="select-container form-group">
+              <label for="modeOfPayment">Mode Of Payment:</label>
+              <select ngModel name="modeOfPayment" class="form-control" aria-label="Default select example">
+                  <option selected>Select Mode Of Payment:</option>
+                  <option (click)="onModeOfPaymentSelectionChange(mop.modeOfPaymentId)" *ngFor="let mop of mops" [value]="mop.modeOfPaymentId">{{ mop.modeOfPayment }}</option>
+              </select>
+          </div>
+      </div>
+<br>
+      <label for="paymentDate">Date:</label>  &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="date" [(ngModel)]="schemeReceipts.paymentDate">
+<br><br>
+      <button class="button" (click)="onSubmit()"><b>Register</b></button>
+  </form>
+</div>
