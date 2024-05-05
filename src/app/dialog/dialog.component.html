@@ -1,0 +1,98 @@
+
+<div mat-dialog-content>
+  <!-- <pre>{{ datas | json }}</pre> -->
+  <pre *ngIf="booking">
+    <div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Advance Amount</th>
+              <th>Delivery Date</th>
+              <th>Customer Name</th>
+              <th>Customer Phone</th>
+              <th>Status</th>
+              <th>Metal</th>
+              <th>Purity</th>
+              <!-- <th>Products</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td class="text-center">{{ booking.bookingId }}</td>
+              <td class="text-end">{{ booking.advanceAmount | currency: 'INR': 'symbol': '1.2-2' }}</td>
+              <td class="text-center">{{ booking.deliveryDate | date}}</td>
+              <td class="text-center">{{ booking.customer?.customerName }}</td>
+              <td class="text-center">{{ booking.customer?.phone1 }}</td>
+              <td class="text-center">{{ booking.status }}</td>
+              <td class="text-center">{{ booking.metal.metalName }}</td>
+              <td class="text-center">{{ booking.purity.purityName }}</td>
+              <!-- <td>Product Name &nbsp; Quantity <br>
+                  <div  *ngFor="let product of booking.products">
+                    {{ product.productName }} &nbsp;&nbsp; x&nbsp;&nbsp;{{ product.quantity }},<br>
+                  </div> 
+
+                  
+              </td> -->
+            </tr>
+          </tbody>
+          
+        </table>
+      </div>
+  </pre>
+  <pre *ngIf="return">
+    <div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Return Amount</th>
+              <th>Gross Weight</th>
+              <th>Wastage</th>
+              <th>Net Weight</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let return of returns">
+              <td class="text-center">{{ return.returnId }}</td>
+              <td class="text-end">{{ return.returnAmount | currency: 'INR': 'symbol': '1.2-2' }}</td>
+              <td class="text-center">{{ return.netWeight }}</td>
+              <td class="text-center">{{ return.wastage }}</td>
+              <td class="text-center">{{ return.grossWeight }}</td>
+              <td class="text-center">{{ return.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </pre>
+  <pre *ngIf="sale">
+    <div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer Name</th>
+              <th>Customer Number</th>
+              <th>Total Amount</th>
+              <th>Amount Paid</th>
+              <th>Balance Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of sales">
+              <td class="text-center">{{ sale.salesId }}</td>
+              <td class="text-center">{{ sale.payment.customer.customerName }}</td>
+              <td class="text-center">{{ sale.payment.customer.phone1 }}</td>
+              <td class="text-end">{{ sale.actualAmount + sale.actualAmount*3/100 | currency: 'INR': 'symbol': '1.2-2'}}</td>
+              <td class="text-end">{{ sale.bill.amountPaid | currency: 'INR': 'symbol': '1.2-2'}}</td>
+              <td class="text-end">{{ ((sale.actualAmount + sale.actualAmount * 3/100) - sale.bill.amountPaid)  | currency: 'INR': 'symbol': '1.0-0' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </pre>
+</div>
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)="onCloseClick()">Close</button>
+</div> -->

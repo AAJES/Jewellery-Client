@@ -1,34 +1,37 @@
 .container {
-  width: 60%;
-  max-width: 400px; /* Adjust the maximum width based on your design */
-  margin: 0 auto;
+  /* width: 80%; */
+  max-width: 70%; /* Adjust the maximum width based on your design */
+  margin-top: 4%;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 7px 7px rgb(190, 187, 187);
 }
 
-h3 {
-  text-align: center;
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cancel {
-margin-left: -70%;
-  margin-top: 20px;
- 
+
+.fa-times {
+  color: black;
+  margin-top: -3%;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.fa-times:hover {
+  color: red;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+
+
+
+input,select {
+ margin-bottom: 8px;
 }
 
 .alert {
@@ -36,28 +39,68 @@ input {
   margin-top: -10px;
 }
 
-button.button {
-  width: 40%;
-  padding: 10px;
-  background: linear-gradient(
-    90deg,
-    rgb(246, 234, 166) 0%,
-    rgb(249, 231, 131) 16%,
-    rgb(250, 226, 93) 50%,
-    rgb(249, 222, 70) 83%,
-    rgb(253, 215, 1) 100%
-  );
+.button {
+  margin-top: -40px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #ffd700 0%, #ffd700 16%, #e5c100 50%, #ffd700 83%, #ffd700 100%);
   border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
   cursor: pointer;
-  border: none;
+  animation: colorMovement 4s infinite; /* Apply the color movement animation */
 }
 
-button.button:hover {
-  background: rgb(243, 213, 40);
+@keyframes colorMovement {
+  0% {
+    background-position: 0% 50%; /* Start position of the gradient */
+  }
+  100% {
+    background-position: 100% 50%; /* End position of the gradient */
+  }
 }
+
 
 @media (max-width: 600px) {
   .container {
     padding: 10px;
   }
+}
+
+
+.mat-table {
+  width: 100%;
+  height: 400px;
+}
+
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+
+.mat-paginator {
+  margin-top: 16px; /* Adjust the margin as needed */
+}
+
+/* Optional: Add shadow and border to the table */
+.mat-elevation-z8 {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Optional: Style the header row */
+.mat-header-row {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Optional: Style the rows */
+.mat-row {
+  transition: background-color 0.3s;
+}
+
+/* Optional: Hover effect on rows */
+.mat-row:hover {
+  background-color: #e0e0e0;
 }

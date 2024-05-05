@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Gender } from 'src/app/commons/common.objects';
 import { MainService } from '../../main.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-gender',
@@ -15,7 +15,7 @@ export class GenderComponent {
     gender: ''
   }
 
-  constructor(private service : MainService,private route : ActivatedRoute){
+  constructor(private service : MainService,private route : ActivatedRoute,private router : Router){
 
   }
 
@@ -44,6 +44,7 @@ export class GenderComponent {
   public onSubmit(){
     this.service.addGender(this.gend,(data : any)=>{
         console.log(data);
+        this.router.navigate(['/genderall'])
     })
   }
 

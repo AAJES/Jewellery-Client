@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModeOfPayment } from 'src/app/commons/common.objects';
 import { MainService } from '../../main.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-mode-of-payment',
@@ -15,8 +16,9 @@ export class ModeOfPaymentComponent {
     modeofPaymentId: 0,
     modeOfPayment: ''
   }
+  modeOfPaymentId: any= 0;
 
-  constructor(private httpClient : HttpClient,private service : MainService){
+  constructor(private service : MainService,private router:Router,private route : ActivatedRoute){
 
   }
 
@@ -28,18 +30,41 @@ export class ModeOfPaymentComponent {
     return this.modeofpaymentform.controls.modeofPayment.get('modeOfPayment') as FormControl;
   }
 
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const modeOfPaymentId = params.get("data");
+      console.log(modeOfPaymentId);
+      if (modeOfPaymentId) {
+        // Edit Booking
+      this.modeOfPaymentId = modeOfPaymentId;
+
+        this.service.getModeOfPayment(modeOfPaymentId, (data: any) => {
+          console.log(data);
+          this.mop = data;
+         
+        });
+      } else {
+        // Handle the case where bookingId is not available
+      }
+    });
+  }
+
   public onSubmit(){
 
-    // this.mop.modeOfpayment = this.modeOfPayment.value;
+  
 
-    // this.httpClient.post("http://localhost:5050/modeofpayment",this.mop)
-    //                .subscribe((data : any)=>{
-    //                   console.log(data);
-    //                })
-    
-    this.service.addModeOfPayment(this.mop,(data : any)=>{
+    if(this.modeOfPaymentId == 0){
+      this.service.addModeOfPayment(this.mop,(data : any)=>{
         console.log(data);
+        this.router.navigate(['/allpaymentmode'])
     })
+    }else{
+      this.service.updateModeOfPayment(this.modeOfPaymentId,this.mop,(data:any)=>{
+        console.log("Update Successful")
+        this.router.navigate(['/allpaymentmode']);
+      })
+    }
 
   }
 

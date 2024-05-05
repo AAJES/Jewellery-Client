@@ -88,6 +88,35 @@ export class BillComponent {
           password: '',
           role: []
         }
+      },
+      customer: {
+        customerId: 0,
+        customerName: "",
+        gender: {
+          genderId: 0,
+          gender: ""
+        },
+        phone1: "",
+        phone2: "",
+        email: "",
+        location: "",
+        user: {
+          userId: 0,
+          userName: "",
+          password: "",
+          role: []
+        }
+      },
+      bankDetails: {
+        bankDetailsId: 0,
+        ifsccode: '',
+        accountNo: '',
+        accountHolderName: '',
+        branch: '',
+        branchAddress: '',
+        qrCode: '',
+        description: '',
+        active: false
       }
     },
     get: function (arg0: string): FormControl<any> {
@@ -136,7 +165,6 @@ export class BillComponent {
     this.service.getAllIdForm((data : any)=>{
        this.idForms = data;
        this.service.getuserbyId(data[data-length-1],(data : any)=>{
-           console.log(data);
            this.bill.user = data;
        })
     })
@@ -144,7 +172,6 @@ export class BillComponent {
       this.billId = params.get('data');
       //this.updateCompanyProcess(this.entity_id);
       this.service.getBill(this.billId,(data : any)=>{
-          console.log(data);
           this.bill = data;
           this.products = this.bill.products;
           this.amountInWords = this.transform(this.bill.amountPaid);
@@ -205,7 +232,6 @@ export class BillComponent {
      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
    };
 
-   console.log("pdf2");
    html2canvas(this.contentToConvert.nativeElement, { scale: 2 }).then((canvas) => {
      this.imageData = canvas.toDataURL('image/jpeg', 1.0);
      doc.addImage(
@@ -216,13 +242,11 @@ export class BillComponent {
        canvas.width * 0.15, // Adjust width to fit content (you can change the scale as needed)
        canvas.height * 0.15 // Adjust height to fit content
      );
-     console.log("pdf3");
 
      this.file = this.bill.billId+ this.bill.customer.customerName + '.pdf';
 
      options.filename =  this.bill.billId +"_"+ this.bill.customer.customerName + '.pdf';
 
-     console.log("pdf4");
      doc.save(options.filename);
      //this.downloadPdf();
      //  this.emailDetails.msgBody = JSON.stringify("This is appointment details");

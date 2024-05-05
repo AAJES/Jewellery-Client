@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CartserviceService {
-
+ baseURL:string="'http://localhost:5050/jewellery"
   constructor(private http : HttpClient) { 
     if ('webkitSpeechRecognition' in window) {
       this.recognition = new (window as any).webkitSpeechRecognition();
@@ -14,11 +14,9 @@ export class CartserviceService {
       this.recognition.interimResults = false;
 
       this.recognition.onstart = () => {
-        console.log('Speech recognition started');
       };
 
       this.recognition.onend = () => {
-        console.log('Speech recognition stopped');
       };
     } else {
       console.error('Speech recognition is not supported in this browser.');
@@ -29,10 +27,12 @@ export class CartserviceService {
 
   addToCart(item : any) {
     this.cartItems.push(item);
-    console.log(this.cartItems);
+
+
   }
 
   getCartItems() {
+
     return this.cartItems;
   }
 

@@ -15,7 +15,7 @@ export class MetalComponent {
 
   metal : Metal = {
     metalId: 0,
-    metalName: '-'
+    metalName: ''
   }
 
   metall : Metal = {
@@ -23,7 +23,8 @@ export class MetalComponent {
     metalName: ' '
   }
 
-  constructor(private service : MainService,private route : ActivatedRoute){
+  constructor(private service : MainService,
+    private route : ActivatedRoute){
 
   }
 
@@ -61,11 +62,13 @@ export class MetalComponent {
     if(this.metalId == null){
       this.service.addMetal(this.metal,(response : any)=>{
         console.log(response);
+       
     })
     }
     else{
        this.service.updateMetal(this.metalId,this.metal,(data : any)=>{
           console.log(data);
+          
        })
     }
     

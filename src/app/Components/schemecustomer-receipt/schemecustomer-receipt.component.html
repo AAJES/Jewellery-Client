@@ -1,49 +1,189 @@
-<div class="container">
-    <h3><b>Scheme Registration For Customers</b> 
-        
-        <div class="cancel">
-            <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 570px; margin-top: 20px; font-size: 30px; "></i></a>
+<div class="row">
+  <div class="col-md-4">
+    <div class="container-fluid">
+      <div >
+        <h3><b>Scheme Customer Receipts:</b></h3>
+        <div class="table-container">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Customer Number</th>
+                  <th>Lucky No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let list of allschemeCustomerReceipt">
+                  <td>{{ list.customerName }}</td>
+                  <td>{{ list.customerPhone }}</td>
+                  <td>{{ list.customerLuckyNo }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-    </h3>
-    <br> <br><br>
- <!-- <form class="Main">  -->
-            <label><b>Lucky Number :</b></label> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            
-            <input type="text" name="luckyNo" placeholder="Lucky Number" size="15" ngModel #customerLuckyNo="ngModel" 
-            required 
-            pattern="[a-z A-Z 0-9]*"
-            type="text" 
-            name="customerLuckyNo"
-            [(ngModel)]="schemeCustomer.customerLuckyNo">
-                       
-    <br>
-            <label><b>Customer Name : </b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           
-            <input type="text" name="customerName" placeholder="Customer Name" size="15" ngModel #customerName="ngModel" 
-            required 
-            pattern="[a-z A-Z 0-9]*"
-            type="text" 
-            name="customerName"
-            [(ngModel)]="schemeCustomer.customerName" >
-    <div class="alert alert-danger" *ngIf="customerName.touched && customerName.invalid">Customer Name is required</div>
-            <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-8">
+      <div class="container">
+        <div class="flex-container">
+          <h2><b>Scheme Registration For Customers</b></h2>
+          <i class="fa fa-times" routerLink="/home"></i>
+        </div>
+
+        <form>
+          <div class="row">
+
+
+            <div class="col-md-6">
+              <label><b>Scheme :</b></label>
+              <select name="scheme" class="form-control"   #schemevalue (click)="onChangeScheme(schemevalue.value)">
+                <option value="" disabled selected >Select Scheme</option>
+                <option *ngFor="let schemeList of schemes" [value]="schemeList.schemeId"  > {{schemeList.schemeName}}</option>
+              </select>
+
+            </div>
+
+
+
+            <div class="col-md-6">
+              <label><b>Lucky Number :</b></label>
+              <input
+                type="number"
+                class="form-control"
+                name="luckyNo"
+                placeholder="Lucky Number"
+                size="15"
+                ngModel
+                #customerLuckyNo="ngModel"
+                required
+                
+                [(ngModel)]="schemeCustomer.customerLuckyNo"
+              />
+            </div>
+
+
+            <div class="col-md-6">
+              <label><b>Customer Name : </b></label>
+              <input
+                type="text"
+                class="form-control"
+                name="customerName"
+                placeholder="Customer Name"
+                size="15"
+                ngModel
+                #customerName="ngModel"
+                required
+                
+                [(ngModel)]="schemeCustomer.customerName"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="customerName.touched && customerName.invalid"
+              >
+                Customer Name is required
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label><b>Customer Email Id : </b></label>
+              <input
+                type="text"
+                class="form-control"
+                name="customerName"
+                placeholder="Customer Email Id"
+                size="15"
+                ngModel
+                #email="ngModel"
+                required
+                
+                [(ngModel)]="schemeCustomer.email"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="email.touched && email.invalid"
+              >email is required
+              </div>
+            </div>
+
+        
+          <br />
+         
+
+            <div class="col-md-6">
+              <label><b>Customer Phone No :</b></label>
+              <input
+                type="text"
+                class="form-control"
+                name="customerPhoneNo"
+                placeholder="Phone Number"
+                size="15"
+                ngModel
+                #customerPhoneNo="ngModel"
+                required
+                pattern="[0-9]*"
+                [(ngModel)]="schemeCustomer.customerPhone"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="customerPhoneNo.touched && customerPhoneNo.invalid"
+              >
+                Customer Phone Number is required
+              </div>
+            </div>
+
+
+
+            <div class="col-md-6">
+              <label><b>Customer Remark :</b></label>
+              <input
+                type="text"
+                class="form-control"
+               
+                name="remark"
+                [(ngModel)]="schemeCustomer.remark"
+              />
+            </div>
+          </div>
+          
+          <br />
+          
+          
+          
+
+          <div class="row">
+            <div class="col-md-12">
+              <button class="button" (click)="onSubmit()">
+                <b>Register</b>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container-fluid">
+
+
     
-            <label><b>Customer Phone No :  </b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       
-            <input type="text" name="customerPhoneNo" placeholder="Phone Number" size="15" ngModel #customerPhoneNo="ngModel" 
-            required 
-            pattern="[a-z A-Z 0-9]*"
-            type="text" 
-            name="customerPhoneNo"
-            [(ngModel)]="schemeCustomer.customerPhone" >
-    <div class="alert alert-danger" *ngIf="customerPhoneNo.touched && customerPhoneNo.invalid">Customer Phone Number is required</div>
-            <br><br>
+    <div *ngIf="allschemeCustomerReceipt.length > 0">
+      <h3><b>Scheme Customer Receipts:</b></h3>
+  
+      <mat-table class="mat-elevation-z8" [dataSource]="dataSource">
+        <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+          <mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element[column] }}</mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div> -->
 
-            <input ngModel #remark [(ngModel)]="schemeCustomer.remark">
-
-           
-
-    <button class="button" onclick="alert('successfully')" (click)="onSubmit()"><b>Register</b></button>
- <!-- </form> -->
-
-</div>

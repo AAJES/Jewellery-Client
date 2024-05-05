@@ -1,160 +1,206 @@
-<div class="main">
-  <h2 style="margin-top: -10%;margin-left: 6%;">Payment</h2>
-  <form class="mopform" >
-<div class="form">
-  <br>
-       <label>Total Amount : </label> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <input placeholder="Total Amount" ngModel #totalAmount="ngModel" 
-                           required pattern="[a-z A-Z 0-9]*"
-                           type="number" 
-                           name="totalAmount"
-                           [(ngModel)]="Payment.totalAmount"
-                           [value]="payment.totalAmount"> 
-       <div class="alert alert-danger" *ngIf="totalAmount.touched && totalAmount.invalid">Total Amount is required</div>
-     
-     <br>
+<br />
 
-     <br>
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="main">
+      <h2 style="padding-left: 30px"><b> Payment</b></h2>
+      <form class="mopform">
 
-   
-       <label>Discount Amount : </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <input placeholder="Discount Amount" ngModel #discountAmount="ngModel" 
-                           required 
-                           pattern="[a-z A-Z 0-9]*"
-                           type="text" 
-                           name="discountAmount"
-                           [(ngModel)]="payment.discountAmount" >
-       <div class="alert alert-danger" *ngIf="discountAmount.touched && discountAmount.invalid">Discount Amount is required</div>
-   
-     <br>
-<br>
+        <div class="row">
+          <div class="col-md-6">
+            <label>Total Amount : </label>
+            <input
+              placeholder="Total Amount"
+              ngModel
+              #totalAmount="ngModel"
+              required
+              type="number"
+              class="form-control"
+              name="totalAmount"
+              [(ngModel)]="Payment.totalAmount"
+              [value]="payment.totalAmount"
+              
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="totalAmount.touched && totalAmount.invalid"
+            >
+              Total Amount is required
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label>Discount Amount : </label>
 
-     <!-- <mat-form-field>
-       <mat-label>Payment ID</mat-label>
-       <input placeholder="Payment ID" ngModel #paymentID="ngModel" 
-       required 
-       pattern="[a-z A-Z 0-9]*"
-       type="text" 
-       name="paymentID"
-       [(ngModel)]="Payment.paymentID" >
-       <div class="alert alert-danger" *ngIf="paymentID.touched && paymentID.invalid">Payment ID is required
-         
-       </div>
-     </mat-form-field>
-     <br> -->
-
-  
-         
-           <label>Amount Paid : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <input placeholder="Amount Paid" ngModel #amountPaid="ngModel" 
-                               required pattern="[a-z A-Z 0-9]*"
-                               type="text" 
-                               name="amountPaid"
-                               [(ngModel)]="payment.amountPaid"> 
-           <div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid">Amount Paid is required</div>
-     
-         <br>
-
-         <div
-        class="input-selectbox"
-        ngModelGroup="companyEntity"
-        style="margin-top: 25px"
-      >
-        <div class="select-container form-group" style="display: flex">
-          <label
-            style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
-            for=""  
-            >Mode Of Payment :</label
-          > &nbsp;&nbsp;&nbsp;
-          <select
+          <input
+            placeholder="Discount Amount"
             ngModel
-            name="metalId"
+            #discountAmount="ngModel"
+            required
             class="form-control"
-            style="width: 40%"
-            aria-label="Default select example" 
-          > 
-            <option selected >Select Mode Of Payment
-            </option>  <i class="bi bi-caret-down-fill"></i>
-            <option (click)="onModeOfPaymentSelectionChange(mop.modeOfPaymentId)"
-              *ngFor="let mop of mops"
-              [value]="mop.modeOfPaymentId">
-              {{ mop.modeOfPayment }}
-            </option>
-          </select>
+            type="number"
+            name="discountAmount"
+            [(ngModel)]="payment.discountAmount"
+            (input)="calculateAmountPaid()"
+          />
+          <div
+            class="alert text-danger"
+            *ngIf="discountAmount.touched && discountAmount.invalid"
+          >
+            Discount Amount is required
+          </div>
+          </div>
+          <div class="col-md-6">
+            <label>Amount Paid : </label>
+            <input
+              placeholder="Amount Paid"
+              ngModel
+              #amountPaid="ngModel"
+              required
+              pattern="^\d+(\.\d{1,2})?$"
+              type="text"
+              name="amountPaid"
+              class="form-control"
+              [(ngModel)]="payment.amountPaid"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="amountPaid.touched && amountPaid.invalid"
+            >
+              Amount Paid is required
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="select-container form-group">
+              <label for="modeOfPayment">Mode Of Payment:</label>
+              <select
+                [(ngModel)]="selecteMop"
+                name="modeOfPayment"
+                id="modeOfPayment"
+                class="form-control"
+                required
+                (change)="onModeOfPaymentSelectionChange()"
+              >
+                <option selected disabled>Select Mode Of Payment</option>
+                <i class="bi bi-caret-down-fill"></i>
+                <option *ngFor="let mop of mops" [value]="mop.modeOfPaymentId">
+                  {{ mop.modeOfPayment }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <h1>HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
+              <mat-form-field class="search-cus">
+                <input
+                  matInput
+                  [formControl]="customerControl"
+                  placeholder="Search customer"
+                  [matAutocomplete]="auto"
+                />
+                <mat-autocomplete
+                  [displayWith]="displayFn"
+                  #auto="matAutocomplete"
+                  #selectCustomer
+                >
+                  <mat-option
+                    *ngFor="let c of filteredCustomers | async"
+                    [value]="c.customerId"
+                    (click)="onCustomerSelectionChange(c.customerId)"
+                  >
+                    {{ c.phone1 }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+
+              <div *ngIf="selectedPaymentCustomer">
+                
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Customer Name</th>
+                      <th scope="col">Customer Phone</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ payment.customer.customerName }}</td>
+                      <td>{{ payment.customer.phone1 }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-6">
+            <div class="select-container form-group">
+              <label for="bankDetails">Bank :</label>
+              <select
+                [(ngModel)]="selectedBankDetails"
+                name="bankDetails"
+                id="bankDetails"
+                class="form-control"
+                required
+                (change)="onBankDetrailsSelectionChange()"
+              >
+                <option selected disabled>Select Mode Of Payment</option>
+                <i class="bi bi-caret-down-fill"></i>
+                <option *ngFor="let b of bankDetailsList" [value]="b.bankDetailsId">
+                  {{ b.accountHolderName }}
+                </option>
+              </select>
+            </div>
+          </div> -->
         </div>
-      </div>
-   
+        <div class="">
          
-   
-         <!-- <mat-form-field>
-           <mat-label>Total Weight</mat-label>
-           <input placeholder="Total Weight" ngModel #totalWeight="ngModel" 
-                               required 
-                               pattern="[a-z A-Z 0-9]*"
-                               type="text" 
-                               name="totalWeight"
-                               [(ngModel)]="Payment.totalWeight" >
-           <div class="alert alert-danger" *ngIf="totalWeight.touched && totalWeight.invalid">Total Weight is required</div>
-         </mat-form-field>
-         <br>
-   
-   
-         <mat-form-field>
-           <mat-label>User ID</mat-label>
-           <input placeholder="User ID" ngModel #userId="ngModel" 
-           required 
-           pattern="[a-z A-Z 0-9]*"
-           type="text" 
-           name="userId"
-           [(ngModel)]="Payment.userId" >
-           <div class="alert alert-danger" *ngIf="userId.touched && userId.invalid">Uer ID is required
-             
-           </div>
-         </mat-form-field>
-         <br>
+
+
+          <div class="table-responsive">
+            <table
+              class="table table-striped table-hover table-borderless align-middle"
+            >
+              <thead class="table-light">
+                <caption>
+                  Products
+                </caption>
+                <tr>
+                  <th>SlNo.</th>
+                  <th>Name</th>
+                  <th>Weight</th>
+                  <th>Stone</th>
+                  <th>Processing</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let product of payment.products; let i = index">
+                  <td scope="row">{{ i + 1 }}</td>
+                  <td>{{ product.productName }}</td>
+                  <td>{{ product.weightage }}</td>
+                  <td style="width: 120px;">
+                    <input type="number" class="form-control" [(ngModel)]="product.stoneWeight" name="productLabour{{i}}">
+                  </td>
+                  <td style="width: 120px;">
+                    <input type="number" class="form-control" [(ngModel)]="product.processing" name="productLabour{{i}}">
+                  </td>
+                  
+                </tr>
+              </tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
 
          
-             <mat-form-field>
-               <mat-label>Login ID</mat-label>
-               <input placeholder="Login ID" ngModel #loginId="ngModel" 
-                                   required pattern="[a-z A-Z 0-9]*"
-                                   type="text" 
-                                   name="loginId"
-                                   [(ngModel)]="Payment.loginId"> 
-               <div class="alert alert-danger" *ngIf="loginId.touched && loginId.invalid">Login ID is required</div>
-             </mat-form-field>
-             <br>
+
         
 
-      <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field> -->
-<br><br>
-
-      <button class="button" (click)="onSubmit()">Submit</button>
-
+          <button class="button" (click)="confirmSubmit()">Submit</button>
+        </div>
+      </form>
     </div>
-    </form>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <!-- <div class="example-container">
     <mat-form-field>

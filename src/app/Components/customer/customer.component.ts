@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/commons/common.objects';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { MainService } from '../main.service';
 
 @Component({
@@ -30,11 +33,20 @@ export class CustomerComponent {
     },
     location: ''
   }
+  customerId: any=0;
 
-  constructor(private httpClient : HttpClient,private service : MainService){
+ 
+
+ 
+
+  constructor(private service : MainService, private router : Router,private route:ActivatedRoute){
       this.service.getAllGender((data : any)=>{
           this.genders = data;
       })
+
+
+      
+      
   }
 
   customerform = new FormGroup({
@@ -61,33 +73,48 @@ export class CustomerComponent {
   }
 
   public onGenderSelectionChange(genderId : any) {
-    // console.log("Entity selected : "+entityId)
-   // let eid = parseInt(entityId);
-    //  this.httpClient.get("http://localhost:5050/gender/"+genderId)
-    //                 .subscribe((data : any)=>{
-    //                      this.customer.gender = data;
-    //                 })
+
       this.service.getGender(genderId,(data : any)=>{
           this.customer.gender = data;
       })
   }
 
-  
-  public onSubmit(){
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const customerId = params.get("data");
+      console.log(customerId);
+      if (customerId) {
+        
+        this.customerId = customerId;
 
-    //  this.customer.customerName = this.customerName.value;
-    //  this.customer.email = this.email.value;
-    //  this.customer.phone1 = this.phone1.value;
-    //  this.customer.phone2 = this.phone2.value;
-
-    //  this.httpClient.post("http://localhost:5050/customer",this.customer)
-    //                 .subscribe((data : any)=>{
-    //                      console.log(data);
-    //                 })
-
-    this.service.addCustomer(this.customer,(data : any)=>{
-        console.log(data);
-    })
+        this.service.getCustomer(customerId, (data: any) => {
+          console.log(data);
+          this.customer = data;
+        });
+      } else {
+        // Handle the case where bookingId is not available
+      }
+    });
   }
+
+  public onSubmit() {
+    
+
+
+    if(this.customerId == 0){
+      this.service.addCustomer(this.customer,(data : any)=>{
+        console.log(data);
+       
+        this.router.navigate(["/allcustomers"]);
+      });
+    }else{
+      this.service.updateCustomer(this.customerId,this.customer,(data:any)=>{
+        console.log("Update Successful")
+        this.router.navigate(['/allcustomers']);
+      })
+    }
+  }
+  
+  
 
 }

@@ -24,29 +24,14 @@ h3 {
   }
 }
 
-/* Style the form elements for better spacing and readability */
-label {
-  display: block;
-  font-weight: bold;
-  margin: 10px 0;
-}
 
-input[type="text"] {
-  width: 60%;
-  padding: 10px;
-  border: 1px solid #bbb8b8;
-  border-radius: 5px;
-}
 
 .alert {
   color: red;
   margin-top: 5px;
 }
 
-/* Style the file input container */
-.file-upload-container {
-  text-align: center;
-}
+
 
 .file-input-label {
   background-color: #007bff;
@@ -63,41 +48,26 @@ input[type="text"] {
   margin-right: 5px;
 }
 
-/* Hide the file input */
-input[type="file"] {
-  display: none;
+
+
+.square{
+  height: 100px;
 }
 
-/* Style the image */
-.square {
-  height: auto;
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
+
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Style the submit button */
-.button {
-  background: linear-gradient(90deg, rgb(246, 234, 166) 0%, rgb(249, 231, 131) 16%, rgb(250, 226, 93) 50%, rgb(249, 222, 70) 83%, rgb(253, 215, 1) 100%);
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-}
 
-.button:hover {
-  background: rgb(243, 213, 40);
-  animation: bounce 0.5s ease-in-out;
-}
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+.fa-times {
+color: black;
+margin-top: -3%;
+font-size: 24px;
+cursor: pointer;
 }

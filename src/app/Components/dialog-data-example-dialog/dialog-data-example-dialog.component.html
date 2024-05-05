@@ -1,8 +1,8 @@
 <div mat-dialog-content>
     <div>
-        <label for="category">Category:</label> &nbsp;
-        <select id="category" [(ngModel)]="categoryFilter">
-          <option value="">Select Category</option>
+        <label for="category">Category:</label>
+        <select id="category" class="form-control" [(ngModel)]="categoryFilter">
+          <option value=""  >Select Category</option>
           <option (click)="onCategorySelectionChange(category.categoryId)"
               *ngFor="let category of categories"
               [value]="category.categoryId">
@@ -11,12 +11,12 @@
           <!-- Add more category options as needed -->
         </select>
       </div>
-      <br><br>
+      <br>
 
       <div>
-        <label for="metal">Metal:</label> &nbsp; &nbsp; &nbsp; &nbsp;
-        <select id="metal" [(ngModel)]="metalFilter">
-          <option value="">Select Metal</option>
+        <label for="metal">Metal:</label> 
+        <select id="metal" class="form-control" [(ngModel)]="metalFilter">
+          <option value=""  >Select Metal</option>
           <option (click)="onMetalSelectionChange(metal.metalId)"
               *ngFor="let metal of metals"
               [value]="metal.metalId"
@@ -26,10 +26,10 @@
           <!-- Add more metal options as needed -->
         </select>
       </div>
-<br><br>
+<br>
       <div>
-        <label for="purity">Purity:</label>&nbsp; &nbsp; &nbsp; &nbsp;
-        <select id="purity" [(ngModel)]="purityFilter">
+        <label for="purity">Purity:</label>
+        <select id="purity" class="form-control" [(ngModel)]="purityFilter">
           <option value="">Select Purity</option>
           <option (click)="onPuritySelectionChange(purity.purityId)"
               *ngFor="let purity of purities"
@@ -40,9 +40,9 @@
           <!-- Add more purity options as needed -->
         </select>
       </div>
-<br><br>
+<br>
       <div>
-        <button (click)="applyFilters()" class="btn btn-primary">Apply Filters</button> &nbsp;&nbsp;
-        <button (click)="clearFilters()" class="btn btn-primary">Clear Filters</button>
+        <button (click)="applyFilters()" class="btn btn-sm btn-primary">Apply Filters</button> &nbsp;&nbsp;
+        <button (click)="clearFilters()" class="btn btn-sm btn-primary">Clear Filters</button>
       </div>
   </div>

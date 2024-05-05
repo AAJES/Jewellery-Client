@@ -15,6 +15,10 @@ export class RateComponent {
   userId: any;
   idForms : any[] = [];
 
+  selectedMetal: any; 
+  selectedPurity: any; 
+selectedStatus: any;
+
 
   constructor(private service : MainService){
     
@@ -32,17 +36,6 @@ export class RateComponent {
       this.purities = data;
    })
 
-   this.service.getAllIdForm((data : any)=>{
-      console.log(data);
-      this.idForms = data;
-      const length = data.length;
-      const id = data[length-1].id;
-      this.service.getUserById(id,(data : any)=>{
-          console.log(data);
-          this.rate.user = data;
-      })
-   })
-   
 
 
   }
@@ -71,21 +64,18 @@ export class RateComponent {
       role: []
     }
   }
+
+
+ 
   ngOnInit(){
-    console.log("asdfgh");
-    this.service.getAllIdForm((data : any)=>{
-      this.service.getuserbyId(this.idForms[this.idForms.length-1].idFormId,(data : any)=>{
-        console.log(data);
-        this.rate.user = data;
+
+    let username = window.sessionStorage.getItem("userName");
+   
+    this.service.getUserByUserName(username, (data: any) => {
+      console.log(data);
+      this.rate.user = data;
     })
-    })
-    // const sessionData = JSON.parse(localStorage.getItem('sessionData')as string);
-    // console.log(sessionData);
-    // this.userId = sessionData.userId;
-    // this.service.getuserbyId(sessionData.userId,(data : any)=>{
-    //    console.log(data);
-    //    this.rate.user = data;
-    // })
+
     
   }
 
@@ -94,29 +84,24 @@ export class RateComponent {
       this.rate.activeStatus = true;
   }
 
-  public onUserSelectionChange(userId : any){
-      this.service.getUserById(userId,(data : any)=>{
-        this.rate.user = data;
-    })
-  }
+
 
   public onMetalSelectionChange(metalId : any){
-        console.log(metalId);
         this.service.getMetal(metalId,(data : any)=>{
           this.rate.metal = data;
         })
   }
 
   public onPuritySelectionChange(purityId : any){
-      console.log(purityId);
       this.service.getPurity(purityId,(data : any)=>{
         this.rate.purity = data;
     })
   }
 
   public onSubmit(){
+
         this.service.addRate(this.rate,(data : any)=>{
-          console.log(data);
+          window.location.reload()
       })
   }
 

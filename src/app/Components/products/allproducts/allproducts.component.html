@@ -1,0 +1,182 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-11">
+      <p class="bolder">Product</p>
+    </div>
+    <div class="col-md-1">
+      <button class="button mb-3" routerLink="/product"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+    </div>
+  </div>
+
+
+
+
+
+   
+  
+    <!-- <div>
+      <table mat-table [dataSource]="productList"   class="mat-elevation-z8">
+       c
+  
+        
+        <ng-container matColumnDef="productId">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.productId }}</td>
+        </ng-container>
+  
+    
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef>Product Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.productName }} 
+          </td>
+        </ng-container> 
+  
+        <ng-container matColumnDef="productImage">
+          <th mat-header-cell *matHeaderCellDef>Image</th>
+          <td mat-cell *matCellDef="let element" >
+           <img [src]="element.image" class="img">
+           <h5> {{element.productImage}}</h5>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="weightage">
+          <th mat-header-cell *matHeaderCellDef>Weightage</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.weightage }}
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="wastage">
+          <th mat-header-cell *matHeaderCellDef>Wastage</th>
+          <td mat-cell *matCellDef="let element">{{ element.wastage }}</td>
+        </ng-container>
+  
+        
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Category</th>
+          <td mat-cell *matCellDef="let element">{{ element.category?.categoryName }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="metal">
+          <th mat-header-cell *matHeaderCellDef>Metal</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.metal.metalName }}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="purity">
+          <th mat-header-cell *matHeaderCellDef>Purity</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.product?.purity.purityName }}
+          </td>
+        </ng-container>
+        
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="d-flex">
+                <button class="btn btn-primary m-2" (click)="onEditClick(element.productId)"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger m-2" (click)="onDeleteClick(element.product?.productId)"><i class="fa fa-trash"></i></button>
+              </div>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <div>
+        
+      </div>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </div>  -->
+  <!-- <table>
+    <tr *ngFor="let product of productArr">
+      <td>
+        <img [src]="product.image" class="img">
+      </td>
+    </tr>
+  </table> -->
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-md-11">
+        <p class="bolder">Product</p>
+      </div>
+      <div class="col-md-1">
+        <button class="button mb-3"><i class="fa fa-plus" aria-hidden="true"></i></button>
+      </div>
+    </div> 
+  -->
+
+
+
+
+  
+  <div> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Product Name</th>
+          <th>Image</th>
+          <th>Weightage</th>
+          <th>Wastage</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Metal</th>
+          <th>Purity</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through productList    -->
+        <tr *ngFor="let element of productList; let i = index">
+          <td>{{ element.productId }}</td>
+          <td>{{ element.productName }}</td>
+          <!-- Use the index to access corresponding product from productArr -->
+          <td><img [src]="productArr[i].image" class="img"></td>
+          <td>{{ element.weightage }}</td>
+          <td>{{ element.wastage }}</td>
+          <td>{{ element.description }}</td>
+          <td>{{ element.category?.categoryName }}</td>
+          <td>{{ element.metal.metalName }}</td>
+          <td>{{ element.product?.purity.purityName }}</td>
+          <td>
+            <div class="d-flex">
+              <!-- Buttons for editing and deleting a product -->
+              <button class="btn btn-primary m-2" (click)="onEditClick(element.productId)"><i class="fa fa-pencil"></i></button>
+              <button class="btn btn-danger m-2" (click)="onDeleteClick(element.product?.productId)"><i class="fa fa-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <!-- Page numbers -->
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

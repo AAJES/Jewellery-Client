@@ -46,7 +46,7 @@ export class DialogDataExampleDialogComponent {
     //                 .subscribe((data : any)=>{
     //                      this.product.category = data;
     //                 })
-
+    console.log(categoryId);
     this.service.getCategory(categoryId,(data : any)=>{
          console.log(data);
          this.categoryFilter = data.categoryId;
@@ -81,7 +81,7 @@ export class DialogDataExampleDialogComponent {
     })
   }
 
-  applyFilters(): void {
+applyFilters(): void {
     // this.service
     //   .getFilteredProducts(this.categoryFilter, this.metalFilter, this.purityFilter,(data : any)=>{
     //      this.products = data;
@@ -94,6 +94,7 @@ export class DialogDataExampleDialogComponent {
     this.metalFilter = '';
     this.purityFilter = '';
     this.loadProducts();
+    window.location.reload();
   }
 
   private loadProducts(): void {
@@ -123,7 +124,7 @@ export class DialogDataExampleDialogComponent {
       else{
           this.service.getProductByMetalByPurity(this.metalFilter,this.purityFilter,(data : any)=>{
              console.log(data);
-             this.products = data;
+           
              this.products = data;
              this.service.setArrayData(this.products);
              this.dialogRef.close();
@@ -134,7 +135,7 @@ export class DialogDataExampleDialogComponent {
       if(this.purityFilter == ''){
           this.service.getCategoryProduct(this.categoryFilter,(data : any)=>{
               console.log(data);
-              this.products = data;
+           
               this.products = data;
               this.service.setArrayData(this.products);
               this.dialogRef.close();
@@ -165,15 +166,17 @@ export class DialogDataExampleDialogComponent {
            this.service.getProductByMetal(this.metalFilter,(data : any)=>{
                 console.log(data);
                 this.products = data;
-                this.products = data;
+            
                 this.service.setArrayData(this.products);
                 this.dialogRef.close();
                 // this.router.navigate(['/home3', { data: data  }]);
            })
         }else{
             this.service.getProductByCategoryByMetal(this.categoryFilter,this.metalFilter,(data : any)=>{
+
                  console.log(data);
-                 this.products = data;
+
+              
                  this.products = data;
                   this.service.setArrayData(this.products);
                   this.dialogRef.close();
@@ -182,8 +185,10 @@ export class DialogDataExampleDialogComponent {
         }
     }else{
         this.service.getProductByCategoryByMetalByPurity(this.categoryFilter,this.metalFilter,this.purityFilter,(data : any)=>{
+
             console.log(data);
-            this.products = data;
+
+            
             this.products = data;
              this.service.setArrayData(this.products);
              this.dialogRef.close();
@@ -192,6 +197,7 @@ export class DialogDataExampleDialogComponent {
     }
 
     console.log(this.products);
+
   }
 
 

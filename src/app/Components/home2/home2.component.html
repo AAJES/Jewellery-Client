@@ -1,64 +1,67 @@
-<body>
-<!-- <div class="compnavbar" >
-    <img src="../../../assets/images/lohonj.jpeg" alt="" >
-    <h3>Nagaraj Jewellers </h3>
-    
-</div> -->
-
-
-
-  
-
+<div class="main">
 
   <app-carousel></app-carousel>
+  <br>
 
-  
-
-  
+<div class="container-fluid"> 
   <div class="row">
-    <div class="col-md-4 mb-4" *ngFor="let product of products">
-      <div class="card" >
-        <img [src]="imageSrc" (blur)="getImage(product.productImage)" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Product Name : {{ product.productName }}</h5>
-          <!-- <p class="card-text">Customer: {{ booking.customer.customerName }}</p>
-          <p class="card-text">BookingDate: {{ booking.bookingDate }}</p>
-          <p class="card-text">DeliveryDate: {{ booking.deliveryDate }}</p>
-          <p class="card-text">Quantity: {{ booking.products.length }}</p>
-          <p class="card-text">Advance Amount: {{ booking.advanceAmount }}</p> -->
-          <div class="card-text">
-             Weightage: {{ product.weightage }}g
-             <br>
-             Category: {{ product.category.categoryName }}
-             <br>
-             Metal: {{ product.metal.metalName }}
-             <br>
-             <!-- <p *ngIf="product.purity.purityName!='0K'" >Purity: {{ product.purity.purityName }}</p> -->
-             <!-- <br>
-             Advance Amount: {{ booking.advanceAmount }} -->
-             </div>
-          <!-- <p class="card-text">Total: ${{ item.price * item.quantity }}</p> -->
-          <!-- <button class="btn btn-danger btn-sm" (click)="removeBooking(booking.bookingId)">Remove</button>
-          <button class="btn btn-primary" (click)="generateBill(booking.bookingId)">Generate Bill</button> -->
-          <button mat-raised-button (click)="addCart(product.productId)">Add To Cart</button>
+    <div class="col-lg-6 col-md-12">
+      
+      <img *ngIf="productArr.length > 0" [src]="productArr[productArr.length - 1]?.image" alt="Necklace" class="img-fluid product-image">
+    </div>
+    <div class="col-lg-6 col-md-12 product-details">
+      <h2 class="product-name">Latest Collection</h2>
+      <p class="product-description">
+        Explore our latest collection of exquisite. Each piece is crafted with precision and elegance to enhance your beauty.
+      </p>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+  <div class="row">
+    <div class="col-md-2 mb-4" *ngFor="let product of productArr">
+      <div class="card">
+        <div class="content">
+          <div class="front">
+            <img [src]="product?.image" class="card-img-top" alt="Product Image" />
+          </div>
+          <div class="back"> 
+            <div class="card-text">
+              <h4 class="card-title" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40ch;"><b> {{ product?.product?.productName }}</b></h4>
+              <p>Weightage: {{ product?.product?.weightage }}g</p>
+              <p>Category: {{ product?.product?.category?.categoryName }}</p>
+              <p>Metal: {{ product?.product?.metal?.metalName }}</p>
+              <p>Purity: {{ product?.product?.purity?.purityName }}</p>
+            </div>  
+            <button class="button" (click)="addCart(product?.product?.productId)">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
+            </button> 
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- <div class="container-fluid">
+    <div class="row">
+      
+      <div class="col-lg-6 col-md-12 product-details">
+        <h2 class="product-name">Latest Bangles Collection</h2>
+        <p class="product-description">
+          Explore our latest collection of exquisite necklaces. Each piece is crafted with precision and elegance to enhance your beauty.
+        </p>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <img src="https://static.newsheads.in/media/thumbs/2022/07/19/630360596-gold-bangles_1200x1200.jpg" alt="Necklace" class="img-fluid product-image">
+      </div>
+    </div>
+  </div> -->
 
+</div>
 
-<br>
-
-
-
-
-
-<app-footer></app-footer>
-    
-  </body>
-
-
-
-
-  
+<div class="footer">
+  <app-footer></app-footer>
+</div>

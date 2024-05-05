@@ -1,0 +1,99 @@
+<div class="main">
+    <h2 style="margin-top: -10%;margin-left: 6%;">Payment</h2>
+    <form class="mopform" >
+  <div class="">
+   
+         <label>Total Amount : </label> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input placeholder="Total Amount" ngModel #totalAmount="ngModel" 
+                             required pattern="[a-z A-Z 0-9]*"
+                             type="number" 
+                             class="form-control"
+                             name="totalAmount"
+                             [value]="payment.totalAmount" disabled> 
+         <div class="alert alert-danger" *ngIf="totalAmount.touched && totalAmount.invalid">Total Amount is required</div>
+       
+      
+         <label>Discount Amount : </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input placeholder="Discount Amount" ngModel #discountAmount="ngModel" 
+                             required 
+                             pattern="[a-z A-Z 0-9]*"
+                             type="text" 
+                             class="form-control"
+                             name="discountAmount"
+                             [value]="payment.discountAmount" disabled>
+         <div class="alert alert-danger" *ngIf="discountAmount.touched && discountAmount.invalid">Discount Amount is required</div>
+ 
+             <label>Amount Paid : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input placeholder="Amount Paid" ngModel #amountPaid="ngModel" 
+                                 required pattern="[a-z A-Z 0-9]*"
+                                 class="form-control"
+                                 type="text" 
+                                 name="amountPaid"
+                                 [value]="payment.amountPaid" disabled> 
+             <div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid">Amount Paid is required</div>
+       
+       
+           <!-- <label>Amount To Be Paid : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <input placeholder="Amount Paid" ngModel #amountPaid="ngModel" 
+                               required pattern="[a-z A-Z 0-9]*"
+                               type="text" 
+                               name="amountPaid"
+                               [(ngModel)]="amount" > 
+           <div class="alert alert-danger" *ngIf="amountPaid.touched && amountPaid.invalid">Amount Paid is required</div> -->
+           <label>Amount To Be Paid: </label>
+           <input type="number" class="form-control" [(ngModel)]="amountToBePaid" name="amountToBePaid" (ngModelChange)="getAmountPaid(amountToBePaid)">
+           
+           <!-- <div
+          class="input-selectbox"
+          ngModelGroup="companyEntity"
+          style="margin-top: 25px"
+        >
+          <div class="select-container form-group" style="display: flex">
+            <label
+              style="margin-right: 20px; font-size: 1.1rem; margin-top: 0.5%"
+              for=""  
+              >Mode Of Payment :</label
+            > &nbsp;&nbsp;&nbsp;
+            <select
+              ngModel
+              name="metalId"
+              class="form-control"
+              style="width: 40%"
+              aria-label="Default select example" 
+            > 
+              <option selected >Select Mode Of Payment
+              </option>  <i class="bi bi-caret-down-fill"></i>
+              <option (click)="onModeOfPaymentSelectionChange(mop.modeOfPaymentId)"
+                *ngFor="let mop of mops"
+                [value]="mop.modeOfPaymentId">
+                {{ mop.modeOfPayment }}
+              </option>
+            </select>
+          </div>
+        </div>        -->
+  <br>
+  
+        <button class="button" (click)="onSubmit()">Submit</button>
+  
+      </div>
+      </form>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

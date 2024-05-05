@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  td table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  td table th, td table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .container{
+    margin-top: 4%;
+  }

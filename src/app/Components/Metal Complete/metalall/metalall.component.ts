@@ -20,6 +20,7 @@ export class MetalallComponent {
      this.service.getAllMetals((response : any)=>{
          this.metalList = response;
          this.selectedRows = new Array<boolean>(this.metalList.length).fill(false);
+         
      })
   }
 

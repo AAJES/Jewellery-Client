@@ -1,0 +1,224 @@
+<div class="container Main col-md-6 mx-auto" style="max-width: 700px">
+  <br />
+  <div class="cancel d-flex justify-content-between align-items-center">
+    <h1>Bank Details</h1>
+    <a routerLink="/bankDetailsall"><i style="font-size: 20px;" class="fa fa-times"></i></a>
+  </div>
+
+  <form #ratePerGram="ngForm">
+    <div class="row">
+        <div class="col-md-6">
+            <label style="font-size: 1.1em">Account Holder Name :</label>
+    
+            <input
+              ngModel
+              #accountHolderName="ngModel"
+              required
+              class="form-control"
+              pattern="[a-z A-Z 0-9]*"
+              type="text"
+              name="accountHolderName"
+              [(ngModel)]="bankDetails.accountHolderName"
+              id="accountHolderName"
+              placeholder="accountHolderName"
+            />
+        
+            <div
+              *ngIf="
+                !accountHolderName?.valid &&
+                (accountHolderName?.dirty || accountHolderName?.touched)
+              "
+              style="color: red"
+            >
+              Please add Account Holder Name
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label style="font-size: 1.1em">Account No :</label>
+    
+            <input
+              ngModel
+              #accountNo="ngModel"
+              required
+              class="form-control"
+              pattern="[a-z A-Z 0-9]*"
+              type="text"
+              name="accountNo"
+              [(ngModel)]="bankDetails.accountNo"
+              id="accountNo"
+              placeholder="accountNo"
+            />
+        
+            <div
+              *ngIf="
+                !accountNo?.valid &&
+                (accountNo?.dirty || accountNo?.touched)
+              "
+              style="color: red"
+            >
+              Please add Account Nummber
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <label style="font-size: 1.1em">IFSC Code :</label>
+    
+            <input
+              ngModel
+              #ifsccode="ngModel"
+              required
+              class="form-control"
+              pattern="[a-z A-Z 0-9]*"
+              type="text"
+              name="ifsccode"
+              [(ngModel)]="bankDetails.ifsccode"
+              id="ifsccode"
+              placeholder="ifsccode"
+            />
+        
+            <div
+              *ngIf="
+                !ifsccode?.valid &&
+                (ifsccode?.dirty || ifsccode?.touched)
+              "
+              style="color: red"
+            >
+              Please add IFSC Code.
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <label style="font-size: 1.1em">Branch :</label>
+    
+            <input
+              ngModel
+              #branch="ngModel"
+              required
+              class="form-control"
+              pattern="[a-z A-Z 0-9]*"
+              type="text"
+              name="branch"
+              [(ngModel)]="bankDetails.branch"
+              id="branch"
+              placeholder="branch"
+            />
+        
+            <div
+              *ngIf="
+                !branch?.valid &&
+                (branch?.dirty || branch?.touched)
+              "
+              style="color: red"
+            >
+              Please add Branch
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <br>
+            <label style="font-size: 1.1em">Branch Address :</label>
+    
+            <textarea
+              ngModel
+              #branchAddress="ngModel"
+              required
+              class="form-control"
+              
+              type="text"
+              name="branchAddress"
+              [(ngModel)]="bankDetails.branchAddress"
+              id="branchAddress"
+              placeholder="branchAddress"
+              cols="2"
+            ></textarea>
+        
+            <div
+              *ngIf="
+                !branchAddress?.valid &&
+                (branchAddress?.dirty || branchAddress?.touched)
+              "
+              style="color: red"
+            >
+              Please add Branch Address
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <label style="font-size: 1.1em">Upload QR Code :</label>
+    
+            <input
+              ngModel
+              #qrCode="ngModel"
+              required
+              class="form-control"
+              
+              type="file"
+              name="qrCode"
+              [(ngModel)]="bankDetails.qrCode"
+              id="qrCode"
+              placeholder="qrCode"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+            />
+        
+            <div
+              *ngIf="
+                !qrCode?.valid &&
+                (qrCode?.dirty || qrCode?.touched)
+              "
+              style="color: red"
+            >
+              Please Upload Qr Code.
+            </div>
+
+           
+        </div>
+        <div class="col-md-6">
+            <br>
+            <label style="font-size: 1.1em">Description :</label>
+    
+            <input
+              ngModel
+              #description="ngModel"
+              required
+              class="form-control"
+              pattern="[a-z A-Z 0-9]*"
+              type="text"
+              name="description"
+              [(ngModel)]="bankDetails.description"
+              id="description"
+              placeholder="description"
+            />
+        
+            <div
+              *ngIf="
+                !description?.valid &&
+                (description?.dirty || description?.touched)
+              "
+              style="color: red"
+            >
+              Please add Description.
+            </div>
+        </div>
+
+        <div class="col-md-4 ">
+            <br>
+            <mat-slide-toggle (toggleChange)="onToggle()">Status</mat-slide-toggle>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <br>
+            <button class="button" (click)="onSubmit()" >
+                Submit
+              </button>
+        </div>
+    </div>
+
+   
+   
+
+
+    
+  </form>
+</div>

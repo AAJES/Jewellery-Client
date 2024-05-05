@@ -1,0 +1,322 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="container">
+      <div
+        class="cancel d-flex justify-content-between align-items-center mb-3"
+      >
+        <h3><b>Product </b></h3>
+        <a routerLink="/allproduct"
+          ><i class="fa fa-times" style="color: black; font-size: 1.3rem"></i
+        ></a>
+      </div>
+
+      <form class="example-form" #form="ngForm">
+        <div class="row">
+          <div class="col-md-6">
+            <label for="productName">Product Name : </label>
+            <input
+              ngModel
+              #productName="ngModel"
+              required
+              minlength="3"
+              class="form-control"
+              pattern="[a-z A-Z ]*"
+              type="text"
+              name="productName"
+              [(ngModel)]="product.productName"
+              id="productName"
+              placeholder=" "
+            />
+            <div
+              class="text-danger"
+              *ngIf="productName.invalid && productName.touched"
+            >
+              <div *ngIf="productName.errors!['required']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i
+                >Product Name is required
+              </div>
+              <div *ngIf="productName.errors!['minlength']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It should be Minimum 6 character
+              </div>
+              <div *ngIf="productName.errors!['pattern']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It should not be special character
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="weightage">Weightage : </label>
+            <input
+              ngModel
+              class="form-control"
+              #weightage="ngModel"
+              required
+              
+              pattern="[0-9.]*"
+              type="text"
+              name="weightage"
+              [(ngModel)]="product.weightage"
+              id="weightage"
+              placeholder=" "
+            />
+
+            <div
+              class="text-danger"
+              *ngIf="weightage.invalid && weightage.touched"
+            >
+              <div *ngIf="weightage.errors!['required']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                Weightage is required
+              </div>
+              
+              <div *ngIf="weightage.errors!['pattern']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It should not be special character
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <br />
+            <label for="wastage">Wastage : </label>
+            <input
+              ngModel
+              #wastage="ngModel"
+              required
+            
+              class="form-control"
+              
+              type="text"
+              name="wastage"
+              [(ngModel)]="product.wastage"
+              id="wastage"
+              placeholder=" "
+            />
+            <div class="text-danger" *ngIf="wastage.invalid && wastage.touched">
+             
+
+              <div *ngIf="wastage.errors!['required']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <br />
+            <label for="wastage">Stone : </label>
+            <input
+              ngModel
+              #stone="ngModel"
+              required
+            
+              class="form-control"
+              
+              type="text"
+              name="stone"
+              [(ngModel)]="product.stone"
+              id="stone"
+              placeholder=" "
+            />
+            <div class="text-danger" *ngIf="stone.invalid && stone.touched">
+             
+
+              <div *ngIf="stone.errors!['required']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <br />
+            <label for="processing">Processing(charges) : </label>
+            <input
+              ngModel
+              #processing="ngModel"
+              required
+            
+              class="form-control"
+              
+              type="text"
+              name="processing"
+              [(ngModel)]="product.processing"
+              id="processing"
+              placeholder=" "
+            />
+            <div class="text-danger" *ngIf="processing.invalid && processing.touched">
+             
+
+              <div *ngIf="processing.errors!['required']">
+                <i
+                  style="margin-right: 5px"
+                  class="fa fa-exclamation-triangle"
+                ></i>
+                It is required
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <br>
+            <label for="description"
+              >Description :</label
+            >
+            <input
+              ngModel
+              #description="ngModel"
+              required
+              minlength="3"
+              class="form-control"
+              
+              type="text"
+              name="description"
+              [(ngModel)]="product.description"
+              id="description"
+              placeholder=" "
+            />
+            <div
+            class="text-danger"
+            *ngIf="description.invalid && description.touched"
+          >
+            <div *ngIf="description.errors!['required']">
+              <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i
+              >Description is required
+            </div>
+            <div *ngIf="description.errors!['minlength']">
+              <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+              It should be Minimum 6 character
+            </div>
+            <div *ngIf="description.errors!['pattern']">
+              <i style="margin-right: 5px" class="fa fa-exclamation-triangle"></i>
+              It should not be special character
+            </div>
+          </div>
+            
+          </div>
+
+          <div class="col-md-6">
+            <br>
+            <mat-form-field>
+              <mat-label>Metal</mat-label>
+              <mat-select class="form-Group" [(ngModel)]="product.metal.metalId" name="selectedMetal" #selectMetal>
+                <mat-option *ngFor="let m of metals" [value]="m.metalId">
+                  {{ m.metalName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </div>
+
+          <div class="col-md-6">
+            <br>
+            <mat-form-field>
+              <mat-label>Purity</mat-label>
+              <mat-select class="form-Group" [(ngModel)]="product.purity.purityId" name="selectedPurity" #selectPurity>
+                <mat-option *ngFor="let p of purities" [value]="p.purityId">
+                  {{ p.purityName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </div>
+
+
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-label>Category</mat-label>
+              <mat-select class="form-Group" [(ngModel)]="product.category.categoryId" name="selectedCategory" #selectCategory>
+                <mat-option *ngFor="let c of categories" [value]="c.categoryId">
+                  {{ c.categoryName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </div>
+          <div class="col-md-6">
+            <br>
+            <div class="file-upload-container">
+              
+              <input
+                type="file"
+                id="fileInput"
+                class="form-control"
+                (change)="onFileSelected($event)"
+              />
+
+              <div *ngIf="selectedFile" class="file-info">
+                <p>Selected file: {{ selectedFile.name }}</p>
+                <p>File type: {{ selectedFile.type }}</p>
+                <p>File size: {{ selectedFile.size }} bytes</p>
+              </div>
+              <div *ngIf="response">{{ response }}</div>
+              <div *ngIf="imageData">
+                <img
+                  class="square"
+                  style="
+                    height: 30%;
+                    width: 20%;
+                    margin-left: 60%;
+                    margin-top: -50%;
+                  "
+                  [src]="imageData"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        
+       
+
+    
+
+
+      
+        <button
+          class="button"
+          
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

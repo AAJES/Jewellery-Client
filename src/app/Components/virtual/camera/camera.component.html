@@ -1,0 +1,54 @@
+<div>
+    <button (click)="checkPermissions()">Check the webcam permissions</button>
+    <p *ngIf="status">Status here: {{status}}</p>
+</div>
+<div class="center-container"> 
+    <div *ngIf="stream">
+    <!-- web cam image will be shown here -->
+    <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" [imageQuality]="1"></webcam>     
+</div>
+</div>
+  
+  <!-- Preview section -->
+<div class="preview-container" *ngIf="previewImage">
+    <div *ngIf="previewImage">
+    <img [src]="previewImage" height="250" width="250" >
+    </div>
+</div>
+  
+<div class="horizontal-line-n" *ngIf="category==='necklace'"></div>
+<div class="vertical-line-n" *ngIf="category==='necklace'"></div>
+<div class="vertical-line-n1" *ngIf="category==='necklace'"></div>
+
+<div class="vertical-line-b" *ngIf="category==='bracelet'"></div>
+<div class="vertical-line-b1" *ngIf="category==='bracelet'"> </div>
+<div class="dot" *ngIf="category==='earring'"></div>
+<div class="dot-nose" *ngIf="category==='nosering'"></div>
+<div class="image-container" *ngIf="category==='necklace'">
+
+    <img *ngIf="showGoldImage" [src]="dimage" alt="Image 2" class="image2">
+</div>
+
+<div class="image-container-bracelet" *ngIf="category==='bracelet'">
+
+    <img *ngIf="showGoldImage" [src]="dimage" alt="Image 2-bracelet" class="image2-bracelet">
+</div>
+
+
+<div class="image-container-ear" *ngIf="category==='earring'">
+
+    <img *ngIf="showGoldImage" [src]="dimage" alt="Image 2-bracelet" class="image2-bracelet" height="280" width="400" >
+</div>
+
+<div class="image-container-nose" *ngIf="category==='nosering'">
+
+    <img *ngIf="showGoldImage" [src]="dimage" alt="Image 2-bracelet" class="image2-bracelet" height="30" width="10" >
+</div>
+<div class="taskbar button">
+  <button (click)="toggleGoldImage()">TRY GOLD ORNAMENT</button>
+
+  <button (click)="checkPermissions()">Check the webcam permissions</button>
+  <p *ngIf="status">Status here: {{status}}</p>
+  <button (click)="captureImage()" >{{btnLabel}}</button>
+  <button (click)="clearImage()">Clear</button>
+</div>

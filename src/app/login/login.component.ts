@@ -1,45 +1,47 @@
-import { Component, Inject } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, Inject } from "@angular/core";
+import { FormControl, Validators } from "@angular/forms";
 import {
   MAT_DIALOG_DATA,
   MatDialog,
   MatDialogRef,
-} from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { HomeComponent } from '../Components/home/home.component';
-import { Home2Component } from '../Components/home2/home2.component';
-import { Login, login, user } from '../commons/common.objects';
-import { MainService } from '../Components/main.service';
-import { OwnerComponent } from '../Components/owner/owner.component';
-import { NewnavbarComponent } from '../newnavbar/newnavbar.component';
+} from "@angular/material/dialog";
+import { Router } from "@angular/router";
+
+import { Home2Component } from "../Components/home2/home2.component";
+import { Login, login, user } from "../commons/common.objects";
+import { MainService } from "../Components/main.service";
+import { OwnerComponent } from "../Components/owner/owner.component";
+import { NewnavbarComponent } from "../newnavbar/newnavbar.component";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent {
   logIn: Login = {
-    userName: '',
-    password: '',
+    userName: "",
+    password: "",
   };
 
-  user : user = {
+  user: user = {
     userId: 0,
-    userName: '',
-    password: '',
-    role: []
-  }
+    userName: "",
+    password: "",
+    role: [],
+  };
 
-  userData: any = '';
-  token: any = '';
+  userData: any = "";
+  token: any = "";
   public invalidUser: boolean = false;
-  clientIP : any = 0;
-
+  clientIP: any = 0;
+  @Inject(MAT_DIALOG_DATA) public data!: NewnavbarComponent
   constructor(
     private dialog: MatDialog,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: NewnavbarComponent,
+    private toastr: ToastrService,
+   
     public dialogRef: MatDialogRef<LoginComponent>,
     private service: MainService
   ) {
@@ -49,12 +51,12 @@ export class LoginComponent {
   }
 
   Username = new FormControl();
-  Password = new FormControl('', [Validators.required]);
+  Password = new FormControl("", [Validators.required]);
   getErrorMessage() {
-    if (this.Username.hasError('required')) {
-      return 'You must enter a value';
+    if (this.Username.hasError("required")) {
+      return "You must enter a value";
     }
-    return this.Password.hasError('Password') ? 'Not a valid Password' : '';
+    return this.Password.hasError("Password") ? "Not a valid Password" : "";
   }
   phone = new FormControl();
 
@@ -62,66 +64,59 @@ export class LoginComponent {
 
   openDialog() {
     this.dialog.open(OwnerComponent, {
-      data: {
-        
-      },
+      data: {},
     });
   }
 
-  systemDetails : any = '';
+  systemDetails: any = "";
 
-  login1 : login = {
+  login1: login = {
     loginId: 0,
-    systemDetails: '',
+    systemDetails: "",
     user: {
       userId: 0,
-      userName: '',
-      password: '',
-      role: []
-    }
-  }
+      userName: "",
+      password: "",
+      role: [],
+    },
+  };
 
   public onLogin(userName: string, password: string) {
     console.log(userName);
     this.logIn.userName = userName;
     this.logIn.password = password;
+    this.user.userName = userName;
 
-    
-
-    console.log(this.logIn + 'kjdskfkdsfksdjfkdsj');
 
     // this.dialogRef.close();
     this.service.getUser(this.logIn, (data: any) => {
       this.userData = data;
-      console.log(this.userData + 'kjdskfkdsfksdjfkdsj');
-      if (this.userData.length == 0) {
+      if (this.userData.length === 0) {
         this.invalidUser = true;
+        this.toastr.error('Invalid username or password.', 'Error');
       } else {
-        console.log(JSON.stringify(this.userData));
         const jsonString = JSON.stringify(this.userData);
         const jsonObject = JSON.parse(jsonString);
         const jwtToken = jsonObject.jwtToken;
-        console.log(jwtToken);
-        localStorage.setItem('token', jwtToken);
-        // localStorage.setItem('userName', userName);
+        sessionStorage.setItem("token", jwtToken);
+        sessionStorage.setItem("userName", this.user.userName);
+
         this.dialogRef.close();
-        this.service.getUserByUserName(userName,(data : any)=>{
-            console.log(data);
-            this.user = data;
-            this.service.getUserByUserName(this.logIn.userName,(data : any)=>{
-              this.login1.user = data;
-              this.service.setData(data.userId);
-              this.service.getClientIP().subscribe((data: string) => {
-                this.login1.systemDetails = data; // Assign the response to a property
-                this.service.addLogin(this.login1,(data : any)=>{
-                   console.log(data);
-                   this.router.navigate(['/home',{data : this.user.userId}]);
-                })
+        this.service.getUserByUserName(userName, (data: any) => {
+          this.user = data;
+          this.service.getUserByUserName(this.logIn.userName, (data: any) => {
+            this.login1.user = data;
+            this.service.setData(data.userId);
+            this.service.getClientIP().subscribe((data: string) => {
+              this.login1.systemDetails = data;
+              this.service.addLogin(this.login1, (data: any) => {
+                this.toastr.success('Login successful!', 'Success');
+                this.router.navigate(["/home3", { data: this.user.userId }]);
+                window.location.reload(); 
               });
-          })
-            
-        })
-        
+            });
+          });
+        });
       }
     });
   }

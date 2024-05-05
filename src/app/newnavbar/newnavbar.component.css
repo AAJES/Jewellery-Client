@@ -1,58 +1,85 @@
-/* .top-navbar {
-    position: sticky;
-    top: 0;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    z-index: 100;
-  }
-  
-  .bottom-navbar {
-    position: sticky;
-    top: 50px; 
-    background-color: #222;
-    color: #fff;
-    padding: 10px 20px;
-    z-index: 100;
-  }
-  
-  .sidenav {
-    width: 0;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    overflow-x: hidden;
-    transition: 0.3s;
-    z-index: 1;
-  }
-  
-  .sidenav-open {
-    width: 250px;
-  } */
+
 
   .top-navbar {
     /* Your styles for the top navbar */
-    position: sticky;
-    top: 0;
+    position: fixed;
+
     background-color:rgb(178, 156, 156);
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    padding-top: 10px;
     z-index: 100;
+    width: 100%;
+    height: 40px;
+  }
+
+  .btn1 {
+    margin-left: 2%;
+    background-color: rgb(255, 179, 0);
+    width: 100%;
   }
   
+  .btn-sm {
+    margin-right: 3opx;
+  }
+  
+  .p{
+    font-weight: 600;
+    border: 1.5px solid black;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+ 
+
+  .user-avatar {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #574d4e; 
+    color: #ffffff;
+    border: 2px solid #a7a39a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+  }
+
+  
+  
+
+  @media (max-width: 767px) {
+    .top-navbar {
+      padding: 10px; 
+      height: 50px; 
+      font-size: 0.7rem;
+    }
+
+    .top-navbar p{
+      font-size: 0.6rem;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .upper{
+      margin-top: 12px;
+    }
+
+    .rates p{
+      margin-right: 0rem;
+  }
+  }
+
+
   .sidenav {
     width: 250px;
-    height: 100%;
+    height: 84vh;
     position: fixed;
-    top: 0;
+    top: 0.02%;
     left: -250px; /* Start the sidenav off-screen */
     background-color: #333;
     overflow-y: auto;
@@ -62,6 +89,10 @@
   
   .sidenav-open {
     left: 0; /* Slide in the sidenav when it's open */
+  }
+
+  .title{
+    margin-left: 15px;
   }
   
   .submenu {
@@ -79,48 +110,60 @@
   }
   
   .nav-list-item {
-    padding: 10px;
+    padding: 2px;
     color: #fff;
+    font-weight: 500;
+    transition: background-color 0.3s ease; 
+  }
+  
+  .nav-list-item:hover {
+    background-color: #cfc3c3; 
+    color: #000000;
+  }
+  
+
+  .nav-list-item a:hover {
+    color: #000000;
   }
   
   .nav-list-item a {
     text-decoration: none;
     color: #fff;
   }
-
+  
   
   
   .bottom-navbar {
-    /* Your styles for the bottom navbar */
-    position: sticky;
-    top: 50px; 
+    position: fixed;
+    top: 40px; 
     background-color:#dc9e6f;
     color: #fff;
-    padding: 10px 20px;
     z-index: 100;
+    width: 100%;
+    height: 60px;
   }
   
   .toggle-button {
-    /* background-color: #333; */
-    /* color: #fff; */
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    
   }
   
   .rates{
-    /* margin: 1rem 2rem; */
     font-family: var(--font-roboto);
     font-size: 1rem;
     justify-content: space-between;
-    /* border-bottom: 1.5px solid gray; */
-    /* background-color: #dc9e6f; */
     color: white;
 }
 
+
+
+.nav-link{
+  cursor: pointer;
+}
+
 .rates p{
-    margin-right: 5rem;
+    margin-right: 3rem;
 }
   /* Add responsive design */
   @media (max-width: 768px) {
@@ -129,11 +172,25 @@
     }
   
     .bottom-navbar {
-      top: 70px;
-      padding: 10px;
+      top: 45px;
+      
     }
   
     .sidenav {
       width: 0;
     }
+
+    
   }
+
+
+
+  .ml-2{
+    margin-left: 40px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+
+
+  

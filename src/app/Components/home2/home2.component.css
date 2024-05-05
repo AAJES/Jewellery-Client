@@ -1,52 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
+
+.main{
+  height: 200vh;
+  min-height: 100vh;
+  height: auto;
+}
 
 
-/* .rates{
-    margin: 1rem 2rem;
-    font-family: var(--font-roboto);
-    font-size: 1rem;
-    justify-content: space-between;
-    border-bottom: 1.5px solid gray;
-} */
+.card-img-top{
+  width: 100%;
+  height: 100%;
+}
 
-.rates{
-  /* margin: 1rem 2rem; */
-  font-family: var(--font-roboto);
-  font-size: 1rem;
-  justify-content: space-between;
-  /* border-bottom: 1.5px solid gray; */
-  background-color: rgb(178, 156, 156);
-  color: white;
-
+.btn{
+  background: rgb(255, 255, 255);
+  color: black;
+  margin-top: 30px;
 }
 
 
 
+.btn:hover{
+  box-shadow: 1px 1px 2px 2px rgb(201, 201, 201);
+  background-color: #cacaca;
+}
+
+
+.view{
+  display: flex;
+  margin-top: 10px;
+  background: rgb(234, 230, 230);
+  border: none;
+  padding: 10px;
+
+}
+
+.view:hover{
+  box-shadow: 1px 1px 2px 2px rgb(201, 201, 201);
+  background-color: #cacaca;
+
+}
 
 .rates p{
   margin-right: 5rem;
 }
 
-/* .rates p{
-    margin-right: 5rem;
-} */
-
-/* #c1{
-    background: url("../../../assets/images/1.jpeg");
+.card-text{
+  color: black;
+  padding-top: 10px;
 }
-
-#c2{
-    
-    background-image: url("../../../assets/images/2.jpeg");
-    background-repeat: no-repeat;
-   
-}
-
-#c3{
-    background-image: url("../../../assets/images/3.jpeg");
-    background-repeat: no-repeat;
-  
-} */
 
 
 .paragraph{
@@ -56,37 +57,36 @@
     flex-direction: column;
 }
 
-.mainpara{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3.5rem;
-    color: rgb(255, 255, 255);
+.card-title{
+  padding: 0px 8px 0px 8px;
 }
 
-.subpara{ 
-    color: rgb(255, 255, 255);
-    margin-top: 0.5rem;
-    font-size: larger;
-    font-weight: 400;
+.button {
+  margin-top: 0px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #ffd700 0%, #ffd700 16%, #e5c100 50%, #ffd700 83%, #ffd700 100%);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  animation: colorMovement 4s infinite; 
+  transition: background 0.3s ease; 
 }
 
-.button{
-    font-size: x-large;
-    border: 1px solid var(--clr-darkgold);
-    padding: 0.4em 1.5em;
-    background-color: var(--clr-gold);
-    color: whitesmoke;
-    margin-top: 1.5rem;
-    align-self: center;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
+.button:hover {
+  background: linear-gradient(90deg, #e5c100 0%, #e5c100 16%, #ffd700 50%, #e5c100 83%, #e5c100 100%);
 }
 
-.button:hover{
-    background-color: black;
 
+@keyframes colorMovement {
+  0% {
+    background-position: 0% 50%; /* Start position of the gradient */
+  }
+  100% {
+    background-position: 100% 50%; /* End position of the gradient */
+  }
 }
+
 
 .button:active{
     opacity: 0.8;
@@ -94,52 +94,9 @@
 
 
 
-
-/* You can add global styles to this file, and also import other style files */
-
-/* html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
-/* @import "ag-grid-community/dist/styles/ag-grid.css";
-@import "ag-grid-community/dist/styles/ag-theme-alpine.css"; */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-/* .flex{
-    display: flex;
-} */
-
-:root{
-    --clr-primary : #f4f4f4;
-    /* --clr-primary : #f4f4f4; */
-    --clr-gold : #c29958;
-    --clr-darkgold : #dc9e6f;
-    --clr-black : #222222;
-    --clr-gray : #333333;
-    --font-primary : 'ZCOOL XiaoWei', sans-serif;
-    --font-roboto : 'Roboto', sans-serif;
-    --font-lato : 'Lato', sans-serif;
-
-}
-
-/* .ratenav{
-  position: sticky;
-  background-color:  #CA9D7A;
-   color: white;
-
-}
-.part-2{
-  margin-left: 85%;
-  margin-top: -40px;
-} */
-/* .fa{
-  margin-left: 90%;
-margin-top: -20%;
-font-size:x-large;
-} */
 img{
-  width: 50px; 
-  height: 30px;
+  width: 100%; 
+  height: 300px;
    /* border-radius: 50px; */
 }
 h3{
@@ -152,210 +109,90 @@ h3{
 .navbar{
   background-color: rgb(229, 226, 226);
 }
-/* .filter{
-  margin-left: 80%;
+.col-md-2{
+  display: flex;
+  gap: 40px;
+}
+
+.card {
+  display: flex;
+  width: 250px;
+  height: 230px;
+
+}
+
+
+
+.content {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   
-}
-.sort{
-  margin-left: 89%;
-  margin-top: -41px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
 
-.filtering{
-  background-color: #ffffff;
+.card:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  /* line-height: 300px; */
+  color: #000000;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  /* background: url(../../../assets/images/images/bee_fasteners_white_wide_1950x.jpg); */
+  background-color: #cacaca;
+  color: black;
+  transform: rotateY( 180deg );
+}
+
+.footer{
+  margin-top: 100vh;
 }
 
 
-select{
-  border:none;
-  padding: 10px 10px;
-  border-radius:5px;
+p{
+  margin: 2px;
+  padding: 2px;
+  font-size: 13px;
 }
 
-select:focus{
-  outline:none;
-} */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .product {
-  display: none;
+/* product.component.css */
+.product-image {
+  width: 100%;
+  height: 450px;
 }
 
-Show products based on selected filter
-#filter[value="all"]:checked ~ .product,
-#filter:checked ~ .product-list .product {
-  display: block;
-} */
-
-/* Sort products based on selected option */
-/* #sort[value="low"]:checked ~ .product-list {
+.product-details {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-#sort[value="high"]:checked ~ .product-list {
-  display: flex;
-  flex-direction: column-reverse;
+.product-name {
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
-.product-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: none;
-}
-
-.product {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 5px;
-} */
-
-
-
-
-
-.checkbox-dropdown {
-  width: 200px;
-  border: 1px solid #aaa;
-  padding: 10px;
-  position: relative;
-  margin: 0 auto;
-  
-  user-select: none;
-}
-
-/* Display CSS arrow to the right of the dropdown text */
-.checkbox-dropdown:after {
-  content:'';
-  height: 0;
-  position: absolute;
-  width: 0;
-  border: 6px solid transparent;
-  border-top-color: #000;
-  top: 50%;
-  right: 10px;
-  margin-top: -3px;
-}
-
-/* Reverse the CSS arrow when the dropdown is active */
-.checkbox-dropdown.is-active:after {
-  border-bottom-color: #000;
-  border-top-color: #fff;
-  margin-top: -9px;
-}
-
-.checkbox-dropdown-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 100%; /* align the dropdown right below the dropdown text */
-  border: inherit;
-  border-top: none;
-  left: -1px; /* align the dropdown to the left */
-  right: -1px; /* align the dropdown to the right */
-  opacity: 0; /* hide the dropdown */
- 
-  transition: opacity 0.4s ease-in-out;
-  height: 100px;
-  overflow: scroll;
-  overflow-x: hidden;
-  pointer-events: none; /* avoid mouse click events inside the dropdown */
-}
-.is-active .checkbox-dropdown-list {
-  opacity: 1; /* display the dropdown */
-  pointer-events: auto; /* make sure that the user still can select checkboxes */
-}
-
-.checkbox-dropdown-list li label {
-  display: block;
-  border-bottom: 1px solid silver;
-  padding: 10px;
- 
-  transition: all 0.2s ease-out;
-}
-
-.checkbox-dropdown-list li label:hover {
-  background-color: #555;
-  color: white;
-}
-
-
-
-
-.dropdown-check-list {
-  display: inline-block;
-}
-
-.dropdown-check-list .anchor {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  padding: 5px 50px 5px 10px;
-  border: 1px solid #ccc;
-}
-
-.dropdown-check-list .anchor:after {
-  position: absolute;
-  content: "";
-  border-left: 2px solid black;
-  border-top: 2px solid black;
-  padding: 5px;
-  right: 10px;
-  top: 20%;
-  -moz-transform: rotate(-135deg);
-  -ms-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-}
-
-.dropdown-check-list .anchor:active:after {
-  right: 8px;
-  top: 21%;
-}
-
-.dropdown-check-list ul.items {
-  padding: 2px;
-  display: none;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-
-.dropdown-check-list ul.items li {
-  list-style: none;
-}
-
-.dropdown-check-list.visible .anchor {
-  color: #0094ff;
-}
-
-.dropdown-check-list.visible .items {
-  display: block;
+.product-description {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #555;
 }

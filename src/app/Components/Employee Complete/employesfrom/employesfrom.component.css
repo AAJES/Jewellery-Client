@@ -1,12 +1,4 @@
-.button:hover {
-  background: rgb(246, 220, 72)
-}
-.button{
-  background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(237, 222, 134) 16%,rgb(247, 227, 116) 50%,
-  rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%);
-  border-radius: 10px;
-  padding: 5px;
-}
+
 
 .head-section {
   width: 116.2%;
@@ -16,10 +8,10 @@
   align-items: center;
   padding: 0px 15px;
   color: black;
-  padding-top: 55px;
+ 
   margin-left: -8.2%; 
   border-radius: 7px;
-  margin-top: -16%;
+ 
   
 }
 
@@ -128,7 +120,7 @@ input:focus + label {
 
 .user1-box {
   width: 500px;
-  padding: 40px;
+  padding:  20PX 40px;
   background: rgba(255, 255, 255, 0.7); 
   box-sizing: border-box;
   box-shadow: 2px 2px 7px 7px rgb(188, 185, 185);
@@ -149,94 +141,8 @@ input:focus + label {
 
 
 
+ 
 
-
-
-
-  /* .input-Box{
-    position: relative;
-    width: 25%;
-    margin-left: 60px;
-  }
-  .input-Box input{
-    padding: 10px 10px 0px 0px;
-    margin: 10px 10px 10px 0px;
-    outline: none;
-    border: none;
-    width: 320%;
-    border-bottom:1px solid black ;
-  }
-  .input-Box span{
-    position: absolute;
-    left: 0px;
-    padding: 10px 10px 10px 0px;
-    margin: 10px 10px 10px 0px;
-    pointer-events: none;
-    text-transform: uppercase;
-    transition: 0.150s;
-  } */
-   /* .input-Box input:valid ~ span,
-   .input-Box input:focus ~ span{
-    color: #080808;
-    transform: translatex(10px) translatey(-7px);
-    font-size:0.65em ;
-    padding: 0px;
-    letter-spacing: 0.2em;
-    left:-10px;
-   }
-   .input-Box input:valid,input:checked + .slider
-   .input-Box input:focus{
-    border:none;
-    border-bottom:1px solid black ;
-   }
-   .input-selectbox{
-    display: inline-block;
-    width: 130px;
-    padding: 5px;
-    margin: 0;
-   } */
-   /* .w3-input{
-    width: 406%;
-    margin: 0px 0 0px -184px;
-    display: inline-block;
-    border: none;
-    background: #fefdfd;
-    border-bottom:1px solid #0e0e0e;
-    padding-top: 10px;
-  }
-  */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10px;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    left: 4px;
-    bottom: 4px;
-    
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 24px;
-    margin-left: 8px;
-  }
   
     
    input:checked + .slider {
@@ -262,6 +168,20 @@ input:focus + label {
 .slider.round:before {
   border-radius: 50%;
 }
+.field label {
+  margin-bottom: 5px; /* Increase margin to create space between label and input */
+}
+
+
+
+mat-form-field{
+  width: 100%;
+}
+
+
+
+
+
 
 
 

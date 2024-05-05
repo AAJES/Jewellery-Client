@@ -31,8 +31,7 @@ export class Booking2Component implements OnInit{
   ngAfterViewInit() {
     this.tableSource.sort = this.sort;
     this.tableSource.paginator = this.paginator;
-    // console.log(this.date);
-    // console.log(this.actualAmount);
+   
   }
 
   getData() {
@@ -46,7 +45,6 @@ export class Booking2Component implements OnInit{
           this.minAmount.push(this.bookings[i].minAmount);
           this.advanceAmount.push(this.bookings[i].advanceAmount)
         }
-        // console.log(this.tableSource.data);
         this.RenderBarChart(this.advanceAmount);
         this.RenderPieChart(this.advanceAmount);
       }
@@ -56,7 +54,6 @@ export class Booking2Component implements OnInit{
   RenderBarChart(data: any) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const monthlyTotals: number[] = this.calculateMonthlyTotals();
-    // console.log(monthlyTotals);
 
     let chart = new Chart("barchart", {
       type: 'line',
@@ -146,16 +143,11 @@ export class Booking2Component implements OnInit{
   calculateMonthlyTotals(): number[] {
     const monthlyTotals: number[] = new Array(12).fill(0);
     this.bookings.forEach((booking) => {
-      console.log(booking);
       const saleDate = new Date(booking.deliveryDate);
-      console.log(saleDate)
       const month = saleDate.getMonth();
-      console.log(month)
       const actualAmount = booking.advanceAmount;
       monthlyTotals[month] += actualAmount;
-      console.log(monthlyTotals[month]);
     });
-    // console.log(monthlyTotals);
     return monthlyTotals;
   }
 

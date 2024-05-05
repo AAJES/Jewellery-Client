@@ -1,9 +1,223 @@
-<div class="container" id="print-section" #contentToConvert>
-    <table id="customers">
-    <tr>
-        <th colspan="6" style="font-size: xX-small; width: 20px;" style="text-align: center;">TAX INVOICE</th>
-    </tr>
-    <tr>
+<div>
+  
+
+  <div class="container" id="print-section" #contentToConvert>
+    <div class="watermark-container">
+      <div class="watermark-text">{{shop.shopName}}</div>
+    </div>
+    <h5 class="text-center"> <b>TAX INVOICE</b></h5>
+    <hr />
+
+    <div class="row">
+      <div class="col-3 text-center">
+        <img
+          [src]="imageSrc"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+      <div class="col-9 text-center custom-card">
+        <span class="title"> <b>{{shop.shopName}}</b></span>
+        <p>{{shop.address}}</p>
+        <p> <b>GSTIN No:</b>{{shop.gstNo}} </p>
+        <p> <b>Company's PAN :</b> {{shop.panNo}}</p>
+      </div>
+
+      <hr />
+
+      <div class="row fonts text-center">
+        <div class="col-md-3">
+          <b>Customer</b><br />
+          {{ bill.customer.customerName }}
+        </div>
+        <div class="col-md-3">
+          <b>Location</b> <br />
+          {{ bill.customer.location }}
+        </div>
+        <div class="col-md-3">
+          <b>Invoice No</b><br />
+          {{ bill.billNumber }}
+        </div>
+        <div class="col-md-3">
+          <b>Date</b><br />
+          {{ date | date }} &nbsp;{{ time | date }}
+        </div>
+      </div>
+      <br>
+      <hr />
+      <table class="table">
+        <thead>
+          <tr>
+            <th>SlNo.</th>
+            <!-- <th scope="col">Description </th> -->
+            <th scope="col" class="text-nowrap"style="width: 800px;" >Item Name</th>
+            <th scope="col">Gross (Weight)</th>
+            <th scope="col">Stone (Weight)</th>
+            <th scope="col">Wastage</th>
+            <th scope="col">Net (Weight)</th>
+            <th  >Processing (charges)</th>
+            <th >Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of bill.products; let i = index;">
+            <td>{{i + 1}}</td>
+            <td>{{ p.productName }} ({{ p.quantity.quantity }})</td>
+            <!-- <td style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:10ch;">{{ p.description }}</td> -->
+            <td>{{p.weightage - (p.stoneWeight+p.wastage) | number: '1.2-2'}}</td>
+            <td>{{p.stoneWeight}}</td>
+            <td>{{ p.wastage}}</td>
+            <td>{{ p.weightage }}</td>
+
+            <!-- <td class="text-end" *ngIf="p.metal.metalName.toLowerCase() === 'gold' && p.purity.purityName.toLowerCase() === '22k'">
+              {{ newRates[0] | currency : 'INR' : 'symbol' : '1.2-2'}}
+            </td>
+            <td class="text-end" *ngIf="p.metal.metalName.toLowerCase() === 'gold' && p.purity.purityName.toLowerCase() === '18k'">
+              {{ newRates[1] | currency : 'INR' : 'symbol' : '1.2-2'}}
+            </td> -->
+            <td class="text-end" >
+              {{ p.processing | currency : 'INR' : 'symbol' : '1.2-2'}}
+            </td>
+            <td class="text-end" *ngIf="p.metal.metalName.toLowerCase() === 'gold' && p.purity.purityName.toLowerCase() === '24k'">
+              {{ (p.weightage * newRates[3] * p.quantity.quantity)  | currency : "INR" : "symbol" : "1.2-2"}}
+            </td>
+            <td class="text-end" *ngIf="p.metal.metalName.toLowerCase() === 'gold' && p.purity.purityName.toLowerCase() === '22k'">
+              {{ (p.weightage *newRates[0]* p.quantity.quantity) +p.processing | currency : "INR" : "symbol" : "1.2-2"}}
+            </td>
+            <td class="text-end" *ngIf="p.metal.metalName.toLowerCase() === 'gold' && p.purity.purityName.toLowerCase() === '18k'">
+              {{ (p.weightage * newRates[1] * p.quantity.quantity)+p.processing  | currency : "INR" : "symbol" : "1.2-2"}}
+            </td>
+            <td *ngIf="p.metal.metalName.toLowerCase() === 'silver'" class="text-end">
+              {{ (p.weightage * newRates[2] * p.quantity.quantity) +p.processing | currency : "INR" : "symbol" : "1.2-2" }}
+            </td>
+          </tr>
+
+          <tr>
+           
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+            <!-- <td></td> -->
+            <td> <b>Gross Total</b></td>
+            <td class="text-end">{{ bill.actualAmount+bill.discountAmount+totalProcessing | currency : "INR" : "symbol" : "1.2-2" }}</td>
+          </tr>
+
+          <tr>
+           
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+            <!-- <td></td> -->
+            <td> <b> Discount</b></td>
+            <td class="text-end">{{ bill.discountAmount | currency : "INR" : "symbol" : "1.2-2" }}</td>
+          </tr>
+
+          <tr>
+
+            <tr>
+           
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colspan="2"></td>
+              <!-- <td></td> -->
+              <td> <b>Net Total</b></td>
+              <td class="text-end">{{ bill.actualAmount+totalProcessing| currency : "INR" : "symbol" : "1.2-2" }}</td>
+            </tr>
+  
+            <tr>
+           
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"><b>Taxable Value</b></td>
+            <!-- <td></td> -->
+            <td>SGST</td>
+            <td class="text-end">{{ (bill.actualAmount+totalProcessing)*0.015 | currency : "INR" : "symbol" : "1.2-2" }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <!-- <td></td> -->
+            <td>CGST</td>
+            <td class="text-end"> {{(bill.actualAmount+totalProcessing)*0.015 |currency : "INR" : "symbol" : "1.2-2" }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <!-- <td></td> -->
+            <td>
+              <b style="gap: 1.2rem" class="text-nowrap"> Grand Total</b>
+            </td>
+            <td colspan="1" class="text-end">
+              {{ (bill.actualAmount+totalProcessing)*0.03 + bill.actualAmount+totalProcessing | currency : "INR" : "symbol" : "1.2-2"}}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" >
+              <b class="text-nowrap">Amount Chargeable (in words) :</b>
+            </td>
+            <td colspan="6">{{ amountInWords }}</td>
+          </tr>
+
+          <!-- <tr>
+            <td colspan="8">
+              <div class="font-weight-bold">
+                <div class="card-body">
+                  <h5 class="card-title">Bank Details</h5>
+                 <div class="d-flex">
+                  <ul class="list-group">
+                    <li >Account Holder: {{bill.payment.bankDetails.accountHolderName}}</li>
+                    <li >Account Number: {{bill.payment.bankDetails.accountNo}}</li>
+                    <li >Branch Name: {{bill.payment.bankDetails.branch}}</li>
+                    <li>IFSC Code: {{bill.payment.bankDetails.ifsccode}}</li>
+                  </ul>
+                  
+                  <div class="mt-3 text-center">
+                    <img [src]="QRimageSrc" alt="QR Code" class="qr-img img-fluid">
+                  </div>
+                 </div>
+                  
+                </div>
+              </div>
+            </td>
+          </tr> -->
+
+          <tr>
+            <td colspan="10" class="text-center">
+              Thank you for your Visit!
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="text-center mt-3">
+    <button (click)="downloadPDF()" class="button">Download PDF</button>
+  </div>
+  <br>
+  <br>
+</div>
+
+    <!-- <table id="customers"> -->
+    <!-- <tr>
       <th  > <img src="../../../../../assets/images/lohonj.jpeg" alt="" style="width: 50%; height: 10%;margin-left: 64px;"></th>
         <th colspan="6" style="text-align: center;">      
         <h3><B>NAGARAJ JEWELLERS </B></h3>
@@ -11,44 +225,56 @@
             <br>Hosur, Hubli
             <br>GSTIN No 07APA85655XXXX
         </th>
-    </tr>
-    <tr >
-      <th>Bill to <br> {{ bill.customer.customerName }}
-      </th>
-      <th colspan="3">Place to supply <br> {{bill.customer.location}}</th>
-      <th colspan="1">Invoice No  <br>
-        {{bill.billNumber}}
-      </th>
-      <th colspan="4">Dated <br>
-        {{date | json}} &nbsp;{{time | json}}
-      </th>
-    </tr>
-    <tr>
+    </tr> -->
+    <!-- <tr>
+        <th>
+          Bill to <br />
+          {{ bill.customer.customerName }}
+        </th>
+        <th colspan="3">
+          Place to supply <br />
+          {{ bill.customer.location }}
+        </th>
+        <th colspan="1">
+          Invoice No <br />
+          {{ bill.billNumber }}
+        </th>
+        <th colspan="4">
+          Dated <br />
+          {{ date | json }} &nbsp;{{ time | json }}
+        </th>
+      </tr> -->
+    <!-- <tr>
         <td><b>Description Of Goods</b></td>
-    
-    
+
         <td><b>Item Name</b></td>
         <td><b>QTY</b></td>
         <td><b>Weight</b></td>
-        
+
         <td><b>RATE</b></td>
         <td><b>Amount</b></td>
-    </tr>
-    <tr *ngFor="let p of bill.products">
-       <td > ITEMS TAKEN</td> 
-      <!-- <td> {{bill.products[0].productName}}</td>
+      </tr>
+      <tr *ngFor="let p of bill.products">
+        <td>ITEMS TAKEN</td> -->
+    <!-- <td> {{bill.products[0].productName}}</td>
       <td> {{bill.products.length}} </td>
       <td> {{bill.payment.totalWeight}} </td>
       <td></td>
-      <td> {{bill.actualAmount}} </td> --> 
-      <td>{{p.productName}} </td>
-      <td>1</td>
-      <td>{{p.weightage}} </td>
-      <td *ngIf="p.metal.metalName==gold">{{goldRate.ratePerGram}} </td>
-      <td *ngIf="p.metal.metalName==silver">{{silverRate.ratePerGram}} </td>
-      <td *ngIf="p.metal.metalName==gold">{{p.weightage*goldRate.ratePerGram}} </td>
-      <td *ngIf="p.metal.metalName==silver">{{p.weightage*silverRate.ratePerGram}} </td>
-    </tr>
+      <td> {{bill.actualAmount}} </td> -->
+    <!-- <td>{{ p.productName }}</td>
+        <td>1</td>
+        <td>{{ p.weightage }}</td>
+        <td *ngIf="p.metal.metalName == gold">{{ goldRate.ratePerGram }}</td>
+        <td *ngIf="p.metal.metalName == silver">
+          {{ silverRate.ratePerGram }}
+        </td>
+        <td *ngIf="p.metal.metalName == gold">
+          {{ p.weightage * goldRate.ratePerGram }}
+        </td>
+        <td *ngIf="p.metal.metalName == silver">
+          {{ p.weightage * silverRate.ratePerGram }}
+        </td>
+      </tr> -->
 
     <!-- <tr>
         <td> <b>Total</b></td>
@@ -58,13 +284,9 @@
         <td></td>
         <td></td>
       </tr> -->
-      <tr>
+    <!-- <tr>
         <td colspan="10">Taxable Value</td>
-        <!-- <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td> -->
+       
       </tr>
       <tr>
         <td>SGST</td>
@@ -72,7 +294,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>{{amountGst/2}}</td>
+        <td>{{ amountGst / 2 }}</td>
       </tr>
       <tr>
         <td>CGST</td>
@@ -80,40 +302,36 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>{{amountGst/2}}</td>
+        <td>{{ amountGst / 2 }}</td>
       </tr>
 
-  <tr>
-   
+     
+
+      <tr>
+        <td colspan="5">
+          <b style="gap: 1.2rem"> Total </b>
+        </td>
+        <td colspan="1">
+          {{ bill.amountPaid }}
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="5">
+          Amount Chargeable(in words) : <br />
+          <br />
+          Company's PAN : AAK523GFGH5D
+        </td>
+
+        <td colspan="1">{{ amountInWords }}</td>
+       
+      </tr>
+    </table>
+  </div>
+</div> -->
+    <!-- </div>
 
 
-<tr>
-    <td colspan="5" >
-       <b style="gap: 1.2rem;"> Total  </b>
-    </td>
-    <td colspan="1">
-      {{bill.amountPaid}}
-    </td>
-</tr>
-
-<tr>
-    <td colspan="5">Amount Chargeable(in words) :  <br> <br>
-        Company's PAN : AAK523GFGH5D 
-    </td>
- 
-        <td colspan="1"> {{amountInWords}} </td>
-        <!-- <td></td>
-        <td></td>
-        <td></td>
-        <td></td> -->
-        
-
-  </tr>
-
-
-    
-  </table>
-
-  
-</div>
-<button (click)="downloadPDF()">Download PDF</button>
+</div> -->
+  <!-- </div>
+</div> -->

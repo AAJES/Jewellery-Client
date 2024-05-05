@@ -6,6 +6,8 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Sales } from 'src/app/commons/common.objects';
 
 @Component({
   selector: 'app-less-paid-report',
@@ -32,15 +34,29 @@ export class LessPaidReportComponent {
 
   imageData : any = '';
   file: string = '';
+fromDate: any;
+toDate: any;
+
+sales1:any
+  shopDetails: any;
+
   
 
-  constructor(private http:HttpClient,private service : MainService){}
+  constructor(private http:HttpClient,private service : MainService){
+    
+  }
 
   ngOnInit(){
     this.rowData$ = this.http.get<any[]>("http://localhost:5050/jewellery/sales/lessPaid");
-  }
+   // this.lesspaidAmountList()
 
-  sales : any[] = []; 
+    this.service.getAllShop((data : any)=>{
+      this.shopDetails = data[0];
+    })
+  } 
+
+  sales : any[] = []
+
 
   @ViewChild('contentToConvert')
   contentToConvert!: ElementRef;
@@ -101,4 +117,24 @@ export class LessPaidReportComponent {
   clearSelection(){
   this.agGrid.api.deselectAll();
   }
+
+
+  displayedColumns: string[] = ['salesId', 'totalAmount', 'discountAmount', 'paymentStatus' , 'wastage' , 'grossWeight' ,'netWeight','actualAmount','quantity','billGeneratedOrNo','amountPaid','balanceAmount'
+];
+  bookingList : any[] = [];
+  dataSource!: MatTableDataSource<any>;
+
+ 
+  public  lesspaidAmountList(){
+
+    this.service.getAllLessPaidSales((data:any)=>{
+this.sales1=data
+this.sales1.balanceAmount=this.sales1.actualAmount-this.sales1.amountPaid
+      this.dataSource=data;
+
+    })
+    
+
+  }
+
 }

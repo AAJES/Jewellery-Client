@@ -1,0 +1,56 @@
+<div class="container">
+    <div>
+        <mat-form-field>
+            <mat-label>Customer </mat-label>
+            <mat-select class="form-Group" #selectCustomer>
+              <mat-option value="{{c.customerId}}"  *ngFor="let c of customers" (click)="onCustomerSelectionChange(c.customerId)">{{c.customerName}}</mat-option>
+            </mat-select>
+
+          </mat-form-field>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+              <tr>
+                <th>Sl.No</th>
+                <th>Date</th>
+                <th>Amount Paid</th>
+                <th>Discount Amount</th>
+                <th>Total Amount</th>
+                <th>Balance Amount</th>
+                <th>Products</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of payments">
+                <td>{{ p.paymentId }}</td>
+                <td>{{ p.trdate | date }}</td>
+                <td>{{ p.amountPaid }}</td>
+                <td>{{ p.discountAmount }}</td>
+                <td>{{ p.totalAmount }}</td>
+                <td>{{ p.totalAmount - (p.amountPaid+p.discountAmount) }}</td>
+                <td>
+                  <table>
+                    <thead>
+                      <th>Products</th>
+                      <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let product of p.products">
+                        <td>{{ product.productName }}</td>
+                        <td>{{ product.weightage }}gm</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td><button class="btn btn-primary" (click)="completePayment(p.paymentId)">Pay</button> </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

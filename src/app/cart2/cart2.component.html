@@ -1,28 +1,156 @@
-<h2>Your Shopping Cart</h2>
-<ul>
-  <li *ngFor="let item of items">
-    {{ item.productName }} - ₹{{ item.price }}
-    <button (click)="increaseItemQuantity(item)">+</button>{{item.quantity}}
-    <button (click)="decreaseItemQuantity(item)">-</button>
-  </li>
-</ul>
-<p>Total: ₹{{ total }}</p>
-<div>
-  <mat-form-field>
-    <mat-label>Customer </mat-label>
-    <mat-select class="form-Group" #selectCustomer>
-      <mat-option value="{{c.customerId}}" *ngFor="let c of customers" (click)="onCustomerSelectionChange(c.customerId)">{{c.customerName}}</mat-option>
-    </mat-select>
-    
-  </mat-form-field>
+<div class="container" *ngIf="!isCartEmpty">
+  <div class="table-responsive">
+    <table
+      class="table table-striped table-hover table-borderless table-primary align-middle"
+    >
+      <thead class="table-light">
+        <tr>
+          <th>Slno.</th>
+          <th>Product Name</th>
+          <th>Product Image</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr class="table" *ngFor="let item of items; let i = index">
+          <td scope="row">{{ i + 1 }}</td>
+          <td>{{ item.productName }}</td>
+          <td>
+            <img [src]="item.productImage" class="img" />
+          </td>
+          <td
+            style="
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 40ch;
+            "
+          >
+            {{ item.description }}
+          </td>
+          <td>
+            weight : {{ item.weightage }} <br />Metal :{{
+              item.metal.metalName
+            }}
+            <br /><span>Purity :{{ item.purity.purityName }}</span> <br />
+            <span class="text-nowrap">
+              Price:
+              {{ item.price | currency : "INR" : "symbol" : "1.2-2" }}</span
+            >
+          </td>
+          <!-- <td> {{ item.weightage }}/g <br> {{item.price}} <br>{{ item.metal.metalName }}  </td> -->
+          <td>
+            <i
+              class="fa fa-minus btn btn-sm btn-primary"
+              (click)="decreaseQuantity(item)"
+            ></i>
+
+            {{ item.quantity.quantity }}
+
+            <i
+              class="fa fa-plus btn btn-sm btn-primary"
+              (click)="increaseQuantity(item)"
+            ></i>
+          </td>
+
+          <td>
+            {{
+              item.quantity.quantity * item.price | currency : "INR" : "symbol" : "1.2-2"
+            }}
+          </td>
+          <td>
+            <i
+              class="fa fa-trash btn btn-danger"
+              (click)="removeItem(item.productId)"
+              aria-hidden="true"
+            ></i>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6" class="text-end"> <b>Grand Total :</b></td>
+          <td colspan="2">
+            {{ calculateGrandTotal() | currency: 'INR': 'symbol': '1.2-2' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <span class="row justify-content-end">
+    <div class="col-md-10"></div>
+    <button class="button col-md-2" (click)="proceedToPayment()">Proceed to Payment</button>
+  </span>
 </div>
-<div>
-  <mat-form-field>
-    <mat-label>Employee </mat-label>
-    <mat-select class="form-Group" #selectEmployee>
-      <mat-option value="{{e.employeeId}}" *ngFor="let e of employees" (click)="onEmployeeSelectionChange(e.employeeId)">{{e.employeeName}}</mat-option>
-    </mat-select>
-    
-  </mat-form-field>
+
+<div class="container" *ngIf="isCartEmpty">
+  <div class="row justify-content-center">
+    <div class="col-md-8 addProduct">
+      <div class="text-center">
+        <h3>Your cart is empty.</h3>
+        <br />
+        <button class="btn btn-primary mt-3" routerLink="/home3">
+          Back to Shopping
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<p><button class="btn btn-primary" (click)="addBill()">Bill</button></p>
+
+<!-- <div class="container">
+  <h2>Your Shopping Cart</h2>
+  <ul>
+    <li
+      *ngFor="let item of items"
+      class="d-flex justify-content-between align-items-center"
+    >
+      <div>
+        <span>{{ item.productName }} - ₹{{ item.price }}</span>
+        <p>Weightage: {{ item.weightage }}g</p>
+        <p>Metal: {{ item.metal.metalName }}</p>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-secondary" (click)="decreaseItemQuantity(item)">
+          -
+        </button>
+        <span class="btn btn-light">{{ item.quantity }}</span>
+        <button class="btn btn-secondary" (click)="increaseItemQuantity(item)">
+          +
+        </button>
+      </div>
+    </li>
+  </ul>
+  <p>Total: ₹{{ total }}</p>
+  <div>
+    <mat-form-field>
+      <mat-label>Customer </mat-label>
+      <mat-select class="form-Group" #selectCustomer>
+        <mat-option
+          value="{{ c.customerId }}"
+          *ngFor="let c of customers"
+          (click)="onCustomerSelectionChange(c.customerId)"
+          >{{ c.customerName }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Employee </mat-label>
+      <mat-select class="form-Group" #selectEmployee>
+        <mat-option
+          value="{{ e.employeeId }}"
+          *ngFor="let e of employees"
+          (click)="onEmployeeSelectionChange(e.employeeId)"
+          >{{ e.employeeName }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <p>
+    <button class="btn btn-primary" (click)="addBill()">Place Order</button>
+  </p>
+</div> -->

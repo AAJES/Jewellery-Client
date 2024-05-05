@@ -1,34 +1,51 @@
-
 <div class="container">
-    <label><b>Category Name :</b></label>
-      <br>
-      <input type="text" name="categoryName" placeholder="categoryName" size="15" ngModel #categoryName="ngModel" 
-      required 
-      pattern="[a-z A-Z 0-9]*"
-      type="text" 
-      name="amountPaid"
-      [(ngModel)]="category.categoryName" style="border-radius: 30px;">
-<div class="alert alert-danger" *ngIf="categoryName.touched && categoryName.invalid" style="border-radius: 30px;">Category Name is required</div>
-      <br><br>
+  <div class="cancel d-flex justify-content-between align-items-center">
+    <h1>Category</h1>
+    <a routerLink="/allcategory"><i class="fa fa-times"></i></a>
+  </div>
+  <label><b>Category Name :</b></label>
+  <br />
+  <input
+    type="text"
+    name="categoryName"
+    placeholder="categoryName"
+    size="15"
+    ngModel
+    #categoryName="ngModel"
+    required
+    pattern="[a-z A-Z 0-9]*"
+    type="text"
+    class="form-control"
+    name="amountPaid"
+    [(ngModel)]="category.categoryName"
+  />
+  <div
+    class="alert alert-danger"
+    *ngIf="categoryName.touched && categoryName.invalid"
+    
+  >
+    Category Name is required
+  </div>
+  <br />
 
-      <mat-slide-toggle [(ngModel)]="category.activeStatus" (toggleChange)="status">Status</mat-slide-toggle>
-      <br><br>
-
-      <div>
-
-        <form (ngSubmit)="imageUpload()">
-
-          <h4>Upload category image:</h4>
-          <input type="file" #fileInput (change)="onFileSelected($event)" />
-          <button class="button" type="submit">Upload File</button>
-        </form>
-        <div *ngIf="response">{{ response }}</div>
+  <div>
+  <label><b>Upload category image:</b></label>
+   
+      <div class="d-flex">
+        <input type="file" class="form-control" #fileInput (change)="onFileSelected($event)" />
+        <!-- <button class="button" type="submit" (click)="imageUpload()">Upload</button> -->
       </div>
+
+    <div *ngIf="response">{{ response }}</div>
+  </div>
+  <br />
+
+  <mat-slide-toggle
+  [(ngModel)]="category.activeStatus"
+  (toggleChange)="(status)"
+  >Status</mat-slide-toggle
+>
 <br>
-
-      <button class="button" (click)="onSubmit()">Submit</button>
-
+<br>
+  <button class="button" (click)="onSubmit()">Submit</button>
 </div>
-
-
-

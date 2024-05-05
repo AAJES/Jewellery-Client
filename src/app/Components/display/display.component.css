@@ -1,0 +1,75 @@
+.button {
+    margin-top: 0px;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #ffd700 0%, #ffd700 16%, #e5c100 50%, #ffd700 83%, #ffd700 100%);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    cursor: pointer;
+    animation: colorMovement 4s infinite; 
+    transition: background 0.3s ease; 
+  }
+  
+  .button:hover {
+    background: linear-gradient(90deg, #e5c100 0%, #e5c100 16%, #ffd700 50%, #e5c100 83%, #e5c100 100%);
+  }
+  /* Basic styling to ensure text visibility */
+
+  .body {
+    background-color: #fff; /* Light gray background color for the entire page */
+    padding-top: 20px;
+  }
+
+
+.product-container {
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding-left: 50px;
+  }
+  
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Light gray background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  }
+  
+  .product-info {
+    text-align: center;
+  }
+  
+  .product-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .product-info p {
+    margin-bottom: 10px;
+  }
+  
+  .product-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .view-button {
+    background-color: #007bff; /* Blue button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

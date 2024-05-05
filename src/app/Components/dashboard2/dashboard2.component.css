@@ -1,0 +1,249 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.chartssection {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="date"].form-control {
+  appearance: none;
+  padding: 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="date"].form-control:hover,
+input[type="date"].form-control:focus {
+  border-color: #007bff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+
+  cursor: pointer;
+}
+
+.date1 {
+  margin: 5px;
+}
+
+
+.dash {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6c757d;
+}
+
+.cards1 {
+  display: flex;
+  gap: 80px;
+  background: var(--gradient);
+  width: 90%;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  margin-left: 4%;
+  box-shadow: var(--primary-shadow);
+}
+
+.card-cnt {
+  width: 24vw;
+  height: 8.5rem;
+  padding: 0 1.5rem;
+  font-size: x-large;
+}
+
+.sales {
+  width: 50%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  /* margin-inline: auto; */
+  background: var(--gradient);
+  box-shadow: var(--primary-shadow);
+  height: 100px;
+}
+
+.charts {
+  /* gap: 3rem; */
+  height: 40%;
+  width: 40%;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+.charts1 {
+  /* gap: 3rem; */
+  height: 40%;
+  width: 40%;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+.linechart {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: var(--secondary-shadow);
+}
+
+.doughnut {
+  background-color: white;
+  box-shadow: var(--secondary-shadow);
+  padding: 2rem;
+}
+
+.mat-elevation-z8 {
+  margin-top: 1rem;
+  box-shadow: var(--secondary-shadow);
+}
+
+.input {
+  width: 100%;
+  margin-top: 3rem;
+  background-color: white;
+  box-shadow: var(--secondary-shadow);
+}
+
+.paginator {
+  background-color: white;
+  box-shadow: var(--secondary-shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+ 
+
+
+  .charts{
+    width: 330px;
+    margin-bottom: 15px;
+  }
+
+  .date2 {
+    margin-top: -2%;
+    margin-left: 25%;
+
+  }
+
+}
+
+.button {
+  margin-top: 26px;
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #ffd700 0%, #ffd700 16%, #e5c100 50%, #ffd700 83%, #ffd700 100%);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  animation: colorMovement 4s infinite;
+  /* Apply the color movement animation */
+}
+
+@keyframes colorMovement {
+  0% {
+    background-position: 0% 50%;
+    /* Start position of the gradient */
+  }
+
+  100% {
+    background-position: 100% 50%;
+    /* End position of the gradient */
+  }
+}
+
+.text-center {
+  margin: 0;
+  padding: 0;
+}
+
+mat-card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-content {
+  cursor: pointer;
+}
+
+.subcard {
+  padding: 10px;
+}
+
+.ml-2 {
+ margin:  0 .7rem !important;
+  width: 330px;
+}
+
+.para {
+  margin-bottom: 10px;
+}
+
+i.fa-regular,
+i.fa-solid {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Card content styles */
+.card-content {
+  padding: 16px;
+}
+
+/* Hover effect */
+mat-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.table-content {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.mt-4 {
+  margin-left: 3%;
+}
+
+
+
+.table-content:hover {
+  transform: translateY(-5px);
+}

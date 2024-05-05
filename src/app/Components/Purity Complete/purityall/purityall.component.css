@@ -1,14 +1,22 @@
 .container {
-    margin-top: 10px;
-      width: 80%;
+    margin-top: 5%;
+      width: 100%;
       /* background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); */
       height: 800px;
+      
     }
-  .button{
-      margin-left: 630px;
-      margin-top: -40px;
-      padding-left: 10px;
-  }
+   
   .table{
     width: 700px;
+  }
+
+  
+  
+  @keyframes colorMovement {
+    0% {
+      background-position: 0% 50%; /* Start position of the gradient */
+    }
+    100% {
+      background-position: 100% 50%; /* End position of the gradient */
+    }
   }

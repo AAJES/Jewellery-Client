@@ -6,6 +6,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-bill-report',
@@ -14,10 +15,11 @@ import { MainService } from '../main.service';
 })
 export class BillReportComponent {
 
+
   rowData$: Observable<any[]> | undefined;
   colDefs: ColDef[] = [
     {field: 'billId',sortable: true , filter: true ,editable: true},
-    {field: 'billNumber',sortable: true , filter: true ,editable: true},
+    {field: 'billId',sortable: true , filter: true ,editable: true},
     {field: 'customer.customerName',sortable: true , filter: true ,editable: true},
     {field: 'amountPaid',sortable: true , filter: true ,editable: true},
     {field: 'discountAmount',sortable: true , filter: true ,editable: true},
@@ -30,66 +32,137 @@ export class BillReportComponent {
   imageData: string = '';
   sales : any[] = [];
   file: string = '';
-  
+  displayedColumns: string[] = ['billId', 'billNumber', 'customerName', 'amountPaid' , 'discountAmount' , 'actualAmount' ,'gst','trdate'
+];
+  bookingList : any[] = [];
+  dataSource!: MatTableDataSource<any>;
+fromDate: any;
+toDate: any;
+  customerList: any[]=[]
+ customer:any
+ customerId:any=0
+  shopDetails: any;
+
+
+
+
+
 
   constructor(private http:HttpClient,private service : MainService){}
 
   ngOnInit(){
-    this.rowData$ = this.http.get<any[]>("http://localhost:5050/jewellery/bill/");
+   
+    this.service.getAllCustomer((data:any)=>{
+      this.customerList=data
+    })
+
+
+    this.service.getAllShop((data : any)=>{
+      this.shopDetails = data[0];
+    })
   }
 
   @ViewChild('contentToConvert')
   contentToConvert!: ElementRef;
 
-  downloadPDF(): void {
-    const doc = new jsPDF();
+  // downloadPDF(): void {
+  //   const doc = new jsPDF();
 
+  //   const options = {
+  //     margin: { top: 10, left: 10 },
+  //     filename: 'salesreport.pdf',
+  //     image: { type: 'jpeg', quality: 0.98 },
+  //     html2canvas: { scale: 2 },
+  //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+  //   };
+
+
+ 
+
+  //   html2canvas(this.contentToConvert.nativeElement, { scale: 2 }).then((canvas) => {
+  //     this.imageData = canvas.toDataURL('image/jpeg', 1.0);
+  //     doc.addImage(
+  //       this.imageData,
+  //       'JPEG',
+  //       options.margin.left,
+  //       options.margin.top,
+  //       canvas.width * 0.15, 
+  //       canvas.height * 0.15 
+  //     );
+
+  //     this.file = "billreports" + '.pdf';
+
+  //     options.filename =  "billreports" + '.pdf';
+
+  //     doc.save(options.filename);
+     
+  //   });
+  // }
+   
+  downloadPDF(): void {
+    const doc = new jsPDF({
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait',
+    });
+  
     const options = {
       margin: { top: 10, left: 10 },
-      filename: 'salesreport.pdf',
+      filename: 'billreports.pdf',
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
     };
-
-
-    this.service.getAllLessPaidSales((data : any)=>{
-       this.sales = data;
-    })
-
-    html2canvas(this.contentToConvert.nativeElement, { scale: 2 }).then((canvas) => {
-      this.imageData = canvas.toDataURL('image/jpeg', 1.0);
-      doc.addImage(
-        this.imageData,
-        'JPEG',
-        options.margin.left,
-        options.margin.top,
-        canvas.width * 0.15, // Adjust width to fit content (you can change the scale as needed)
-        canvas.height * 0.15 // Adjust height to fit content
-      );
-
-      this.file = "billreports" + '.pdf';
-
-      options.filename =  "billreports" + '.pdf';
-
+  
+    const contentToConvert = this.contentToConvert.nativeElement;
+  
+    // Get bounding rectangle of content element
+    const contentRect = contentToConvert.getBoundingClientRect();
+    const contentHeight = contentRect.height;
+    
+    // Calculate number of entries per page based on the height of each entry
+    const entryHeight = 10; // Assuming each entry height is 10mm
+    const entriesPerPage = Math.floor((doc.internal.pageSize.getHeight() - options.margin.top) / entryHeight);
+  
+    html2canvas(contentToConvert, { scale: 1.5 }).then((canvas) => {
+      const totalPages = Math.ceil(contentHeight / doc.internal.pageSize.getHeight());
+       totalPages/entryHeight;
+       
+      let yPos = 0;
+      let currentPage = 1;
+  
+      for (let i = 0; i < totalPages; i++) {
+        if (i > 0) {
+          // If there is content to add on the next page
+          if ((contentHeight - yPos) / entryHeight > 0) {
+            doc.addPage();
+            currentPage++;
+          } else {
+            break; // No more content, exit loop
+          }
+        }
+  
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+        doc.addImage(imgData, 'JPEG', options.margin.left, options.margin.top - yPos, canvas.width * 0.13, canvas.height * 0.11);
+  
+        // Calculate number of entries to display on this page
+        const remainingEntries = Math.min(entriesPerPage, Math.ceil((contentHeight - yPos) / entryHeight));
+  
+        yPos += remainingEntries * entryHeight;
+  
+        doc.setPage(currentPage);
+        doc.text(`Page ${currentPage} of ${totalPages}`, options.margin.left, doc.internal.pageSize.getHeight() - 18);
+      }
+  
       doc.save(options.filename);
-      //this.downloadPdf();
-      //  this.emailDetails.msgBody = JSON.stringify("This is appointment details");
-      //                       this.emailDetails.subject = "Confirmation mail";
-      //                       this.emailDetails.recipient = this.visitor.visitor_email;
-      //                       this.emailDetails.attachment = "D:/downloads/"+this.file;
-      //                       this.emailDetails.msgBody = "This is your appointment details"
-      //                       this.http.post("http://localhost:9090/mail/sendMailWithAttachment",this.emailDetails)
-      //                                .subscribe(
-      //                                 response => {
-      //                                   console.log('Upload and email sent:', response);
-      //                                 },
-      //                                 error => {
-      //                                   console.error('Error uploading and sending email:', error);
-      //                                 })
     });
   }
-   
+
+
+
+  
+  
+  
+  
   onCellClicked( event:CellClickedEvent){
   console.log(event)
   }
@@ -98,4 +171,20 @@ export class BillReportComponent {
   this.agGrid.api.deselectAll();
   }
 
+
+
+  onCustomerSelectionChange(customerId: any) {
+    console.log(customerId+".........................")
+   this. customerId=customerId
+
+    }
+      getBillReportBydate() {
+      console.log(this.fromDate+".."+this.toDate+"......"+this.customerId)
+
+      this.service.getAllBillsByCustomerIdAndFromandToDate(this.customerId,this.fromDate,this.toDate,(data:any)=>{
+        this.dataSource=data;
+      })
+      
+
+    }
 }

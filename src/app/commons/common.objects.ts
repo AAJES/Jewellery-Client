@@ -1,5 +1,5 @@
-import { Time } from '@angular/common';
-import { SchemecustomerReceiptComponent } from '../Components/schemecustomer-receipt/schemecustomer-receipt.component';
+import { Time } from "@angular/common";
+import { SchemecustomerReceiptComponent } from "../Components/schemecustomer-receipt/schemecustomer-receipt.component";
 
 export interface Visitor {
   visitor_id: number;
@@ -54,16 +54,7 @@ export interface Role {
   menuGroup: MenuGroup;
 }
 
-export interface User {
-  user_id: number;
-  user_Username: string;
-  user_email: string;
-  user_phone1: string;
-  user_phone2: string;
-  user_password: string;
-  role: Role;
-  section: Section;
-}
+
 
 export interface Contact {
   contactId: number;
@@ -86,20 +77,6 @@ export interface FacilityVisited {
   facilityCheckOut: string;
 }
 
-export interface Appointment {
-  appointment_id: number;
-  appointment_start: string;
-  appointment_end: string;
-  visitor: Visitor;
-  vehicle: Vehicle;
-  item: Item;
-  approver: User;
-  facilityVisitedList: FacilityVisited[];
-  sectionVisitedList: SectionVisited[];
-  appointment_type: string;
-  checkInTime: string;
-  checkOutTime: string;
-}
 
 export interface Vehicle {
   vehicleId: number;
@@ -117,12 +94,7 @@ export interface Item {
   item_Description: string;
 }
 
-export interface Template {
-  // id : number;
-  appointment: Appointment;
-  sectionVisitedList: Section;
-  item: Item;
-}
+
 
 export interface Company {
   companyId: number;
@@ -156,7 +128,7 @@ export interface Employee {
   employeeName: string;
   age: number;
   phoneNumber: string;
-  Address: string;
+  address: string;
   gender: Gender;
 }
 
@@ -201,16 +173,32 @@ export interface Booking {
   advanceAmount: number;
   customer: Customer;
   employee: Employee;
-  products: ProductPurchase[];
+  catalog: String;
+  category:Category
+  metal: Metal;
+  purity: Purity;
+  weight: number;
+  image: string;
   status: string;
   deductAmount: number;
   refundAmount: number;
-  user : user;
-  // login : login;
+  user: user;
+  login: login;
+  cancelDate: string;
+  description: string;
+  rate: Rate;
+  quantity:string;
+  modeOfAdvance:string;
+  oldMetalWeight:number;
+}
+export interface quantity {
+  quantityId: number;
+  quantity: number;
 }
 
 export interface Product {
   productId: number;
+  quantity: quantity;
   productName: string;
   weightage: number;
   wastage: number;
@@ -224,9 +212,23 @@ export interface Product {
   metal: Metal;
   rate: Rate;
   productImage: string;
+  stoneWeight:number
+  stone:number;
+  labour:number;
+  processing:number;
 }
 
-export interface ProductPurchase {}
+export interface ProductPurchase {
+  productPurchaseId: number;
+  totalWeight: number;
+  amountPaid: number;
+  status: string;
+  quantity: number;
+  product: Product;
+  user: user;
+  employee: Employee;
+  login: login;
+}
 
 export interface Return {
   returnId: number;
@@ -239,11 +241,11 @@ export interface Return {
   metal: Metal;
   purity: Purity;
   user: user;
-  // login : login;
+  login: login;
 }
 
 export interface Bill {
-  get(arg0: string): import('@angular/forms').FormControl<any>;
+  get(arg0: string): import("@angular/forms").FormControl<any>;
   billId: number;
   productId: number;
   paymentId: number;
@@ -258,7 +260,7 @@ export interface Bill {
   products: Product[];
   payment: Payment;
   billNumber: string;
-  login : login;
+  login: login;
 }
 
 export interface Payment {
@@ -270,9 +272,11 @@ export interface Payment {
   products: Product[];
   modeOfPayment: ModeOfPayment;
   user: user;
+  customer: Customer;
   discountAmount: number;
   totalAmount: number;
-  login : login;
+  login: login;
+  bankDetails: BankDetails;
 }
 
 export interface ModeOfPayment {
@@ -296,7 +300,7 @@ export interface Sales {
   payment: Payment;
   user: user;
   bill: Bill;
-  // login : login;
+  login: login;
 }
 
 export interface Cart {
@@ -306,20 +310,9 @@ export interface Cart {
   trDate: string;
   trTime: Time;
   user: user;
-  //login : Login,
+  login: login;
   products: Product[];
   booking: Booking;
-}
-
-export interface ProductPurchase {
-  productPurchaseId: number;
-  trDate: Date;
-  trTime: Time;
-  totalWeight: number;
-  amountPaid: number;
-  count: number;
-  user: user;
-  product: Product;
 }
 
 export interface License {
@@ -353,12 +346,19 @@ export interface user {
   userId: number;
   userName: string;
   password: string;
-  role: [];
+  role: Role1[];
+}
+
+interface Role1 {
+  roleId: number;
+  roleName: string;
+  activeStatus: boolean;
+  authority: string;
 }
 
 export interface Owner {
   ownerId: number;
-  ownerName : string,
+  ownerName: string;
   phone: string;
   password: string;
   user: user;
@@ -377,6 +377,7 @@ export interface Scheme {
   endDate: string;
   trDate: string;
   amountPerMonth: number;
+  totalSizeCustomer:number;
 }
 
 export interface SchemeCustomerReceipt {
@@ -385,6 +386,8 @@ export interface SchemeCustomerReceipt {
   customerName: string;
   customerPhone: string;
   remark: string;
+  scheme:Scheme;
+  email:string;
 }
 
 export interface SchemeReceipts {
@@ -397,23 +400,75 @@ export interface SchemeReceipts {
   modeOfPayment: ModeOfPayment;
 }
 
-export interface IdForm{
-  idFormId : number,
-  id : number
+export interface IdForm {
+  idFormId: number;
+  id: number;
 }
 
-export interface Shop{
-  shopId : number,
-  shopName : string,
-  logo : string,
-  address : string,
-  phone : string,
-  email : string,
-  state : string
+export interface Shop {
+  shopId: number;
+  shopName: string;
+  logo: string;
+  address: string;
+  phone: string;
+  email: string;
+  state: string;
+  gstNo: string;
+  panNo: string;
+  bankDetails: BankDetails;
 }
 
-export interface login{
-   loginId : number,
-   systemDetails : string,
-   user : user
+export interface BankDetails {
+  bankDetailsId: number;
+  ifsccode: string;
+  accountNo: string;
+  accountHolderName: string;
+  branch: string;
+  branchAddress: string;
+  qrCode: string;
+  description: string;
+  active: boolean;
 }
+
+export interface login {
+  loginId: number;
+  systemDetails: string;
+  user: user;
+}
+
+interface DataInterface {
+  salesId: number;
+  totalAmount: number;
+  discountAmount: number;
+  paymentStatus: boolean;
+  wastage: number;
+  grossWeight: number;
+  netWeight: number;
+  actualAmount: number;
+  quantity: number;
+  billGeneratedOrNo: boolean;
+
+  balanceAmount: number;
+}
+
+export interface Stock {
+  stockId: number;
+  minQty: number;
+  stockQtyInHand: number;
+  totalStock: number;
+  count: number;
+  trDate: string;
+  product: Product;
+  login: login;
+}
+
+export interface Productss {
+  id: number;
+  name: string;
+  description: string;
+  imageUrl: string;
+  category: string; 
+  dimage:string// Add category property
+  // Add any other properties as needed
+}
+

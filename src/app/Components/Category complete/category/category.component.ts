@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category, ImageModel } from 'src/app/commons/common.objects';
 import { MainService } from '../../main.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -19,8 +20,12 @@ export class CategoryComponent {
   }
 
   status : boolean = false;
+  categoryId: any= 0;
 
-  constructor(private httpClient : HttpClient,private service : MainService){
+  constructor(private httpClient : HttpClient,
+              private service : MainService,
+              private router:Router,
+              private route:ActivatedRoute){
 
   }
 
@@ -41,7 +46,7 @@ export class CategoryComponent {
 
   public get categoryImage(): FormControl{
     return this.categoryform.controls.categoryImage.get('categoryImage') as FormControl;
-  }
+  } 
 
   image : ImageModel = {
     id: 0,
@@ -55,6 +60,7 @@ export class CategoryComponent {
     const file: File = event.target.files[0];
     this.selectedfile = event.target.files[0];
     // You can do something with the selected file if needed
+    this.imageUpload();
   }
 
   public imageUpload(){
@@ -90,21 +96,40 @@ export class CategoryComponent {
 
   }
 
+
+  ngOnInit(){
+    this.route.paramMap.subscribe(params =>{
+         this.categoryId = params.get('data');
+         //this.updateCompanyProcess(this.entity_id);
+         console.log(this.categoryId);
+         if(this.categoryId == null){
+          
+         }else{
+          this.service.getCategory(this.categoryId,(data : any)=>{
+            this.category = data;
+         })
+         }
+    }
+
+    )
+}
+
   public onSubmit(){
 
-    // this.category.categoryName = this.categoryName.value;
-    // this.category.activeStatus = this.status;
-    // this.category.categoryImage = this.image.type;
+    
 
-    // this.httpClient.post("http://localhost:5050/category",this.category)
-    //                .subscribe((data : any)=>{
-    //                    console.log(data);
-    //                })
-    this.service.addCategory(this.category,(response : any)=>{
+    if(this.categoryId == null){
+      this.service.addCategory(this.category,(response : any)=>{
         console.log(response);
+        this.router.navigate(['/allcategory'])
     })
- 
-
+    }
+    else{
+       this.service.updateCategory(this.categoryId,this.category,(data : any)=>{
+          console.log(data);
+        this.router.navigate(['/allcategory'])
+          
+       })
+    }
   }
-
 }

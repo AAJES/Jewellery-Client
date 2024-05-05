@@ -43,13 +43,13 @@ export class SalesComponent {
       employeeName: '',
       age: 0,
       phoneNumber: '',
-      Address: '',
+      address: '',
       gender: {
         genderId: 0,
         gender: ''
       }
     },
-    products: [],
+
     status: '',
     deductAmount: 0,
     refundAmount: 0,
@@ -58,7 +58,63 @@ export class SalesComponent {
       userName: '',
       password: '',
       role: []
-    }
+    },
+    login: {
+      loginId: 0,
+      systemDetails: '',
+      user: {
+        userId: 0,
+        userName: '',
+        password: '',
+        role: []
+      }
+    },
+    catalog: '',
+    metal: {
+      metalId: 0,
+      metalName: ''
+    },
+    purity: {
+      purityId: 0,
+      purityName: ''
+    },
+    weight: 0,
+    image: '',
+    cancelDate: '',
+    description: '',
+    rate: {
+      rateId: 0,
+      trDate: '',
+      trTime: {
+        hours: 0,
+        minutes: 0
+      },
+      activeStatus: false,
+      ratePerGram: 0,
+      metal: {
+        metalId: 0,
+        metalName: ''
+      },
+      purity: {
+        purityId: 0,
+        purityName: ''
+      },
+      user: {
+        userId: 0,
+        userName: '',
+        password: '',
+        role: []
+      }
+    },
+    quantity: '',
+    category: {
+      categoryId: 0,
+      categoryName: "",
+      activeStatus: false,
+      categoryImage: ""
+    },
+    modeOfAdvance: '',
+    oldMetalWeight: 0
   }
     
 

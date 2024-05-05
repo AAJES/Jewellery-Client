@@ -1,91 +1,144 @@
 <div class="container">
-      <h3><b> Stock  </b></h3>
-      <div class="cancel">
-      <a routerLink="/stockall"><i class="fa fa-times" style="color: black; margin-left: 95%; font-size: 30px; "></i></a>
-    </div>
-       
-<br>
-        <label><b>Quantity :</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" name="minQty" placeholder="minQty" size="15" ngModel #minQty="ngModel" 
-        required 
-        pattern="[a-z A-Z 0-9]*"
-        type="text" 
-        name="minQty"
-        [(ngModel)]="stock.minQty" >
-<div class="alert alert-danger" *ngIf="minQty.touched && minQty.invalid">Minimum Quantity is required</div>
-        
+  <div class="cancel d-flex justify-content-between align-items-center">
+    <h1>Stock</h1>
+    <a routerLink="/stockall">
+      <i class="fa fa-times" style="color: black; font-size: x-large"></i>
+    </a>
+  </div>
+  <div class="row">
+    <div class="row cus_row">
+      <div class="col-md-12 text-center">
+        <h4><b> Product details :</b></h4>
+      </div>
 
-        <label class="stock"><b>Stock In Hand :</b></label> &nbsp;
-        
-        <input type="text" name="stockQtyInHand" placeholder="stockQtyInHand" size="15" ngModel #stockQtyInHand="ngModel" 
-        required 
-        pattern="[a-z A-Z 0-9]*"
-        type="text" 
-        name="stockQtyInHand"
-        [(ngModel)]="stock.stockQtyInHand" >
-<div class="alert alert-danger" *ngIf="stockQtyInHand.touched && stockQtyInHand.invalid">Stock Quantity In Hand is required</div>
-      
-        <label><b>Total Stock :</b></label>&nbsp;
-           <input type="text" name="totalStock" placeholder="totalStock" size="15" ngModel #totalStock="ngModel" 
-        required 
-        pattern="[a-z A-Z 0-9]*"
-        type="text" 
-        name="totalStock"
-        [(ngModel)]="stock.totalStock" >
-<div class="alert alert-danger" *ngIf="totalStock.touched && totalStock.invalid">Total Stock is required</div>
-       
-        <label class="stock1"><b>Count :</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 
-        <input type="text" name="count" placeholder="count" size="15" ngModel #count="ngModel" 
-        required 
-        pattern="[a-z A-Z 0-9]*"
-        type="text" 
-        name="count"
-        [(ngModel)]="stock.count" >
-<div class="alert alert-danger" *ngIf="count.touched && count.invalid">Count is required</div>
-        
-    
-      <h4><b> Product details :</b></h4>
-  <br>
-        <label for="Section">Products : </label>&nbsp;
-         <select id="sections" class="form-Group" #selectProduct>
-            <option value="{{p.productId}}" *ngFor="let p of products">{{p.productName}}</option>
-         </select> &nbsp;
-         <!-- <button class="button" (click)="onAddProduct(selectProduct)">Add Sections to visit</button> -->
      
-        <div>
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let fp of formProductPurchase.controls">{{ getProductName(fp.value)}}</li>
-            </ul>
-        </div>
+      
+    </div>
 
-        <div style="margin-top: -8%;">
-        <label for="User" style="margin-left: 25%;">Metal : </label>&nbsp;
-          <select id="users" class="form-Group" #selectMetal>
-            <option value="{{m.metalId}}" *ngFor="let m of metals">{{m.metalName}}</option>
-          </select>&nbsp;
-          <!-- <button class="button" (click)="onAddMetal(selectMetal)">Add a user to approve</button> -->
+
+    <div class="col-md-6">
+      <label for="Section">Products : </label>
+      <select id="sections" disabled class="form-control" [(ngModel)]="stock.product.productId" #selectProduct>
+        <option value="0"  selected="selected" disabled>Select a product...</option>
+        <option value="{{ p.productId }}" *ngFor="let p of products">
+          {{ p.productName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label>Total Stock :</label>
+      <input
+        type="text"
+        name="totalStock"
+        placeholder="totalStock"
+        size="15"
+        ngModel
+        #totalStock="ngModel"
+        required
+        disabled
+        type="number"
+        name="totalStock"
+        class="form-control"
+        [(ngModel)]="stock.totalStock"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="totalStock.touched && totalStock.invalid"
+      >
+        Total Stock is required
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label> Min Quantity :</label>
+      <input
+        type="text"
+        name="minQty"
+        placeholder="minQty"
+        size="15"
+        ngModel
+        #minQty="ngModel"
+        required
+        pattern="[a-z A-Z 0-9]*"
+        type="text"
+        name="minQty"
+        class="form-control"
+        [(ngModel)]="stock.minQty"
+      />
+      <div class="alert alert-danger" *ngIf="minQty.touched && minQty.invalid">
+        Minimum Quantity is required
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label class="stock">Stock In Hand :</label>
+      <input
+        type="text"
+        name="stockQtyInHand"
+        placeholder="stockQtyInHand"
+        size="15"
+        ngModel
+        disabled
+        #stockQtyInHand="ngModel"
+        required
+        pattern="[a-z A-Z 0-9]*"
+        type="text"
+        class="form-control"
+        name="stockQtyInHand"
+        [(ngModel)]="stock.stockQtyInHand"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="stockQtyInHand.touched && stockQtyInHand.invalid"
+      >
+        Stock Quantity In Hand is required
+      </div>
+    </div>
    
-    
-           
-        <label for="User" style="margin-left: 10%;">Category : </label>&nbsp;
-          <select id="users" class="form-Group" #selectCategory>
-            <option value="{{c.categoryId}}" *ngFor="let c of categories">{{c.categoryName}}</option>
-          </select>&nbsp;
-          <!-- <button class="button" (click)="onAddCategory(selectCategory)">Add a user to approve</button> -->
-      
-    
+    <div class="col-md-6">
+      <label class="stock1">Count :</label>
 
-      
-        <label for="User" style="margin-left: 10%;">Purity : </label>  &nbsp;
-          <select id="users" class="form-Group" #selectPurity>
-            <option value="{{p.purityId}}" *ngFor="let p of purities">{{p.purityName}}</option>
-          </select>&nbsp;
-          <!-- <button class="button" (click)="onAddPurity(selectPurity)">Add a user to approve</button> -->
-        </div>
-   <br>
-  <br>
-    <button class="button" (click)="onSubmit()">Submit</button>
- 
+      <input
+        type="text"
+        name="count"
+        placeholder="count"
+        size="15"
+        ngModel
+        #count="ngModel"
+        required
+        pattern="[a-z A-Z 0-9]*"
+        disabled
+        type="text"
+        name="count"
+        class="form-control"
+        [(ngModel)]="stock.count"
+      />
+      <div class="alert alert-danger" *ngIf="count.touched && count.invalid">
+        Count is required
+      </div>
+    </div>
+  </div>
 
+  <!-- <button class="button" (click)="onAddProduct(selectProduct)">Add Sections to visit</button> -->
+
+  <!-- <div>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let fp of formProductPurchase.controls"
+      >
+        {{ getProductName(fp.value) }}
+      </li>
+    </ul>
+  </div> -->
+
+  <div>
+    <!-- <button class="button" (click)="onAddMetal(selectMetal)">Add a user to approve</button> -->
+
+    <!-- <button class="button" (click)="onAddCategory(selectCategory)">Add a user to approve</button> -->
+
+    <!-- <button class="button" (click)="onAddPurity(selectPurity)">Add a user to approve</button> -->
+  </div>
+  <br />
+  <br />
+  <button class="button" (click)="onSubmit()">Submit</button>
 </div>

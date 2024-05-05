@@ -7,17 +7,7 @@
   box-shadow: 2px 2px 7px 7px rgb(182, 181, 181);
 }
 
-input[type="text"],
-input[type="password"],
-textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  display: block;
-  border: 1px solid black;
-  background: #ffffff;
-  border-radius: 10px;
-}
+
 
 input[type="text"]:focus,
 input[type="password"]:focus {
@@ -36,25 +26,8 @@ label {
   margin-right: 10px;
 }
 
-.button {
-  background: linear-gradient(
-    90deg,
-    rgb(246, 234, 166) 0%,
-    rgb(249, 231, 131) 16%,
-    rgb(250, 226, 93) 50%,
-    rgb(249, 222, 70) 83%,
-    rgb(253, 215, 1) 100%
-  );
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-  text-align: center;
-}
 
-.button:hover {
-  background: rgb(243, 213, 40);
-}
+
 
 @media (max-width: 768px) {
   .container {

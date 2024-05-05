@@ -1,59 +1,73 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MainService } from '../main.service';
-import { Owner } from 'src/app/commons/common.objects';
-import { LoginComponent } from 'src/app/login/login.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from "@angular/common/http";
+import { Component, Inject } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MainService } from "../main.service";
+import { Owner } from "src/app/commons/common.objects";
+import { LoginComponent } from "src/app/login/login.component";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-owner',
-  templateUrl: './owner.component.html',
-  styleUrls: ['./owner.component.css']
+  selector: "app-owner",
+  templateUrl: "./owner.component.html",
+  styleUrls: ["./owner.component.css"],
 })
 export class OwnerComponent {
   //Owner : FormGroup | any;
   //service: any;
 
-  owner : Owner = {
+  owner: Owner = {
     ownerId: 0,
-    phone: '',
-    password: '',
+    phone: "",
+    password: "",
     user: {
       userId: 0,
-      userName: '',
-      password: '',
-      role: []
+      userName: "",
+      password: "",
+      role: [],
     },
-    ownerName: ''
+    ownerName: "",
+  };
+  ownerId: any = 0;
+
+  constructor(
+    private service: MainService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const ownerId = params.get("data");
+      console.log(ownerId);
+      if (ownerId) {
+        
+        this.ownerId = ownerId;
+
+        this.service.getOwnerById(ownerId, (data: any) => {
+          console.log(data);
+          this.owner = data;
+        });
+      } else {
+        // Handle the case where bookingId is not available
+      }
+    });
   }
-      
 
-    constructor(private service : MainService,@Inject(MAT_DIALOG_DATA) public data: LoginComponent,
-    public dialogRef: MatDialogRef<OwnerComponent>){
-        
-        
-    }
+  public onSubmit() {
+    
 
-    public onSubmit(){
-      // if(this.Owner == null){
-      //   this.service.addowner(this.Owner,(response : any)=>{
-      //     console.log(response);
-      // })
-      // }
-      // else{
-      //    this.service.updateowner(this.Owner,this.Owner,(data : any)=>{
-      //       console.log(data);
-      //    })
-      // }
-      this.service.addOwner(this.owner,(data : any)=>{
-         console.log(data);
-         
+
+    if(this.ownerId == 0){
+      this.service.addOwner(this.owner, (data: any) => {
+        console.log(data);
+        this.router.navigate(["/allowners"]);
+      });
+    }else{
+      this.service.updateOwner(this.ownerId,this.owner,(data:any)=>{
+        console.log("Update Successful")
+        this.router.navigate(['/allowners']);
       })
-      
     }
-
-    closeDialog(): void {
-      this.dialogRef.close();
-    }
+  }
 }

@@ -1,0 +1,190 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Product Purchase</h1>
+    <a routerLink="/productPurchaseall"
+      ><i class="fa fa-times" style="color: black; font-size: 25px"></i
+    ></a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label for="Section">Products : </label>
+      <select id="sections" class="form-control" [(ngModel)]="productPurchase.product.productId"  (change)="selectedProduct(productPurchase.product.productId)" #selectProduct>
+        <option value="0" selected="selected" disabled>
+          Select a product...
+        </option>
+        <option value="{{ p.productId }}" *ngFor="let p of products">
+          {{ p.productName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label><b>Total Weight:</b></label>
+      <input
+        type="text"
+        name="totalWeight"
+        class="form-control"
+        placeholder="Weight"
+        size="15"
+        ngModel
+        #totalWeight="ngModel"
+        required
+        [(ngModel)]="productPurchase.totalWeight"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="totalWeight.touched && totalWeight.invalid"
+      >
+        Total Weight is required
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label><b>Amount Paid:</b></label>
+      <input
+        type="text"
+        name="amountPaid"
+        class="form-control"
+        placeholder="Amount paid"
+        size="15"
+        ngModel
+        #amountPaid="ngModel"
+        required
+        [(ngModel)]="productPurchase.amountPaid"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="amountPaid.touched && amountPaid.invalid"
+      >
+        Amount Paid is required
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label><b>Quantity:</b></label>
+      <input
+        type="text"
+        name="quantity"
+        class="form-control"
+        placeholder="Quantity"
+        size="15"
+        ngModel
+        #quantity="ngModel"
+        required
+        [(ngModel)]="productPurchase.quantity"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="quantity.touched && quantity.invalid"
+      >
+        Quantity is required
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="Section"> <b>Employee :</b> </label>
+      <select id="sections" class="form-control" [(ngModel)]="productPurchase.employee.employeeId" (change)="selectedEmployee(productPurchase.employee.employeeId)">
+        <option value="0" selected disabled>
+          Select a Employee...
+        </option>
+        <option [value]="e.employeeId" *ngFor="let e of employees">
+          {{ e.employeeName }}
+        </option>
+      </select>
+    </div>
+
+
+    <div class="col-md-6">
+      <label for="status">Status</label>
+     <select name="status" id="status" class="form-control" [(ngModel)]="productPurchase.status">
+      
+      <option value="0" selected disabled> Select Status ... </option>
+      <option value="Wholeseller" > Wholeseller </option>
+      <option value="Customer"> Customer </option>
+     </select>
+    </div>
+    
+    
+
+    <!-- <div class="col-md-6">
+      <div class="form-Group">
+        <label for="User">Purity : </label>
+        <select
+          class="form-control"
+          [disabled]="isPurityDisabled"
+          [(ngModel)]="return.purity.purityId"
+          (change)="calculateReturnAmount()"
+          #selectPurity
+        >
+          <option value="{{ p.purityId }}" *ngFor="let p of purities">
+            {{ p.purityName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-md-6">
+      <div class="form-Group">
+        <label for="User">Category : </label>
+        <select class="form-control" #selectCategory>
+          <option
+            value="{{ c.categoryId }}"
+            *ngFor="let c of categories"
+            (click)="onAddCategory(c.categoryId)"
+          >
+            {{ c.categoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-md-6">
+      <label><b>Return Amount :</b></label>
+
+      <input
+        type="text"
+        name="returnAmount"
+        placeholder="returnAmount"
+        size="15"
+        ngModel
+        class="form-control"
+        #returnAmount="ngModel"
+        required
+        pattern="[a-z A-Z 0-9]*"
+        type="text"
+        [(ngModel)]="return.returnAmount"
+        disabled
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="returnAmount.touched && returnAmount.invalid"
+      >
+        Return Amount required
+      </div>
+    </div>
+    <br /><br /><br /><br />
+  </div>
+  <br /> -->
+
+    <!-- <div class="form-Group">
+          <label for="Section">User : </label> &nbsp;&nbsp;&nbsp;&nbsp;
+           <select id="sections" class="form-Group" #selectUser>
+              <option value="{{u.userId}}" *ngFor="let u of users">{{u.userName}}</option>
+           </select>
+           <button class="button" (click)="onAddUser(selectUser)">Add User</button>
+        </div> -->
+
+    <!-- <div>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let fu of formUsers.controls">{{ getUserName(fu.value)}}</li>
+            </ul>
+        </div> -->
+
+
+
+  </div>
+  <br>
+  <button class="button " (click)="onSubmit()">Submit</button>
+
+</div>

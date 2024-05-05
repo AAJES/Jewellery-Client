@@ -1,0 +1,10 @@
+.header{
+    height: 70px;
+   
+}
+
+.content{
+    margin-top: 50px;
+    min-height: 80vh;
+    height: auto;
+}

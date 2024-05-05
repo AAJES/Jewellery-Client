@@ -1,13 +1,13 @@
-<div class="container" style="background: linear-gradient(white, whitesmoke); box-shadow: 2px 2px 7px 7px rgb(187, 184, 184);border-radius: 20px; ">
-  <h3>Mode Of Payment</h3>
+<div class="container" style="background: linear-gradient(white, whitesmoke); box-shadow: 2px 2px 7px 7px rgb(187, 184, 184);border-radius: 7px; ">
+  <h1>Mode Of Payment</h1>
       <div class="cancel">
-            <a routerLink="/home"><i class="fa fa-times" style="color: black;margin-left: 90%;font-size: xx-large;"></i></a>
-          </div><br><br>
+            <a routerLink="/allpaymentmode"><i class="fa fa-times" style="color: black;margin-left: 90%;font-size: x-large;"></i></a>
+          </div><br>
      <label><b>Mode Of Payment Name :</b></label>
    &nbsp;
    &nbsp;
   
-     <input placeholder=" "  ngModel #modeOfpayment="ngModel" 
+     <input placeholder=" " class="form-control" ngModel #modeOfpayment="ngModel" 
      required 
      pattern="[a-z A-Z 0-9]*"
      type="text" 

@@ -1,0 +1,63 @@
+  <div>
+      <label for="category">Category:</label>
+      <select id="category" class="form-control" [(ngModel)]="categoryFilter">
+        <option (click)="onCategorySelectionChange(category.categoryId)"
+            *ngFor="let category of categories"
+            [value]="category.categoryId">
+            {{ category.categoryName }}
+          </option>
+      </select>
+    </div>
+    <div>
+      <label for="metal">Metal:</label> 
+      <select id="metal" class="form-control" [(ngModel)]="metalFilter">
+                <option (click)="onMetalSelectionChange(metal.metalId)"
+            *ngFor="let metal of metals"
+            [value]="metal.metalId"
+          >
+            {{ metal.metalName }}
+          </option>
+      </select>
+    </div>
+    <div>
+      <label for="purity">Purity:</label>
+      <select id="purity" class="form-control" [(ngModel)]="purityFilter">
+        <option (click)="onPuritySelectionChange(purity.purityId)"
+            *ngFor="let purity of purities"
+            [value]="purity.purityId"
+          >
+            {{ purity.purityName }}
+          </option>
+      </select>
+    </div>
+    <div>
+      <button (click)="applyFilters()" class="btn btn-sm btn-warning">Apply Filters</button> &nbsp;&nbsp;
+    </div>
+<div class="main">
+  <div class="row">
+    <div class="col-md-2 mb-4" *ngFor="let product of productArr">
+      <div class="card">
+        <div class="content">
+          <div class="front">
+            <img [src]="product?.image" class="card-img-top" alt="Product Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="body">
+  <div class="product-container">
+      <div class="product-card" *ngFor="let product of productArr">
+        <div class="product-info">
+        </div>
+        <div class="product-image">
+          <img [src]="product.imageUrl" alt="{{ product.name }}">
+        </div>
+        <button class="view-button" (click)="redirectToAppWithProductId(product.dimage, product.category)">Virtual Try</button>
+      </div>
+    </div>
+</div>
+

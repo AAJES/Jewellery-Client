@@ -1,0 +1,34 @@
+/* Ensure the dialog content is centered and has some padding */
+mat-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  /* Apply some responsive styles for smaller screens */
+  @media only screen and (max-width: 600px) {
+    /* Adjust table font size and padding for smaller screens */
+    table {
+      font-size: 12px;
+    }
+  
+    td, th {
+      padding: 6px;
+    }
+  }

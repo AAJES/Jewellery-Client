@@ -1,101 +1,211 @@
 <div class="container">
-  <h3>Return</h3>
-  <div class="cancel" style=" margin-top: -45px;">
-    <a routerLink="/home"><i class="fa fa-times" style="color: black; margin-left: 580px; font-size: 30px; "></i></a>
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Return</h1>
+    <a routerLink="/allreturn"
+      ><i class="fa fa-times" style="color: black; font-size: 25px"></i
+    ></a>
   </div>
 
+  <div class="row">
+    <div class="col-md-6">
+      <label><b>Wastage :</b></label>
 
+      <input
+        type="text"
+        name="wastage"
+        class="form-control"
+        placeholder="wastage"
+        size="15"
+        ngModel
+        #wastage="ngModel"
+        required
+        pattern="[a-zA-Z0-9.]*"
+        type="text"
+        name="wastage"
+        [(ngModel)]="return.wastage"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="wastage.touched && wastage.invalid"
+      >
+        Wastage is required
+      </div>
+    </div>
+    <br /><br />
 
+    <div class="col-md-6">
+      <label><b>Gross-Weight :</b></label>
 
-    <label><b>Wastage :</b></label> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <input type="text" name="wastage" placeholder="wastage" size="15" ngModel #wastage="ngModel" 
-    required 
-    pattern="[a-z A-Z 0-9]*"
-    type="text" 
-    name="wastage"
-    [(ngModel)]="return.wastage" >
-<div class="alert alert-danger" *ngIf="wastage.touched && wastage.invalid">Wastage is required</div>
-    <br>
-  
-    <label><b>Gross-Weight :</b></label> &nbsp;&nbsp;&nbsp;
-    
-    <input type="text" name="grossWeight" placeholder="grossWeight" size="15" ngModel #grossWeight="ngModel" 
-    required 
-    pattern="[a-z A-Z 0-9]*"
-    type="text" 
-    name="grossWeight"
-    [(ngModel)]="return.grossWeight" (keyup)="netWeight1()">
-<div class="alert alert-danger" *ngIf="grossWeight.touched && grossWeight.invalid">Gross Weight required</div>
-    <br>
+      <input
+        type="text"
+        name="grossWeight"
+        class="form-control"
+        placeholder="grossWeight"
+        size="15"
+        ngModel
+        #grossWeight="ngModel"
+        required
+        
+        type="text"
+        name="grossWeight"
+        [(ngModel)]="return.grossWeight"
+        (keyup)="netWeight1()"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="grossWeight.touched && grossWeight.invalid"
+      >
+        Gross Weight required
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-md-6">
+      <label><b>Net-Weight :</b></label>
 
-    <label><b>Net-Weight :</b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <input type="text" name="netWeight" placeholder="netWeight" size="15" ngModel #netWeight="ngModel" 
-    required 
-    pattern="[a-z A-Z 0-9]*"
-    type="text" 
-    name="netWeight"
-    [(ngModel)]="return.netWeight" [value]="this.return.netWeight" disabled>
-<div class="alert alert-danger" *ngIf="netWeight.touched && netWeight.invalid">Net Weight required</div>
-    <br>
+      <input
+        type="text"
+        name="netWeight"
+        placeholder="netWeight"
+        size="15"
+        ngModel
+        #netWeight="ngModel"
+        required
+        class="form-control"
+       
+        type="text"
+        name="netWeight"
+        [(ngModel)]="return.netWeight"
+        [value]="this.return.netWeight"
+        disabled
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="netWeight.touched && netWeight.invalid"
+      >
+        Net Weight required
+      </div>
+    </div>
+    <br /><br /><br />
+    <div class="col-md-6">
+      <label><b>Description :</b></label>
 
-    <label><b>Description :</b></label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <input type="text" name="Description" placeholder="description" size="15"  ngModel #description="ngModel" 
-    required 
-    pattern="[a-z A-Z 0-9]*"
-    type="text" 
-    name="description"
-    [(ngModel)]="return.description" >
-<div class="alert alert-danger" *ngIf="description.touched && description.invalid">Description required</div>
-    <br>
+      <input
+        type="text"
+        name="Description"
+        placeholder="description"
+        size="15"
+        ngModel
+        class="form-control"
+        #description="ngModel"
+        required
+        
+        type="text"
+        name="description"
+        [(ngModel)]="return.description"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="description.touched && description.invalid"
+      >
+        Description required
+      </div>
+    </div>
+    <br /><br /><br /><br />
 
-    <!-- <div class="form-Group">
+    <div class="col-md-6">
+      <div class="form-Group">
+        <label for="User">Metal : </label> &nbsp;&nbsp;
+        <select
+          class="form-control"
+          [(ngModel)]="return.metal.metalId"
+          (change)="calculateReturnAmount()"
+          #selectMetal
+        >
+        <option value="0" selected disabled>Select Metal...</option>
+
+          <option value="{{ m.metalId }}" *ngFor="let m of metals">
+            {{ m.metalName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-Group">
+        <label for="User">Purity : </label>
+        <select
+          class="form-control"
+          [disabled]="isPurityDisabled"
+          [(ngModel)]="return.purity.purityId"
+          (change)="calculateReturnAmount()"
+          #selectPurity
+        >
+        <option value="0" selected disabled>Select Purity...</option>
+
+          <option value="{{ p.purityId }}" *ngFor="let p of purities">
+            {{ p.purityName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-md-6">
+      <div class="form-Group">
+        <label for="User">Category : </label>
+        <select
+          class="form-control"
+          [(ngModel)]="return.category.categoryId"
+          (change)="onCategory()"
+          #selectCategory
+        >
+        <option value="0" selected disabled>Select Category...</option>
+          <option value="{{ c.categoryId }}" *ngFor="let c of categories">
+            {{ c.categoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="col-md-6">
+      <label><b>Return Amount :</b></label>
+
+      <input
+        type="text"
+        name="returnAmount"
+        placeholder="returnAmount"
+        size="15"
+        ngModel
+        class="form-control"
+        #returnAmount="ngModel"
+        required
+        pattern="[a-z A-Z 0-9]*"
+        type="text"
+        [(ngModel)]="return.returnAmount"
+        disabled
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="returnAmount.touched && returnAmount.invalid"
+      >
+        Return Amount required
+      </div>
+    </div>
+    <br /><br /><br /><br />
+  </div>
+  <br />
+
+  <!-- <div class="form-Group">
         <label for="Section">User : </label> &nbsp;&nbsp;&nbsp;&nbsp;
          <select id="sections" class="form-Group" #selectUser>
             <option value="{{u.userId}}" *ngFor="let u of users">{{u.userName}}</option>
          </select>
          <button class="button" (click)="onAddUser(selectUser)">Add User</button>
       </div> -->
-       
 
-     
-
-      <div class="form-Group">
-        <label for="User">Metal : </label> &nbsp;&nbsp;
-          <select id="users" class="form-Group" #selectMetal>
-            <option value="{{m.metalId}}" *ngFor="let m of metals" (click)="onAddMetal(m.metalId)">{{m.metalName}}</option>
-          </select>
-          <!-- <button class="button" >Add a Metal to approve</button> -->
-      </div>
-      <!-- <div>
+  <!-- <div>
           <ul class="list-group">
               <li class="list-group-item" *ngFor="let fu of formUsers.controls">{{ getUserName(fu.value)}}</li>
           </ul>
       </div> -->
-      
 
-      <div class="form-Group" style="margin-left: 200px; margin-top: -45px;">
-        <label for="User">Category : </label> &nbsp;&nbsp;&nbsp;
-          <select id="users" class="form-Group" #selectCategory>
-            <option value="{{c.categoryId}}" *ngFor="let c of categories" (click)="onAddCategory(c.categoryId)">{{c.categoryName}}</option>
-          </select>
-          <!-- <button class="button" >Add Category</button> -->
-      </div>
-
-    
-
-      <div class="form-Group" style="margin-left: 470px; margin-top: -47px;">
-        <label for="User">Purity : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select id="users" class="form-Group" #selectPurity>
-            <option value="{{p.purityId}}" *ngFor="let p of purities" (click)="onAddPurity(p.purityId)">{{p.purityName}}</option>
-          </select>
-        
-          <!-- <button class="button">Add Purity</button> -->
-      </div>
-      <br><br>
-      <button class="button" (click)="onSubmit()">Submit</button>
-      <button class="button" style="margin-left: 80px; padding: 4px;" (click)="reset()">Reset</button>
-
+  <button class="button" (click)="onSubmit()">Submit</button>
 </div>

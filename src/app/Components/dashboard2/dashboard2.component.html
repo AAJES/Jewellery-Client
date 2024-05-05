@@ -1,0 +1,201 @@
+<div style="margin-top: 3%">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-7">
+        <h1 class="m-3 dash">DASHBOARD</h1>
+      </div>
+
+      <div class="col-md-4 text-start">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Date Selection </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="row card-content">
+              <div class="col-md-5">
+                <div class="date1">
+                  <label for="fromDate">From Date:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="fromDate"
+                    [(ngModel)]="fromDate"
+                  />
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="date1">
+                  <label for="toDate">To Date:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="toDate"
+                    [(ngModel)]="toDate"
+                  />
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="mine">
+                  <button class="button" (click)="getFromDateToDate()">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-4 ml-2">
+        <mat-card>
+          <mat-card-content class="card-cnt " (click)="openDialog(bookings)">
+            <div class="subcard flex">
+              <div class="para">
+                <p>Bookings</p>
+                <p>{{ bookings.length }}</p>
+              </div>
+              <i class="fa-regular fa-calendar-check"></i>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-md-4 ml-2">
+        <mat-card>
+          <mat-card-content class="card-cnt" (click)="openDialog(returns)">
+            <div class="subcard flex">
+              <div class="para">
+                <p>Return</p>
+                <p>{{ returns.length }}</p>
+              </div>
+              <i class="fa-solid fa-arrow-rotate-left"></i>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-md-4 ml-2">
+        <mat-card>
+          <mat-card-content class="card-cnt" (click)="openDialog(sales)">
+            <div class="subcard flex">
+              <div class="para">
+                <p>Sales</p>
+                <p>{{ sales.length }}</p>
+              </div>
+              <i class="fa-solid fa-money-bill-trend-up"></i>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- <div class="charts">
+            <h3 class="text-center"> <b>Returns Chart</b></h3>
+              <canvas id="doughnut" class="doughnut"></canvas>
+          </div> -->
+    <div class="col-md-6 charts">
+      <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>    
+
+      
+    </div>
+
+    <div class="col-md-6 charts">
+      <canvasjs-chart
+        [options]="chartOptions1"
+        [styles]="{ width: '100%', height: '360px' }"
+      ></canvasjs-chart>
+    </div>
+
+    <!-- <div class="charts1">
+               <h3 class="text-center"> <b>Sales Chart</b></h3>
+              <canvas id="doughnut1" class="doughnut"></canvas>
+          </div> -->
+  </div>
+
+  <div>
+    <div class="table-content">
+      <h2><B>Pending Payments</B></h2>
+
+      <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Total Amount</th>
+                    <th>Amount Paid</th>
+                    <th>Balance Amount</th>
+                    <th>Customer Name</th>
+                    <th>Customer Phone</th>
+                    <th>Products</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let payment of pendingPayments">
+                    <td>{{ payment.paymentId }}</td>
+                    <td>{{ payment.totalAmount }}</td>
+                    <td>{{ payment.amountPaid }}</td>
+                    <td>{{ payment.totalAmount - payment.amountPaid }}</td>
+                    <td>{{ payment.customer.customerName }}</td>
+                    <td>{{ payment.customer.phone1 }}</td>
+                    <td>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of payment.products">
+                                    <td>{{ product.productName }}</td>
+                                    <td>{{ product.weightage }}gm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    </div>
+  </div>
+
+  <div>
+    <div class="table-content">
+      <h2><b>Due Deliveries</b></h2>
+      <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Customer Phone</th>
+                    <th>Delivery Date</th>
+                    <th>Advance Amount</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of pendingsBookings">
+                    <td>{{ booking.bookingId }}</td>
+                    <td>{{ booking.customer.customerName }}</td>
+                    <td>{{ booking.customer.phone1 }}</td>
+                    <td>{{ booking.deliveryDate }}</td>
+                    <td>{{ booking.advanceAmount }}</td>
+                    <td>{{ booking.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    </div>
+  </div>
+</div>

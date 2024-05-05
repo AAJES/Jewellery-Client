@@ -1,22 +1,70 @@
-.container{
-    
-    margin-left: 450px;
-    box-shadow: 2px 2px 7px 7px rgb(198, 196, 196);
-    width: 500px;
+.container {
+    margin: 50px auto;
     padding: 20px;
+    background-color: white;
+    max-width: 500px;
     border-radius: 20px;
-}
-.cancel{
-        margin-top: -40px;
-}
-.button{
-    background:linear-gradient(90deg,rgb(246, 234, 166) 0%,rgb(249, 231, 131) 16%,rgb(250, 226, 93) 50%,rgb(249, 222, 70) 83%,rgb(253, 215, 1) 100%); 
-   margin-top: -40px;
-   padding-left: 10px;
-   padding: 7px;
+    box-shadow: 2px 2px 7px 7px rgb(182, 181, 181);
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
 
+  
+.fa-times {
+  color: black;
+  margin-top: -3%;
+  font-size: 24px;
+  cursor: pointer;
 }
-.button:hover{
- background: rgb(243, 213, 40);
- border-radius: 10px;
-}
+  
+  label {
+    text-align: left;
+    margin-right: 10px;
+  }
+  
+  .button {
+    margin-top: -40px;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #ffd700 0%, #ffd700 16%, #e5c100 50%, #ffd700 83%, #ffd700 100%);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    cursor: pointer;
+    animation: colorMovement 4s infinite; /* Apply the color movement animation */
+  }
+  
+  @keyframes colorMovement {
+    0% {
+      background-position: 0% 50%; /* Start position of the gradient */
+    }
+    100% {
+      background-position: 100% 50%; /* End position of the gradient */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 90%;
+      margin: 20px auto;
+    }
+  
+    .field {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      margin: 10px 0;
+    }
+  
+    label {
+      text-align: center;
+    }
+  }

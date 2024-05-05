@@ -33,12 +33,10 @@ export class Cards2Component {
     
     this.http.getCustomerById((value: any) => {
       this.customer = value;
-      // console.log(this.customer);
     })
 
     this.http.getReturn((val: any[]) => {
       this.return = val;
-      // console.log(val);
       this.totalReturn = val.length
       console.log(this.totalReturn);
       this.totalTransaction = this.totalBooking + this.totalProductPurchase + this.totalReturn + this.totalSale;
@@ -48,29 +46,20 @@ export class Cards2Component {
 
     this.http.getBooking((val: any[]) => {
       this.booking = val;
-      // console.log(val);
       this.totalBooking = val.length;
-      console.log(this.totalBooking);
       this.totalTransaction = this.totalBooking + this.totalProductPurchase + this.totalReturn + this.totalSale;
-    console.log(this.totalTransaction);
     })
 
     this.http.getSale((val: any[]) => {
       this.sales = val;
-      // console.log(val);
       this.totalSale = val.length;
-      console.log(this.totalSale);
       this.totalTransaction = this.totalBooking + this.totalProductPurchase + this.totalReturn + this.totalSale;
-    console.log(this.totalTransaction);
     })
 
     this.http.getProductPurchase((val: any[]) => {
       this.productPurchase = val;
-      // console.log(val);
       this.totalProductPurchase = val.length;
-      console.log(this.totalProductPurchase);
       this.totalTransaction = this.totalBooking + this.totalProductPurchase + this.totalReturn + this.totalSale;
-    console.log(this.totalTransaction);
       
       
     })
