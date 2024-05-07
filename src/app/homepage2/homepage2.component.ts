@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage2.component.css',
     './homepage2.component2.css',
     './homepage2.component3.css',
+    './homepage2.component4.css'
   ]
 })
 export class Homepage2Component implements OnInit{
